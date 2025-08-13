@@ -88,13 +88,13 @@ const tagsToRender = computed(() => props.tags ?? [])
 const tagClass = (tag: Tag) => {
   switch (tag.variant) {
     case 'green':
-      return 'bg-green-950'
+      return 'bg-green-900'
     case 'rose':
-      return 'bg-rose-950'
+      return 'bg-rose-900/70'
     case 'yellow':
-      return 'bg-yellow-950'
+      return 'bg-yellow-900'
     case 'blue':
-      return 'bg-blue-950'
+      return 'bg-blue-900'
     default:
       return 'bg-slate-800'
   }
