@@ -23,7 +23,7 @@
     <div class="w-full h-16">
       <div class="w-full h-full flex flex-col items-center justify-center">
         <span class="text-sm text-slate-500">Built with ❤️ by Korgo</span>
-        <span class="text-[8px] text-slate-700">dev-20250813</span>
+        <span class="text-[8px] text-slate-700">ver: dev 20250814 - data: 20250813 12:34 UTC</span>
       </div>
     </div>
 
