@@ -71,7 +71,7 @@ def process_course(course):
             course_code = published.get("courseHyphen")
 
         courses.append({
-            "title": course.get("name"),
+            "title": section.get("name") or course.get("name"),
             "description": course.get("description"),
             "courseCode": course_code,
             "sectionCode": section.get("sisSectionId"),
