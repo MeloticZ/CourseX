@@ -1,5 +1,7 @@
 # CourseX
 
+[https://coursex.school.rip](https://coursex.school.rip)
+
 A redo of USC's [Schedule of Classes website](classes.iusc.edu), putting your experience at the center of focus.
 
 Made by students, for students.

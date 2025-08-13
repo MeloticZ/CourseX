@@ -12,4 +12,12 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  app: {
+    head: {
+      title: 'CourseX',
+      meta: [
+        { name: 'description', content: 'CourseX is a website that helps you find courses at USC. Your experience is at the center of focus.' },
+      ],
+    }
+  }
 })
