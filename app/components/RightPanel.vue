@@ -15,18 +15,18 @@
           {{ details.description || 'No description available.' }}
         </span>
 
-        <button v-if="details" class="text-sm text-slate-400 w-fit p-2 bg-slate-800 rounded-md mt-1 mb-2 hover:bg-slate-700" :class="{ 'bg-red-500': isInSchedule }" @click="onAddOrRemove">
+        <button v-if="details" class="text-sm w-fit p-2 rounded-md mt-1 mb-2 bg-slate-800 hover:bg-slate-700" :class="{ 'text-rose-500/80 border-rose-700/50 border-1': isInSchedule, 'text-slate-400': !isInSchedule }" @click="onAddOrRemove">
           {{ isInSchedule ? 'Remove from Schedule' : 'Add to Schedule' }}
         </button>
 
         <div v-if="details" class="flex flex-col gap-1.5 border-y border-slate-800 py-4">
           <div class="flex items-center gap-2">
-            <Icon name="uil:graduation-cap" class="h-5 w-5 text-slate-500" />
+            <Icon name="uil:graduation-cap" class="h-5 w-5 text-slate-500"/>
             <span class="text-sm text-slate-400">{{ instructors }}</span>
           </div>
           <div class="flex items-center gap-2">
-            <Icon name="uil:user" class="h-5 w-5 text-slate-500" />
-            <span class="text-sm text-slate-400">{{ details.enrolled }} / {{ details.capacity }} Students</span>
+            <Icon name="uil:user" class="h-5 w-5" :class="{ 'text-rose-800': details.enrolled === details.capacity, 'text-slate-500': details.enrolled !== details.capacity }" />
+            <span class="text-sm" :class="{ 'text-rose-700': details.enrolled === details.capacity, 'text-slate-400': details.enrolled !== details.capacity }">{{ details.enrolled }} / {{ details.capacity }} Students</span>
           </div>
           <div v-if="details.times.length > 0" class="flex items-center gap-2">
             <Icon name="uil:clock" class="h-5 w-5 text-slate-500" />
