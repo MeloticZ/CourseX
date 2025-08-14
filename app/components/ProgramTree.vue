@@ -7,7 +7,7 @@
     >
       <button
         type="button"
-        class="w-full rounded-md flex items-center gap-2 text-slate-500 text-left min-w-0 hover:bg-slate-800/40 rounded"
+        class="w-full rounded-md flex items-center gap-2 text-cx-text-muted text-left min-w-0 hover:bg-cx-surface-800/40 rounded"
         @click="toggleSchool(school)"
       >
         <Icon
@@ -29,7 +29,7 @@
             <Icon name="uil:book-open" class="h-4 w-4 shrink-0"/>
             <span class="text-sm truncate block">{{ program.name }}</span>
           </div>
-          <span class="text-xs font-semibold text-slate-700 shrink-0">{{ program.prefix }}</span>
+          <span class="text-xs font-semibold text-cx-text-weak-muted shrink-0">{{ program.prefix }}</span>
         </NuxtLink>
       </div>
     </div>

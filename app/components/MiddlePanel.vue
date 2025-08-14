@@ -1,12 +1,12 @@
 <template>
-  <div class="w-full h-full border-x border-slate-800 flex flex-col min-w-0">
+  <div class="w-full h-full border-x border-cx-border flex flex-col min-w-0">
 
-    <div class="w-full flex flex-col gap-2 p-4 pb-2 border-b border-slate-800">
-      <span class="text-sm text-slate-400">Available Courses</span>
-      <input v-model="query" type="text" placeholder="Search Courses" class="w-full p-2 text-sm rounded-md border border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-500" />
+    <div class="w-full flex flex-col gap-2 p-4 pb-2 border-b border-cx-border">
+      <span class="text-sm text-cx-text-subtle">Available Courses</span>
+      <input v-model="query" type="text" placeholder="Search Courses" class="w-full p-2 text-sm rounded-md border border-cx-border focus:outline-none focus:ring-1 focus:ring-cx-text-muted" />
 
       <div class="w-full flex flex-col justify-center items-center">
-        <span class="text-xs text-slate-600">{{ filteredCourses.length }} courses found</span>
+        <span class="text-xs text-cx-text-secondary">{{ filteredCourses.length }} courses found</span>
       </div>
     </div>
 

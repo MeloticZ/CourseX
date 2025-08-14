@@ -4,102 +4,102 @@
     <div class="gap-2 flex flex-col p-4 h-full overflow-y-hidden">
       <div v-if="details">
         <div class="flex items-center gap-2">
-          <span class="text-sm text-slate-400">Course Details</span>
-          <span class="text-sm text-slate-400">{{ details.code }}</span>
+          <span class="text-sm text-cx-text-subtle">Course Details</span>
+          <span class="text-sm text-cx-text-subtle">{{ details.code }}</span>
         </div>
         <h1 class="text-2xl font-semibold">{{ details.title }}</h1>
       </div>
 
       <div class="flex flex-col gap-2 overflow-y-scroll h-full">
-        <span v-if="details" class="text-sm text-slate-500">
+        <span v-if="details" class="text-sm text-cx-text-muted">
           {{ details.description || 'No description available.' }}
         </span>
 
-        <button v-if="details" class="text-sm w-fit p-2 rounded-md mt-1 mb-2 bg-slate-800 hover:bg-slate-700" :class="{ 'text-rose-500/80 border-rose-700/50 border-1': isInSchedule, 'text-slate-400': !isInSchedule }" @click="onAddOrRemove">
+        <button v-if="details" class="text-sm w-fit p-2 rounded-md mt-1 mb-2 bg-cx-surface-800 hover:bg-cx-surface-700" :class="{ 'text-cx-rose-500/80 border-cx-rose-700/50 border-1': isInSchedule, 'text-cx-text-subtle': !isInSchedule }" @click="onAddOrRemove">
           {{ isInSchedule ? 'Remove from Schedule' : 'Add to Schedule' }}
         </button>
 
-        <div v-if="details" class="flex flex-col gap-1.5 border-y border-slate-800 py-4">
+        <div v-if="details" class="flex flex-col gap-1.5 border-y border-cx-border py-4">
           <div class="flex items-center gap-2">
-            <Icon name="uil:graduation-cap" class="h-5 w-5 text-slate-500"/>
-            <span class="text-sm text-slate-400">{{ instructors }}</span>
+            <Icon name="uil:graduation-cap" class="h-5 w-5 text-cx-text-muted"/>
+            <span class="text-sm text-cx-text-subtle">{{ instructors }}</span>
           </div>
           <div class="flex items-center gap-2">
-            <Icon name="uil:user" class="h-5 w-5" :class="{ 'text-rose-800': details.enrolled === details.capacity, 'text-slate-500': details.enrolled !== details.capacity }" />
-            <span class="text-sm" :class="{ 'text-rose-700': details.enrolled === details.capacity, 'text-slate-400': details.enrolled !== details.capacity }">{{ details.enrolled }} / {{ details.capacity }} Students</span>
+            <Icon name="uil:user" class="h-5 w-5" :class="{ 'text-cx-rose-800': details.enrolled === details.capacity, 'text-cx-text-muted': details.enrolled !== details.capacity }" />
+            <span class="text-sm" :class="{ 'text-cx-rose-700': details.enrolled === details.capacity, 'text-cx-text-subtle': details.enrolled !== details.capacity }">{{ details.enrolled }} / {{ details.capacity }} Students</span>
           </div>
           <div v-if="details.times.length > 0" class="flex items-center gap-2">
-            <Icon name="uil:clock" class="h-5 w-5 text-slate-500" />
-            <span class="text-sm text-slate-400">{{ details.times[0] }}</span>
+            <Icon name="uil:clock" class="h-5 w-5 text-cx-text-muted" />
+            <span class="text-sm text-cx-text-subtle">{{ details.times[0] }}</span>
           </div>
           <div v-if="details.locations.length > 0" class="flex items-center gap-2">
-            <Icon name="uil:location-point" class="h-5 w-5 text-slate-500" />
-            <span class="text-sm text-slate-400">{{ details.locations[0] }}</span>
+            <Icon name="uil:location-point" class="h-5 w-5 text-cx-text-muted" />
+            <span class="text-sm text-cx-text-subtle">{{ details.locations[0] }}</span>
           </div>
         </div>
 
         <div v-if="details" class="flex flex-col gap-2">
           <div v-if="details.duplicatedCredits.length > 0" class="flex items-center gap-2">
-            <Icon name="uil:pathfinder" class="h-5 w-5 text-yellow-500" />
-            <span class="text-sm text-yellow-400">Dupe credit: </span>
+            <Icon name="uil:pathfinder" class="h-5 w-5 text-cx-yellow-500" />
+            <span class="text-sm text-cx-yellow-400">Dupe credit: </span>
             <div class="flex items-center gap-1">
-              <span v-for="dc in details.duplicatedCredits" :key="dc" class="text-xs bg-yellow-800 text-yellow-200 px-1 py-0.5 rounded-md">{{ dc }}</span>
+              <span v-for="dc in details.duplicatedCredits" :key="dc" class="text-xs bg-cx-yellow-800 text-cx-yellow-200 px-1 py-0.5 rounded-md">{{ dc }}</span>
             </div>
           </div>
 
           <div v-if="details.prerequisites.length > 0" class="flex items-center gap-2">
-            <Icon name="uil:link" class="h-5 w-5 text-rose-500" />
-            <span class="text-sm text-rose-400">Pre-requisite: </span>
+            <Icon name="uil:link" class="h-5 w-5 text-cx-rose-500" />
+            <span class="text-sm text-cx-rose-400">Pre-requisite: </span>
             <div class="flex items-center gap-1">
-              <span v-for="pr in details.prerequisites" :key="pr" class="text-xs bg-rose-800 text-rose-200 px-1 py-0.5 rounded-md">{{ pr }}</span>
+              <span v-for="pr in details.prerequisites" :key="pr" class="text-xs bg-cx-rose-800 text-cx-rose-200 px-1 py-0.5 rounded-md">{{ pr }}</span>
             </div>
           </div>
 
           <div v-if="details.dClearance" class="flex items-center gap-2">
-            <Icon name="uil:bell" class="h-5 w-5 text-rose-500" />
-            <span class="text-sm text-rose-400">D-Clearance</span>
+            <Icon name="uil:bell" class="h-5 w-5 text-cx-rose-500" />
+            <span class="text-sm text-cx-rose-400">D-Clearance</span>
           </div>
 
           <div v-if="details.units != null && details.units !== ''" class="flex items-center gap-2">
-            <Icon name="uil:bill" class="h-5 w-5 text-green-500" />
-            <span class="text-sm text-green-400">{{ details.units }} units</span>
+            <Icon name="uil:bill" class="h-5 w-5 text-cx-green-500" />
+            <span class="text-sm text-cx-green-400">{{ details.units }} units</span>
           </div>
 
           <div v-if="details.type === 'Lab'" class="flex items-center gap-2">
-            <Icon name="uil:flask-potion" class="h-5 w-5 text-blue-500" />
-            <span class="text-sm text-blue-400">Lab</span>
+            <Icon name="uil:flask-potion" class="h-5 w-5 text-cx-blue-500" />
+            <span class="text-sm text-cx-blue-400">Lab</span>
           </div>
         </div>
 
-        <div v-else class="h-full flex-1 flex flex-col items-center justify-center text-center border border-dashed border-slate-800 rounded-md">
-          <Icon name="uil:apps" class="h-14 w-14 text-slate-800 mb-2" />
-          <h2 class="text-lg text-slate-400">No course selected</h2>
-          <p class="text-sm text-slate-500 max-w-xs">Choose a program from the left or search all courses in the middle panel to view details here.</p>
+        <div v-else class="h-full flex-1 flex flex-col items-center justify-center text-center border border-dashed border-cx-border rounded-md">
+          <Icon name="uil:apps" class="h-14 w-14 text-cx-surface-800 mb-2" />
+          <h2 class="text-lg text-cx-text-subtle">No course selected</h2>
+          <p class="text-sm text-cx-text-muted max-w-xs">Choose a program from the left or search all courses in the middle panel to view details here.</p>
         </div>
       </div>
 
     </div>
 
-    <div class="w-full h-full max-h-2/5 min-h-56 border-t border-slate-800 pt-2">
+    <div class="w-full h-full max-h-2/5 min-h-56 border-t border-cx-border pt-2">
       <div class="w-full h-full flex flex-col gap-2 overflow-hidden">
-        <div class="w-full grid grid-cols-7 text-xs text-slate-500 select-none">
+        <div class="w-full grid grid-cols-7 text-xs text-cx-text-muted select-none">
           <div v-for="(d, di) in displayDayLabels" :key="di" class="text-center">{{ d }}</div>
         </div>
         <div class="w-full grow grid grid-cols-7 overflow-hidden">
           <div
             v-for="(dayIndex, colIdx) in displayDayIndices"
             :key="`col-` + dayIndex"
-            :class="['relative border-r last:border-r-0 border-slate-800 bg-slate-950/20 overflow-hidden', { 'pl-8': colIdx === 0 }]"
+            :class="['relative border-r last:border-r-0 border-cx-border bg-cx-surface-950/20 overflow-hidden', { 'pl-8': colIdx === 0 }]"
             :data-day-column="dayIndex"
             @mousedown="(e) => onDayMouseDown(e, dayIndex)"
           >
             <!-- hour grid lines -->
-            <div v-for="(tick, i) in hourTicks" :key="i" class="absolute left-0 right-0 border-t border-slate-800" :style="{ top: tick.topPct + '%' }"></div>
+            <div v-for="(tick, i) in hourTicks" :key="i" class="absolute left-0 right-0 border-t border-cx-border" :style="{ top: tick.topPct + '%' }"></div>
 
             <!-- time gutter inside Sunday column -->
             <div v-if="colIdx === 0" class="absolute inset-0 pointer-events-none">
               <div v-for="(tick, i) in hourTicks" :key="i" class="absolute left-1/2 -translate-x-1/2" :style="{ top: tick.topPct + '%' }">
-                <div class="text-[10px] text-slate-700 -translate-y-1/2">{{ tick.label }}</div>
+                <div class="text-[10px] text-cx-text-weak-muted -translate-y-1/2">{{ tick.label }}</div>
               </div>
             </div>
 
@@ -209,8 +209,8 @@ const previewBlocksByDay = (dayIndex: number) => previewBlocks.value.filter((b) 
 
 const styleForBlock = (block: ScheduleBlock) => {
   const g = geometryFor(block)
-  const color = block.color || 'rgba(59,130,246,0.25)'
-  const border = block.color || 'rgba(59,130,246,0.65)'
+  const color = block.color || 'rgb(var(--color-cx-blue-500-rgb) / 0.25)'
+  const border = block.color || 'rgb(var(--color-cx-blue-500-rgb) / 0.65)'
   return {
     top: `${g.topPct}%`,
     height: `${g.heightPct}%`,
@@ -221,8 +221,8 @@ const styleForBlock = (block: ScheduleBlock) => {
 
 const styleForPreviewBlock = (block: ScheduleBlock) => {
   const g = geometryFor(block)
-  const color = block.color || 'rgba(249,115,22,0.25)'
-  const border = 'rgba(249,115,22,0.7)'
+  const color = block.color || 'rgb(var(--color-cx-orange-500-rgb) / 0.25)'
+  const border = 'rgb(var(--color-cx-orange-500-rgb) / 0.7)'
   return {
     top: `${g.topPct}%`,
     height: `${g.heightPct}%`,
@@ -268,7 +268,7 @@ function onDayMouseDown(e: MouseEvent, dayIndex: number) {
     startMinutes: start,
     endMinutes: start + 5,
     label: 'New',
-    color: 'rgba(34,197,94,0.25)',
+    color: 'rgb(var(--color-cx-green-500-rgb) / 0.25)',
   })
   draftBlockId.value = id
   window.addEventListener('mousemove', onWindowMouseMove)

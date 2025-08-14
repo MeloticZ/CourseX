@@ -1,8 +1,62 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand */
+  --color-cx-brand-start: #8b5cf6; /* violet-500 */
+  --color-cx-brand-end: #d946ef;   /* fuchsia-500 */
+
+  /* Neutrals / Text */
+  --color-cx-text-weak: #e2e8f0;      /* slate-200 */
+  --color-cx-text-subtle: oklch(87.2% 0.01 258.338);    /* gray-300 */
+  --color-cx-text-muted: oklch(55.4% 0.046 257.417);     /* slate-500 */
+  --color-cx-text-secondary: oklch(55.4% 0.046 257.417);  /* slate-600 */
+  --color-cx-text-weak-muted: #334155; /* slate-700 */
+
+  /* Surfaces / Borders */
+  --color-cx-border: oklch(23.8% 0.042 265.755); /* slate-700 */
+  --color-cx-surface-700: #334155; /* slate-700 */
+  --color-cx-surface-800: #1f2937; /* slate-800 */
+  --color-cx-surface-950: #020617; /* slate-950 */
+
+  /* Status / Accents */
+  --color-cx-yellow-200: #fde68a;
+  --color-cx-yellow-400: #facc15;
+  --color-cx-yellow-500: #eab308;
+  --color-cx-yellow-800: #a16207;
+  --color-cx-yellow-900: #854d0e;
+
+  --color-cx-rose-200: #fecdd3;
+  --color-cx-rose-400: #fb7185;
+  --color-cx-rose-500: #f43f5e;
+  --color-cx-rose-700: #be123c;
+  --color-cx-rose-800: #9f1239;
+  --color-cx-rose-900: #881337;
+
+  --color-cx-green-400: #34d399;
+  --color-cx-green-500: #22c55e;
+  --color-cx-green-900: #14532d;
+
+  --color-cx-blue-400: #60a5fa;
+  --color-cx-blue-500: #3b82f6;
+  --color-cx-blue-900: #1e3a8a;
+
+  --color-cx-red-800: #991b1b;
+  --color-cx-red-900: #7f1d1d;
+
+  --color-cx-orange-500: #f97316;
+}
+
+/* RGB tokens for runtime alpha composition in inline styles */
+:root {
+  --color-cx-blue-500-rgb: 59 130 246;
+  --color-cx-orange-500-rgb: 249 115 22;
+  --color-cx-green-500-rgb: 34 197 94;
+}
+
 /* Utilities */
 .line-clamp-2 {
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;

@@ -9,7 +9,7 @@ export async function listSchoolAndPrograms() {
 }
 
 // listAllCourses
-export type TagVariant = 'green' | 'rose' | 'yellow' | 'blue'
+export type TagVariant = 'green' | 'rose' | 'yellow' | 'blue' | 'default'
 export type Tag = { text: string; variant?: TagVariant }
 
 export type UICourse = {
@@ -49,7 +49,7 @@ type RawCourse = {
 function buildTags(raw: RawCourse): Tag[] {
   const tags: Tag[] = []
   if (raw.units != null && raw.units !== '') {
-    tags.push({ text: `${raw.units} units`, variant: 'green' })
+    tags.push({ text: `${raw.units} units`, variant: 'default' })
   }
   if (raw.dClearance) {
     tags.push({ text: 'D-Clearance', variant: 'rose' })

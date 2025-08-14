@@ -1,22 +1,22 @@
 <template>
   <div
-    class="w-full rounded-md border border-slate-800 p-2.5 flex flex-col gap-1 cursor-pointer hover:bg-slate-800/30 overflow-hidden"
+    class="w-full rounded-md border border-cx-border p-2.5 flex flex-col gap-1 cursor-pointer hover:bg-cx-surface-800/30 overflow-hidden"
     @click="$emit('click')"
     @mouseenter="onHoverEnter"
     @mouseleave="onHoverLeave"
   >
     <!-- Title and Class Code -->
-    <div class="border-b border-slate-800 border-dashed flex flex-col gap-1 pb-2">
+    <div class="border-b border-cx-border border-dashed flex flex-col gap-1 pb-2">
       <div class="flex items-center gap-2">
         <span class="text-sm truncate block flex-1 min-w-0 max-w-full">{{ title }}</span>
-        <span class="text-xs text-slate-600 font-semibold shrink-0 ml-auto">{{ code }}</span>
+        <span class="text-xs text-cx-text-secondary font-semibold shrink-0 ml-auto">{{ code }}</span>
       </div>
 
       <!-- Attributes -->
       <div class="flex items-center gap-2 justify-between">
         <div class="flex items-center gap-1">
-          <Icon name="uil:graduation-cap" class="h-4 w-4 text-slate-500" />
-          <span class="text-xs text-slate-600 font-semibold">{{ instructor }}</span>
+          <Icon name="uil:graduation-cap" class="h-4 w-4 text-cx-text-muted" />
+          <span class="text-xs text-cx-text-secondary font-semibold">{{ instructor }}</span>
         </div>
 
         <div class="flex items-center gap-1">
@@ -27,26 +27,26 @@
 
       <div class="flex items-center gap-2 justify-between">
         <div class="flex items-center gap-1">
-          <Icon name="uil:clock" class="h-4 w-4 text-slate-500" />
-          <span class="text-xs text-slate-600 font-semibold">{{ schedule }}</span>
+          <Icon name="uil:clock" class="h-4 w-4 text-cx-text-muted" />
+          <span class="text-xs text-cx-text-secondary font-semibold">{{ schedule }}</span>
         </div>
 
         <div class="flex items-center gap-1">
-          <Icon name="uil:location-point" class="h-4 w-4 text-slate-500" />
-          <span class="text-xs text-slate-600 font-semibold">{{ location }}</span>
+          <Icon name="uil:location-point" class="h-4 w-4 text-cx-text-muted" />
+          <span class="text-xs text-cx-text-secondary font-semibold">{{ location }}</span>
         </div>
       </div>
     </div>
 
     <!-- Description -->
-    <span class="text-xs text-slate-600 line-clamp-2">{{ description }}</span>
+    <span class="text-xs text-cx-text-secondary line-clamp-2">{{ description }}</span>
 
     <!-- Tags -->
     <div v-if="tagsToRender.length > 0" class="flex items-center gap-1.5">
       <span
         v-for="(tag, index) in tagsToRender"
         :key="index"
-        class="text-[10px] text-slate-200 px-1 py-0.5 rounded-md"
+        class="text-[10px] text-cx-text-weak px-1 py-0.5 rounded-md"
         :class="tagClass(tag)"
       >
         {{ tag.text }}
@@ -80,23 +80,23 @@ const props = defineProps<{
 }>()
 
 const isFull = computed(() => props.enrolled >= props.capacity)
-const occupancyIconClass = computed(() => (isFull.value ? 'text-red-800' : 'text-slate-500'))
-const occupancyTextClass = computed(() => (isFull.value ? 'text-red-900' : 'text-slate-600'))
+const occupancyIconClass = computed(() => (isFull.value ? 'text-cx-red-800' : 'text-cx-text-muted'))
+const occupancyTextClass = computed(() => (isFull.value ? 'text-cx-red-900' : 'text-cx-text-secondary'))
 
 const tagsToRender = computed(() => props.tags ?? [])
 
 const tagClass = (tag: Tag) => {
   switch (tag.variant) {
     case 'green':
-      return 'bg-green-900'
+      return 'bg-cx-green-900'
     case 'rose':
-      return 'bg-rose-900/70'
+      return 'bg-cx-rose-900/70'
     case 'yellow':
-      return 'bg-yellow-900'
+      return 'bg-cx-yellow-900'
     case 'blue':
-      return 'bg-blue-900'
+      return 'bg-cx-blue-900'
     default:
-      return 'bg-slate-800'
+      return 'bg-cx-surface-800'
   }
 }
 
