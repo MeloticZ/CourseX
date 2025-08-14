@@ -15,7 +15,7 @@
           {{ details.description || 'No description available.' }}
         </span>
 
-        <button v-if="details" class="text-sm w-fit p-2 rounded-md mt-1 mb-2 bg-cx-surface-800 hover:bg-cx-surface-700" :class="{ 'text-cx-rose-500/80 border-cx-rose-700/50 border-1': isInSchedule, 'text-cx-text-subtle': !isInSchedule }" @click="onAddOrRemove">
+        <button v-if="details" class="text-sm w-fit p-2 rounded-md mt-1 mb-2 bg-cx-surface-800 hover:bg-cx-surface-700" :class="{ 'text-rose-500/80 border-rose-700/50 border-1': isInSchedule, 'text-cx-text-subtle': !isInSchedule }" @click="onAddOrRemove">
           {{ isInSchedule ? 'Remove from Schedule' : 'Add to Schedule' }}
         </button>
 
@@ -25,8 +25,8 @@
             <span class="text-sm text-cx-text-subtle">{{ instructors }}</span>
           </div>
           <div class="flex items-center gap-2">
-            <Icon name="uil:user" class="h-5 w-5" :class="{ 'text-cx-rose-800': details.enrolled === details.capacity, 'text-cx-text-muted': details.enrolled !== details.capacity }" />
-            <span class="text-sm" :class="{ 'text-cx-rose-700': details.enrolled === details.capacity, 'text-cx-text-subtle': details.enrolled !== details.capacity }">{{ details.enrolled }} / {{ details.capacity }} Students</span>
+            <Icon name="uil:user" class="h-5 w-5" :class="{ 'text-rose-800': details.enrolled === details.capacity, 'text-cx-text-muted': details.enrolled !== details.capacity }" />
+            <span class="text-sm" :class="{ 'text-rose-700': details.enrolled === details.capacity, 'text-cx-text-subtle': details.enrolled !== details.capacity }">{{ details.enrolled }} / {{ details.capacity }} Students</span>
           </div>
           <div v-if="details.times.length > 0" class="flex items-center gap-2">
             <Icon name="uil:clock" class="h-5 w-5 text-cx-text-muted" />
@@ -39,35 +39,35 @@
         </div>
 
         <div v-if="details" class="flex flex-col gap-2">
-          <div v-if="details.duplicatedCredits.length > 0" class="flex items-center gap-2">
-            <Icon name="uil:pathfinder" class="h-5 w-5 text-cx-yellow-500" />
-            <span class="text-sm text-cx-yellow-400">Dupe credit: </span>
-            <div class="flex items-center gap-1">
-              <span v-for="dc in details.duplicatedCredits" :key="dc" class="text-xs bg-cx-yellow-800 text-cx-yellow-200 px-1 py-0.5 rounded-md">{{ dc }}</span>
-            </div>
+          <div v-if="details.units != null && details.units !== ''" class="flex items-center gap-2">
+            <Icon name="uil:bill" class="h-5 w-5 text-cx-text-muted" />
+            <span class="text-sm text-cx-text-subtle">{{ details.units }} units</span>
           </div>
-
-          <div v-if="details.prerequisites.length > 0" class="flex items-center gap-2">
-            <Icon name="uil:link" class="h-5 w-5 text-cx-rose-500" />
-            <span class="text-sm text-cx-rose-400">Pre-requisite: </span>
+          
+          <div v-if="details.duplicatedCredits.length > 0" class="flex items-center gap-2">
+            <Icon name="uil:pathfinder" class="h-5 w-5 text-green-500" />
+            <span class="text-sm text-green-400">Dupe credit: </span>
             <div class="flex items-center gap-1">
-              <span v-for="pr in details.prerequisites" :key="pr" class="text-xs bg-cx-rose-800 text-cx-rose-200 px-1 py-0.5 rounded-md">{{ pr }}</span>
+              <span v-for="dc in details.duplicatedCredits" :key="dc" class="text-xs bg-green-800 text-green-200 px-1 py-0.5 rounded-md">{{ dc }}</span>
             </div>
           </div>
 
           <div v-if="details.dClearance" class="flex items-center gap-2">
-            <Icon name="uil:bell" class="h-5 w-5 text-cx-rose-500" />
-            <span class="text-sm text-cx-rose-400">D-Clearance</span>
+            <Icon name="uil:bell" class="h-5 w-5 text-rose-500" />
+            <span class="text-sm text-rose-400">D-Clearance</span>
           </div>
 
-          <div v-if="details.units != null && details.units !== ''" class="flex items-center gap-2">
-            <Icon name="uil:bill" class="h-5 w-5 text-cx-green-500" />
-            <span class="text-sm text-cx-green-400">{{ details.units }} units</span>
+          <div v-if="details.prerequisites.length > 0" class="flex items-center gap-2">
+            <Icon name="uil:link" class="h-5 w-5 text-yellow-500" />
+            <span class="text-sm text-yellow-400">Pre-requisite: </span>
+            <div class="flex items-center gap-1">
+              <span v-for="pr in details.prerequisites" :key="pr" class="text-xs bg-yellow-800 text-yellow-200 px-1 py-0.5 rounded-md">{{ pr }}</span>
+            </div>
           </div>
 
-          <div v-if="details.type === 'Lab'" class="flex items-center gap-2">
-            <Icon name="uil:flask-potion" class="h-5 w-5 text-cx-blue-500" />
-            <span class="text-sm text-cx-blue-400">Lab</span>
+          <div v-if="typeMeta" class="flex items-center gap-2">
+            <Icon :name="typeMeta.detailIconName" class="h-5 w-5" :class="typeMeta.detailIconClass" />
+            <span class="text-sm" :class="typeMeta.detailTextClass">{{ typeMeta.detailLabel }}</span>
           </div>
         </div>
 
@@ -136,6 +136,7 @@
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { getCourseDetails, getSectionDetails, type CourseDetails } from '~/composables/useAPI'
 import { useSchedule, type ScheduleBlock } from '~/composables/useSchedule'
+import { getCourseTypeMeta } from '~/composables/useCourseTypeMeta'
 
 const { selectedCourseCode, selectedSectionId } = useCourseSelection()
 
@@ -171,6 +172,8 @@ const instructors = computed(() =>
     ? details.value.instructors.join(', ')
     : 'TBA'
 )
+
+const typeMeta = computed(() => getCourseTypeMeta(details.value?.type))
 
 // Calendar state/hooks
 const {
@@ -268,7 +271,7 @@ function onDayMouseDown(e: MouseEvent, dayIndex: number) {
     startMinutes: start,
     endMinutes: start + 5,
     label: 'New',
-    color: 'rgb(var(--color-cx-green-500-rgb) / 0.25)',
+    color: 'rgb(var(--color-green-500-rgb) / 0.25)',
   })
   draftBlockId.value = id
   window.addEventListener('mousemove', onWindowMouseMove)

@@ -9,7 +9,7 @@ export async function listSchoolAndPrograms() {
 }
 
 // listAllCourses
-export type TagVariant = 'green' | 'rose' | 'yellow' | 'blue' | 'default'
+export type TagVariant = 'green' | 'rose' | 'yellow' | 'blue'
 export type Tag = { text: string; variant?: TagVariant }
 
 export type UICourse = {
@@ -24,6 +24,13 @@ export type UICourse = {
   tags: Tag[]
   // Optional: default/first section identifier for routing deep links
   sectionId?: string
+  // Indicators for compact card UI
+  hasDClearance: boolean
+  hasPrerequisites: boolean
+  hasDuplicatedCredit: boolean
+  // For unit/type display on cards
+  units?: number | string | null
+  type?: string | null
 }
 
 type RawCourse = {
@@ -49,16 +56,18 @@ type RawCourse = {
 function buildTags(raw: RawCourse): Tag[] {
   const tags: Tag[] = []
   if (raw.units != null && raw.units !== '') {
-    tags.push({ text: `${raw.units} units`, variant: 'default' })
+    tags.push({ text: `${raw.units} units` })
   }
   if (raw.dClearance) {
     tags.push({ text: 'D-Clearance', variant: 'rose' })
   }
   if (raw.prerequisites && raw.prerequisites.length > 0) {
-    tags.push({ text: 'Pre-Req', variant: 'rose' })
+    // Pre-Req should be highlighted in yellow for quick scanning
+    tags.push({ text: 'Pre-Req', variant: 'yellow' })
   }
   if (raw.duplicatedCredits && raw.duplicatedCredits.length > 0) {
-    tags.push({ text: 'Dupe-Credit', variant: 'yellow' })
+    // Duplicated credit is a caution but not a blocker → green highlight
+    tags.push({ text: 'Dupe-Credit', variant: 'green' })
   }
   if (raw.type === 'Lab') {
     tags.push({ text: 'Lab', variant: 'blue' })
@@ -82,6 +91,11 @@ function mapToUICourse(raw: RawCourse): UICourse | null {
     description: (raw.description || '').trim(),
     tags: buildTags(raw),
     sectionId: (raw.sectionCode || raw.sectionId || raw.section || '')?.toString().trim() || undefined,
+    hasDClearance: !!raw.dClearance,
+    hasPrerequisites: !!(raw.prerequisites && raw.prerequisites.length > 0),
+    hasDuplicatedCredit: !!(raw.duplicatedCredits && raw.duplicatedCredits.length > 0),
+    units: raw.units ?? null,
+    type: raw.type ?? null,
   }
 }
 

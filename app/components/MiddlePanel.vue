@@ -11,7 +11,7 @@
     </div>
 
     <div ref="scrollContainerRef" class="w-full p-4 grow overflow-y-auto overflow-x-hidden min-w-0">
-      <div class="w-full flex flex-col gap-4 min-w-0">
+      <div class="w-full flex flex-col gap-3 min-w-0">
         <div :style="{ height: topPadding + 'px' }"></div>
         <template v-for="(course, i) in visibleCourses" :key="visibleKey(course, i)">
           <CourseCard
@@ -25,6 +25,11 @@
             :location="course.location"
             :description="course.description"
             :tags="course.tags"
+            :has-d-clearance="course.hasDClearance"
+            :has-prerequisites="course.hasPrerequisites"
+            :has-duplicated-credit="course.hasDuplicatedCredit"
+            :units="course.units"
+            :type="course.type"
             @click="onCourseClick(course)"
           />
         </template>
