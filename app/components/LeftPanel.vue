@@ -10,10 +10,23 @@
       <!-- <h1>Schools & Programs</h1> -->
       <input v-model="query" type="text" placeholder="Search Schools & Programs" class="w-full p-2 text-sm rounded-md border border-cx-border focus:outline-none focus:ring-1 focus:ring-cx-text-muted" />
 
-      <NuxtLink to="/course/all" class="w-full rounded-md flex items-center gap-2 hover:bg-cx-surface-800/40 px-1 py-1 rounded">
-        <Icon name="uil:list-ul" class="h-5 w-5"/>
-        <span class="text-md">Show All Courses</span>
-      </NuxtLink>
+      <div class="w-full flex flex-col">
+        <NuxtLink to="/course/all" class="w-full rounded-md flex items-center gap-2 hover:bg-cx-surface-800/40 px-1 py-1 rounded">
+          <Icon name="uil:list-ul" class="h-5 w-5"/>
+          <span class="text-md">All Courses</span>
+        </NuxtLink>
+
+        <NuxtLink to="/course/scheduled" class="w-full rounded-md flex justify-between items-center gap-2 hover:bg-cx-surface-800/40 px-1 py-1 rounded">
+          <div class="flex gap-2 items-center shrink-0">
+            <Icon name="uil:calendar" class="h-5 w-5"/>
+            <span class="text-md">Scheduled Courses</span>
+          </div>
+          <div class="text-xs font-semibold text-cx-text-weak-muted">
+            <span class="lg:hidden">{{ totalScheduledUnits.toFixed(1) }}</span>
+            <span class="hidden lg:inline truncate max-w-24">{{ totalScheduledUnitsLabel }}</span>
+          </div>
+        </NuxtLink>
+      </div>
 
       <div class="w-full flex flex-col gap-2 h-full border-t border-cx-border pt-2">
         <!-- Schools & Programs List -->
@@ -42,6 +55,7 @@
 import { ref, computed, onMounted, onBeforeUnmount, nextTick, onActivated, onDeactivated, watch } from 'vue'
 import { useRoute, useRouter, onBeforeRouteLeave } from 'vue-router'
 import { listSchoolAndPrograms } from '~/composables/useAPI'
+import { useStore } from '~/composables/useStore'
 
 type Program = {
   name: string
@@ -58,6 +72,8 @@ const query = ref('')
 
 const runtimeConfig = useRuntimeConfig()
 const commitSha = computed(() => runtimeConfig.public.WORKERS_CI_COMMIT_SHA || 'dev')
+
+const { totalScheduledUnits, totalScheduledUnitsLabel } = useStore()
 
 // Persist left panel scroll position
 const leftScrollTop = useState<number>('ui:scroll:left', () => 0)

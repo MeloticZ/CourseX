@@ -15,7 +15,7 @@
           {{ details.description || 'No description available.' }}
         </span>
 
-        <button v-if="details" class="text-sm w-fit p-2 rounded-md mt-1 mb-2 bg-cx-surface-800 hover:bg-cx-surface-700" :class="{ 'text-rose-500/80 border-rose-700/50 border-1': isInSchedule, 'text-cx-text-subtle': !isInSchedule }" @click="onAddOrRemove">
+        <button v-if="details" class="text-sm w-fit p-2 rounded-md mt-1 mb-2 bg-cx-surface-800 hover:bg-cx-surface-700" :class="{ 'text-rose-500/80 border-rose-700/50 border-1': isInSchedule, 'text-cx-text-subtle': !isInSchedule }" @click="onAddOrRemove" @mouseenter="onHoverPreviewEnter" @mouseleave="onHoverPreviewLeave">
           {{ isInSchedule ? 'Remove from Schedule' : 'Add to Schedule' }}
         </button>
 
@@ -137,6 +137,7 @@ import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { getCourseDetails, getSectionDetails, type CourseDetails } from '~/composables/useAPI'
 import { useSchedule, type ScheduleBlock } from '~/composables/useSchedule'
 import { getCourseTypeMeta } from '~/composables/useCourseTypeMeta'
+import { useStore } from '~/composables/useStore'
 
 const { selectedCourseCode, selectedSectionId } = useCourseSelection()
 
@@ -191,7 +192,11 @@ const {
     parseBlocksFromApiSpec,
     hasCourseSection,
     removeCourseSection,
+    setHoverPreviewFromString,
+    clearHoverPreview,
 } = useSchedule()
+
+const { upsertScheduledSection } = useStore()
 
 const dayLabels = DAY_LABELS
 
@@ -315,6 +320,7 @@ function onWindowMouseUp() {
 onBeforeUnmount(() => {
   window.removeEventListener('mousemove', onWindowMouseMove)
   window.removeEventListener('mouseup', onWindowMouseUp)
+  clearHoverPreview()
 })
 
 function onBlockClick(id: string) {
@@ -341,6 +347,7 @@ const isInSchedule = computed(() => {
 })
 
 function onAddOrRemove() {
+  clearHoverPreview()
   if (!details.value) return
   const courseCode = details.value.code
   const sectionId = selectedSectionId.value || undefined
@@ -348,11 +355,35 @@ function onAddOrRemove() {
     removeCourseSection(courseCode, sectionId)
     return
   }
-  const color = hashColorFromCode(courseCode)
-  const timeSpecs = details.value.times || []
-  for (const spec of timeSpecs) {
-    const parsed = parseBlocksFromApiSpec(spec, details.value.title, color, courseCode, sectionId)
-    for (const b of parsed) addBlock(b)
+  // Add to scheduled store
+  const section = {
+    sectionId: (sectionId || 'COURSE') as string,
+    instructor: (details.value.instructors || []).join(', ') || 'TBA',
+    enrolled: Number(details.value.enrolled || 0),
+    capacity: Number(details.value.capacity || 0),
+    schedule: (details.value.times || []).join('; '),
+    location: (details.value.locations || [])[0] || '',
+    hasDClearance: !!details.value.dClearance,
+    hasPrerequisites: (details.value.prerequisites || []).length > 0,
+    hasDuplicatedCredit: (details.value.duplicatedCredits || []).length > 0,
+    units: details.value.units ?? null,
+    type: details.value.type ?? null,
   }
+  upsertScheduledSection({ code: details.value.code, title: details.value.title, description: details.value.description }, section)
+}
+
+function onHoverPreviewEnter() {
+  try {
+    if (!details.value) return
+    const spec = (details.value.times || []).join('; ').trim()
+    if (!spec) return
+    setHoverPreviewFromString(spec, details.value.title, details.value.code)
+  } catch (e) {
+    // no-op
+  }
+}
+
+function onHoverPreviewLeave() {
+  clearHoverPreview()
 }
 </script>

@@ -1,4 +1,5 @@
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
+import { useStore } from '~/composables/useStore'
 
 export type DayOfWeek = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun'
 
@@ -20,7 +21,7 @@ export const START_MINUTES = 8 * 60 // 08:00
 export const END_MINUTES = 22 * 60 // 22:00
 export const SLOT_MINUTES = 5
 
-const STORAGE_KEY = 'ui:schedule:blocks:v1'
+const STORAGE_KEY_MANUAL = 'ui:schedule:manualBlocks:v1'
 
 function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value))
@@ -48,14 +49,19 @@ export function minutesToTime(total: number): string {
 }
 
 export function useSchedule() {
-  const blocks = useState<ScheduleBlock[]>('ui:schedule:blocks', () => [])
-  const persistenceInitialized = useState<boolean>('ui:schedule:persist:init', () => false)
+  const { usePersistentState, selectedCourseCode, selectedSectionId, scheduledCourses, hasScheduled, removeScheduledSection } = useStore()
+  // Manual blocks created by user interactions (dragging). Persisted separately.
+  const manualBlocks = usePersistentState<ScheduleBlock[]>('ui:schedule:manualBlocks', STORAGE_KEY_MANUAL, () => [])
+  const persistenceInitialized = useState<boolean>('ui:schedule:persist:init', () => true)
   // Ephemeral preview blocks that should never be persisted
   const previewBlocks = useState<ScheduleBlock[]>('ui:schedule:preview', () => [])
 
   const totalRangeMinutes = END_MINUTES - START_MINUTES
 
-  const listBlocks = computed(() => blocks.value)
+  // listBlocks is computed from scheduled courses + any manual blocks
+  const listBlocks = computed(() => {
+    return [...scheduledComputedBlocks.value, ...manualBlocks.value]
+  })
 
   const normalizeId = (value?: string | null): string | undefined => {
     const s = (value ?? '').toString().trim()
@@ -79,12 +85,12 @@ export function useSchedule() {
       sectionId: normalizeId(input.sectionId),
       meta: input.meta,
     }
-    blocks.value = [...blocks.value, normalized]
+    manualBlocks.value = [...manualBlocks.value, normalized]
     return normalized.id
   }
 
   const updateBlock = (id: string, patch: Partial<Omit<ScheduleBlock, 'id'>>) => {
-    blocks.value = blocks.value.map((b) => {
+    manualBlocks.value = manualBlocks.value.map((b) => {
       if (b.id !== id) return b
       const next: ScheduleBlock = { ...b, ...patch }
       next.dayIndex = clamp(next.dayIndex, 0, 6)
@@ -100,15 +106,15 @@ export function useSchedule() {
   }
 
   const removeBlock = (id: string) => {
-    blocks.value = blocks.value.filter((b) => b.id !== id)
+    manualBlocks.value = manualBlocks.value.filter((b) => b.id !== id)
   }
 
   const clearBlocks = () => {
-    blocks.value = []
+    manualBlocks.value = []
   }
 
   const setBlocks = (next: ScheduleBlock[]) => {
-    blocks.value = next.map((b) => ({
+    manualBlocks.value = next.map((b) => ({
       ...b,
       dayIndex: clamp(b.dayIndex, 0, 6),
       startMinutes: roundToFiveMinutes(clamp(b.startMinutes, START_MINUTES, END_MINUTES)),
@@ -135,30 +141,7 @@ export function useSchedule() {
     previewBlocks.value = []
   }
 
-  // Persistence: load once on client and save on change
-  if (process.client && !persistenceInitialized.value) {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY)
-      if (raw && blocks.value.length === 0) {
-        const parsed = JSON.parse(raw) as ScheduleBlock[]
-        if (Array.isArray(parsed)) setBlocks(parsed)
-      }
-    } catch (e) {
-      // ignore
-    }
-    watch(
-      blocks,
-      (list) => {
-        try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(list))
-        } catch (e) {
-          // ignore
-        }
-      },
-      { deep: true }
-    )
-    persistenceInitialized.value = true
-  }
+  // Persistence now handled via useStore.usePersistentState
 
   const geometryFor = (block: ScheduleBlock) => {
     const topPct = ((block.startMinutes - START_MINUTES) / totalRangeMinutes) * 100
@@ -274,16 +257,35 @@ export function useSchedule() {
     return Array.from(new Set(indices)).sort((a, b) => a - b)
   }
 
+  function hashColorFromCourse(code: string): string {
+    const s = (code || '').toUpperCase()
+    let hash = 0
+    for (let i = 0; i < s.length; i++) hash = (hash * 31 + s.charCodeAt(i)) >>> 0
+    const hue = hash % 360
+    const color = `hsla(${hue}, 85%, 60%, 0.25)`
+    return color
+  }
+
+  // Compute schedule blocks from scheduled courses in the store
+  const scheduledComputedBlocks = computed<ScheduleBlock[]>(() => {
+    const out: ScheduleBlock[] = []
+    for (const course of scheduledCourses.value || []) {
+      const color = hashColorFromCourse(course.code)
+      for (const section of course.sections || []) {
+        const spec = (section.schedule || '').toString()
+        const blocks = parseBlocksFromApiSpec(spec, course.title, color, course.code, section.sectionId)
+        out.push(...blocks)
+      }
+    }
+    return out
+  })
+
   const hasCourseSection = (courseCode?: string | null, sectionId?: string | null) => {
-    const c = normalizeId(courseCode)
-    const s = normalizeId(sectionId)
-    return blocks.value.some((b) => b.courseCode === c && b.sectionId === s)
+    return hasScheduled(courseCode || null, sectionId || null)
   }
 
   const removeCourseSection = (courseCode?: string | null, sectionId?: string | null) => {
-    const c = normalizeId(courseCode)
-    const s = normalizeId(sectionId)
-    blocks.value = blocks.value.filter((b) => !(b.courseCode === c && b.sectionId === s))
+    removeScheduledSection(courseCode || null, sectionId || null)
   }
 
   // Public helpers to control preview from components
@@ -305,6 +307,8 @@ export function useSchedule() {
     // state
     blocks: listBlocks,
     previewBlocks,
+    selectedCourseCode,
+    selectedSectionId,
     // constants
     DAY_LABELS,
     START_MINUTES,

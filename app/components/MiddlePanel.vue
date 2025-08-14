@@ -35,9 +35,11 @@
 import { computed, onMounted, ref, watch, nextTick, onBeforeUnmount } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import { listAllCourses, getSchoolCourses, type UICourse } from '~/composables/useAPI'
+import { useStore } from '~/composables/useStore'
 
 const route = useRoute()
 const router = useRouter()
+const { scheduledCourses } = useStore()
 
 // Persist scroll position per program scope across remounts
 const middleScrollTopMap = useState<Record<string, number>>('ui:scroll:middle', () => ({}))
@@ -54,15 +56,19 @@ const courses = ref<UICourse[]>([])
 
 // Route-aware data loading
 type ModeAll = { mode: 'all'; courseCode: string | null; sectionId: string | null }
+type ModeScheduled = { mode: 'scheduled'; courseCode: string | null; sectionId: string | null }
 type ModeProgram = { mode: 'program'; school: string; program: string; courseCode: string | null; sectionId: string | null }
 type ModeUnknown = { mode: 'unknown' }
-type RouteMode = ModeAll | ModeProgram | ModeUnknown
+type RouteMode = ModeAll | ModeScheduled | ModeProgram | ModeUnknown
 
 const parseSlug = (): RouteMode => {
   const parts = (route.params.slug as string[] | undefined) || []
   if (parts.length === 0) return { mode: 'unknown' }
   if (parts[0] === 'all') {
     return { mode: 'all', courseCode: parts[1] || null, sectionId: parts[2] || null }
+  }
+  if (parts[0] === 'scheduled') {
+    return { mode: 'scheduled', courseCode: parts[1] || null, sectionId: parts[2] || null }
   }
   if (parts.length >= 2) {
     return { mode: 'program', school: parts[0] as string, program: parts[1] as string, courseCode: parts[2] || null, sectionId: parts[3] || null }
@@ -74,6 +80,8 @@ const loadCourses = async () => {
   const parsed = parseSlug()
   if (parsed.mode === 'all' || parsed.mode === 'unknown') {
     courses.value = await listAllCourses()
+  } else if (parsed.mode === 'scheduled') {
+    courses.value = [...scheduledCourses.value]
   } else if (parsed.mode === 'program') {
     courses.value = await getSchoolCourses(parsed.school, parsed.program)
   }
@@ -89,6 +97,15 @@ watch(
   },
   { immediate: true }
 )
+
+// Keep scheduled list in sync when on the scheduled route
+watch(scheduledCourses, () => {
+  const parsed = parseSlug()
+  if (parsed.mode === 'scheduled') {
+    courses.value = [...scheduledCourses.value]
+    nextTick(updateViewport)
+  }
+})
 
 // Text search
 const normalize = (value: string) => value.toLowerCase().trim()
@@ -258,6 +275,8 @@ const onSectionClick = (courseCode: string, sectionId: string) => {
   selectCourse(courseCode, sectionId || null)
   if (parsed.mode === 'all' || parsed.mode === 'unknown') {
     router.push(`/course/all/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId || 'section')}`)
+  } else if (parsed.mode === 'scheduled') {
+    router.push(`/course/scheduled/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId || 'section')}`)
   } else {
     router.push(`/course/${encodeURIComponent(parsed.school)}/${encodeURIComponent(parsed.program)}/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId || 'section')}`)
   }

@@ -1,6 +1,7 @@
+import { useStore } from '~/composables/useStore'
+
 export function useCourseSelection() {
-  const selectedCourseCode = useState<string | null>('selectedCourseCode', () => null)
-  const selectedSectionId = useState<string | null>('selectedSectionId', () => null)
+  const { selectedCourseCode, selectedSectionId } = useStore()
 
   const selectCourse = (code: string, sectionId: string | null = null) => {
     selectedCourseCode.value = code

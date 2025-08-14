@@ -24,10 +24,19 @@ const parseSlug = () => {
   // ["all", courseCode, sectionId]
   // [school, program]
   // [school, program, courseCode, sectionId]
+  // [scheduled]
+  // [scheduled, courseCode, sectionId]
   if (parts.length === 0) return { mode: 'unknown' as const }
   if (parts[0] === 'all') {
     return {
       mode: 'all' as const,
+      courseCode: parts[1] || null,
+      sectionId: parts[2] || null,
+    }
+  }
+  if (parts[0] === 'scheduled') {
+    return {
+      mode: 'scheduled' as const,
       courseCode: parts[1] || null,
       sectionId: parts[2] || null,
     }
