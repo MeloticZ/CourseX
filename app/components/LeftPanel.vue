@@ -23,7 +23,7 @@
     <div class="w-full h-16">
       <div class="w-full h-full flex flex-col items-center justify-center">
         <span class="text-sm text-cx-text-muted">Built with ❤️ by Korgo</span>
-        <span class="text-[8px] text-cx-text-weak-muted">ver: dev 20250814 - data: 20250813 12:34 UTC</span>
+        <span class="text-[8px] text-cx-text-weak-muted">ver: {{ commitSha }} - data: 20250814 06:20 UTC</span>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
 </style>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { listSchoolAndPrograms } from '~/composables/useAPI'
 
 type Program = {
@@ -54,6 +54,9 @@ type School = {
 }
 
 const query = ref('')
+
+const runtimeConfig = useRuntimeConfig()
+const commitSha = computed(() => runtimeConfig.public.WORKERS_CI_COMMIT_SHA || 'dev')
 
 // Persist left panel scroll position
 const leftScrollTop = useState<number>('ui:scroll:left', () => 0)

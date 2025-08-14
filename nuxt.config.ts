@@ -7,6 +7,11 @@ export default defineNuxtConfig({
   srcDir: 'app',
   modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxt/content'],
   css: ['~/assets/css/main.css'],
+  runtimeConfig: {
+    public: {
+      WORKERS_CI_COMMIT_SHA: process.env.WORKERS_CI_COMMIT_SHA || ''
+    }
+  },
   vite: {
     plugins: [
       tailwindcss(),

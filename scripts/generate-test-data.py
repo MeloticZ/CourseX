@@ -29,7 +29,7 @@ with open("../app/assets/data/programs.json", "w", encoding="utf-8") as f:
 print("Program data generated successfully, gathering data for courses...")
 
 def process_course(course):
-    courses = []
+    sections_output = []
     sections = course.get("sections") or []
     for section in sections:
         if section.get("isCancelled"):
@@ -54,7 +54,6 @@ def process_course(course):
                 if code:
                     prerequisites_list.append(code)
             except Exception:
-                # Skip malformed prerequisite entries
                 continue
 
         instructors = []
@@ -70,26 +69,36 @@ def process_course(course):
         if isinstance(published, dict):
             course_code = published.get("courseHyphen")
 
-        courses.append({
-            "title": section.get("name") or course.get("name"),
-            "description": course.get("description"),
+        title_value = section.get("name") or course.get("name")
+        description_value = course.get("description")
+
+        sections_output.append({
+            "title": title_value,
+            "description": description_value,
             "courseCode": course_code,
-            "sectionCode": section.get("sisSectionId"),
-            "instructors": instructors,
-            "units": units_value,
-            "total": section.get("totalSeats"),
-            "registered": section.get("registeredSeats"),
-            "location": first_schedule.get("location"),
-            "time": (first_schedule.get("dayCode") or "").replace("H", "Th") + (" " if first_schedule.get("dayCode") else "") + (first_schedule.get("startTime") or "") + (" - " if first_schedule.get("startTime") and first_schedule.get("endTime") else "") + (first_schedule.get("endTime") or ""),
-            "duplicatedCredits": duplicated_credits_list,
-            "prerequisites": prerequisites_list,
-            "dClearance": section.get("hasDClearance"),
-            "type": section.get("rnrMode"),
+            "section": {
+                "sectionCode": section.get("sisSectionId"),
+                "instructors": instructors,
+                "units": units_value,
+                "total": section.get("totalSeats"),
+                "registered": section.get("registeredSeats"),
+                "location": first_schedule.get("location"),
+                "time": (first_schedule.get("dayCode") or "").replace("H", "Th")
+                        + (" " if first_schedule.get("dayCode") else "")
+                        + (first_schedule.get("startTime") or "")
+                        + (" - " if first_schedule.get("startTime") and first_schedule.get("endTime") else "")
+                        + (first_schedule.get("endTime") or ""),
+                "duplicatedCredits": duplicated_credits_list,
+                "prerequisites": prerequisites_list,
+                "dClearance": section.get("hasDClearance"),
+                "type": section.get("rnrMode"),
+            },
         })
 
-    return courses
+    return sections_output
 
 # {"[SCHOOL-CODE]": {"[PROGRAM-CODE]": [processed courses]}}
+# processed courses: [{"title", "description", "courseCode", "sections": [{"sectionCode", "instructors", "units", "total", "registered", "location", "time", "duplicatedCredits", "prerequisites", "dClearance", "type"}]}]
 
 def get_courses(school_code, program_code):
     last_error = None
@@ -102,11 +111,42 @@ def get_courses(school_code, program_code):
             response.raise_for_status()
             data = response.json()
 
-            courses = []
+            # Aggregate sections by (title, description, courseCode)
+            aggregation = {}
             for course in data.get("courses", []):
-                processed = process_course(course)
-                if processed:
-                    courses.extend(processed)
+                processed_sections = process_course(course)
+                for item in processed_sections:
+                    title_value = item.get("title")
+                    description_value = item.get("description")
+                    course_code = item.get("courseCode")
+                    key = (title_value, description_value, course_code)
+
+                    if key not in aggregation:
+                        aggregation[key] = {
+                            "title": title_value,
+                            "description": description_value,
+                            "courseCode": course_code,
+                            "sections": [],
+                            "_seenSectionCodes": set(),
+                        }
+
+                    section_obj = item.get("section") or {}
+                    section_code_value = section_obj.get("sectionCode")
+                    seen_codes = aggregation[key]["_seenSectionCodes"]
+                    if section_code_value and section_code_value in seen_codes:
+                        continue
+
+                    if section_code_value:
+                        seen_codes.add(section_code_value)
+
+                    aggregation[key]["sections"].append(section_obj)
+
+            # Convert aggregation to list and drop helper field
+            courses = []
+            for grouped in aggregation.values():
+                grouped.pop("_seenSectionCodes", None)
+                courses.append(grouped)
+
             return courses
         except Exception as error:
             last_error = error

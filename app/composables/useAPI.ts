@@ -8,35 +8,31 @@ export async function listSchoolAndPrograms() {
   return programs
 }
 
-// listAllCourses
-export type TagVariant = 'green' | 'rose' | 'yellow' | 'blue'
-export type Tag = { text: string; variant?: TagVariant }
-
-export type UICourse = {
-  title: string
-  code: string
+// New grouped UI types
+export type UICourseSection = {
+  sectionId: string
   instructor: string
   enrolled: number
   capacity: number
   schedule: string
   location: string
-  description: string
-  tags: Tag[]
-  // Optional: default/first section identifier for routing deep links
-  sectionId?: string
-  // Indicators for compact card UI
   hasDClearance: boolean
   hasPrerequisites: boolean
   hasDuplicatedCredit: boolean
-  // For unit/type display on cards
   units?: number | string | null
   type?: string | null
 }
 
-type RawCourse = {
-  title?: string
-  description?: string
-  courseCode?: string
+export type UICourse = {
+  title: string
+  code: string
+  description: string
+  sections: UICourseSection[]
+}
+
+// Source JSON (generator output) types
+type RawSection = {
+  sectionCode?: string | null
   instructors?: string[]
   units?: number | string | null
   total?: number | null
@@ -47,50 +43,25 @@ type RawCourse = {
   prerequisites?: string[]
   dClearance?: boolean
   type?: string | null
-  // Section identifier fields (generator may use one of these)
-  sectionId?: string | null
-  section?: string | null
-  sectionCode?: string | null
 }
 
-function buildTags(raw: RawCourse): Tag[] {
-  const tags: Tag[] = []
-  if (raw.units != null && raw.units !== '') {
-    tags.push({ text: `${raw.units} units` })
-  }
-  if (raw.dClearance) {
-    tags.push({ text: 'D-Clearance', variant: 'rose' })
-  }
-  if (raw.prerequisites && raw.prerequisites.length > 0) {
-    // Pre-Req should be highlighted in yellow for quick scanning
-    tags.push({ text: 'Pre-Req', variant: 'yellow' })
-  }
-  if (raw.duplicatedCredits && raw.duplicatedCredits.length > 0) {
-    // Duplicated credit is a caution but not a blocker → green highlight
-    tags.push({ text: 'Dupe-Credit', variant: 'green' })
-  }
-  if (raw.type === 'Lab') {
-    tags.push({ text: 'Lab', variant: 'blue' })
-  }
-  return tags
+type RawGroupedCourse = {
+  title?: string
+  description?: string
+  courseCode?: string
+  sections?: RawSection[]
 }
 
-function mapToUICourse(raw: RawCourse): UICourse | null {
-  const code = (raw.courseCode || '').trim()
-  const title = (raw.title || '').trim()
-  if (!code || !title) return null
-  const instructor = (raw.instructors?.join(', ') || 'TBA').trim()
+function mapSection(raw: RawSection): UICourseSection | null {
+  const sectionId = (raw.sectionCode || '')?.toString().trim()
+  if (!sectionId) return null
   return {
-    title,
-    code,
-    instructor,
+    sectionId,
+    instructor: (raw.instructors?.join(', ') || 'TBA').trim(),
     enrolled: Number(raw.registered || 0),
     capacity: Number(raw.total || 0),
     schedule: (raw.time || '').trim(),
     location: (raw.location || '').trim(),
-    description: (raw.description || '').trim(),
-    tags: buildTags(raw),
-    sectionId: (raw.sectionCode || raw.sectionId || raw.section || '')?.toString().trim() || undefined,
     hasDClearance: !!raw.dClearance,
     hasPrerequisites: !!(raw.prerequisites && raw.prerequisites.length > 0),
     hasDuplicatedCredit: !!(raw.duplicatedCredits && raw.duplicatedCredits.length > 0),
@@ -99,18 +70,34 @@ function mapToUICourse(raw: RawCourse): UICourse | null {
   }
 }
 
+function mapGroupedToUICourse(raw: RawGroupedCourse): UICourse | null {
+  const code = (raw.courseCode || '').trim()
+  const title = (raw.title || '').trim()
+  if (!code || !title) return null
+  const sections: UICourseSection[] = (raw.sections || [])
+    .map(mapSection)
+    .filter(Boolean) as UICourseSection[]
+  return {
+    title,
+    code,
+    description: (raw.description || '').trim(),
+    sections,
+  }
+}
+
+// listAllCourses
 export async function listAllCourses(): Promise<UICourse[]> {
   const results: UICourse[] = []
   try {
     const schoolPrefixes = Object.keys(coursesBySchool as Record<string, unknown>)
     for (const schoolPrefix of schoolPrefixes) {
-      const byProgram = (coursesBySchool as Record<string, any>)[schoolPrefix] as Record<string, RawCourse[]>
+      const byProgram = (coursesBySchool as Record<string, any>)[schoolPrefix] as Record<string, RawGroupedCourse[]>
       if (!byProgram) continue
       const programPrefixes = Object.keys(byProgram)
       for (const programPrefix of programPrefixes) {
         const list = byProgram[programPrefix] || []
         for (const raw of list) {
-          const mapped = mapToUICourse(raw)
+          const mapped = mapGroupedToUICourse(raw)
           if (mapped) results.push(mapped)
         }
       }
@@ -148,41 +135,45 @@ export async function getCourseDetails(courseCode: string): Promise<CourseDetail
   try {
     const schoolPrefixes = Object.keys(coursesBySchool as Record<string, unknown>)
     for (const schoolPrefix of schoolPrefixes) {
-      const byProgram = (coursesBySchool as Record<string, any>)[schoolPrefix] as Record<string, RawCourse[]>
+      const byProgram = (coursesBySchool as Record<string, any>)[schoolPrefix] as Record<string, RawGroupedCourse[]>
       if (!byProgram) continue
       const programPrefixes = Object.keys(byProgram)
       for (const programPrefix of programPrefixes) {
         const list = byProgram[programPrefix] || []
-        for (const raw of list) {
-          if (normalize(raw.courseCode || '') !== target) continue
+        for (const course of list) {
+          if (normalize(course.courseCode || '') !== target) continue
+          const sections = course.sections || []
           if (!aggregated) {
+            // seed from first section if present, else from course
+            const first = sections[0] || {}
             aggregated = {
-              title: (raw.title || '').trim(),
-              code: (raw.courseCode || '').trim(),
-              description: (raw.description || '').trim(),
-              instructors: Array.from(new Set(raw.instructors || [])),
-              units: raw.units ?? null,
-              enrolled: Number(raw.registered || 0),
-              capacity: Number(raw.total || 0),
-              times: raw.time ? [raw.time] : [],
-              locations: raw.location ? [raw.location] : [],
-              duplicatedCredits: Array.from(new Set(raw.duplicatedCredits || [])),
-              prerequisites: Array.from(new Set(raw.prerequisites || [])),
-              dClearance: !!raw.dClearance,
-              type: raw.type ?? null,
+              title: (course.title || '').trim(),
+              code: (course.courseCode || '').trim(),
+              description: (course.description || '').trim(),
+              instructors: Array.from(new Set(first.instructors || [])),
+              units: first.units ?? null,
+              enrolled: Number(first.registered || 0),
+              capacity: Number(first.total || 0),
+              times: first.time ? [first.time] : [],
+              locations: first.location ? [first.location] : [],
+              duplicatedCredits: Array.from(new Set(first.duplicatedCredits || [])),
+              prerequisites: Array.from(new Set(first.prerequisites || [])),
+              dClearance: !!first.dClearance,
+              type: first.type ?? null,
             }
-          } else {
-            // aggregate across sections
-            aggregated.instructors = Array.from(new Set([...(aggregated.instructors || []), ...((raw.instructors || []))]))
-            aggregated.enrolled += Number(raw.registered || 0)
-            aggregated.capacity += Number(raw.total || 0)
-            if (raw.time) aggregated.times.push(raw.time)
-            if (raw.location) aggregated.locations.push(raw.location)
-            aggregated.duplicatedCredits = Array.from(new Set([...(aggregated.duplicatedCredits || []), ...((raw.duplicatedCredits || []))]))
-            aggregated.prerequisites = Array.from(new Set([...(aggregated.prerequisites || []), ...((raw.prerequisites || []))]))
-            aggregated.dClearance = aggregated.dClearance || !!raw.dClearance
-            // keep first non-null units
-            if (aggregated.units == null && raw.units != null) aggregated.units = raw.units
+          }
+          // aggregate across sections
+          for (const s of sections) {
+            aggregated.instructors = Array.from(new Set([...(aggregated.instructors || []), ...((s.instructors || []))]))
+            aggregated.enrolled += Number(s.registered || 0)
+            aggregated.capacity += Number(s.total || 0)
+            if (s.time) aggregated.times.push(s.time)
+            if (s.location) aggregated.locations.push(s.location)
+            aggregated.duplicatedCredits = Array.from(new Set([...(aggregated.duplicatedCredits || []), ...((s.duplicatedCredits || []))]))
+            aggregated.prerequisites = Array.from(new Set([...(aggregated.prerequisites || []), ...((s.prerequisites || []))]))
+            aggregated.dClearance = aggregated.dClearance || !!s.dClearance
+            if (aggregated.units == null && s.units != null) aggregated.units = s.units
+            if (aggregated.type == null && s.type != null) aggregated.type = s.type
           }
         }
       }
@@ -209,31 +200,32 @@ export async function getSectionDetails(courseCode: string, sectionId: string): 
   try {
     const schoolPrefixes = Object.keys(coursesBySchool as Record<string, unknown>)
     for (const schoolPrefix of schoolPrefixes) {
-      const byProgram = (coursesBySchool as Record<string, any>)[schoolPrefix] as Record<string, RawCourse[]>
+      const byProgram = (coursesBySchool as Record<string, any>)[schoolPrefix] as Record<string, RawGroupedCourse[]>
       if (!byProgram) continue
       const programPrefixes = Object.keys(byProgram)
       for (const programPrefix of programPrefixes) {
         const list = byProgram[programPrefix] || []
-        for (const raw of list) {
-          const rawCode = normalize(raw.courseCode || '')
+        for (const course of list) {
+          const rawCode = normalize(course.courseCode || '')
           if (rawCode !== targetCode) continue
-          const rawSection = normalize((raw as any).sectionCode || raw.sectionId || raw.section || '')
-          if (!rawSection || rawSection !== targetSection) continue
-
-          return {
-            title: (raw.title || '').trim(),
-            code: (raw.courseCode || '').trim(),
-            description: (raw.description || '').trim(),
-            instructors: Array.from(new Set(raw.instructors || [])),
-            units: raw.units ?? null,
-            enrolled: Number(raw.registered || 0),
-            capacity: Number(raw.total || 0),
-            times: raw.time ? [raw.time] : [],
-            locations: raw.location ? [raw.location] : [],
-            duplicatedCredits: Array.from(new Set(raw.duplicatedCredits || [])),
-            prerequisites: Array.from(new Set(raw.prerequisites || [])),
-            dClearance: !!raw.dClearance,   
-            type: raw.type ?? null,
+          for (const s of course.sections || []) {
+            const rawSection = normalize((s.sectionCode || '') as string)
+            if (!rawSection || rawSection !== targetSection) continue
+            return {
+              title: (course.title || '').trim(),
+              code: (course.courseCode || '').trim(),
+              description: (course.description || '').trim(),
+              instructors: Array.from(new Set(s.instructors || [])),
+              units: s.units ?? null,
+              enrolled: Number(s.registered || 0),
+              capacity: Number(s.total || 0),
+              times: s.time ? [s.time] : [],
+              locations: s.location ? [s.location] : [],
+              duplicatedCredits: Array.from(new Set(s.duplicatedCredits || [])),
+              prerequisites: Array.from(new Set(s.prerequisites || [])),
+              dClearance: !!s.dClearance,
+              type: s.type ?? null,
+            }
           }
         }
       }
@@ -252,9 +244,9 @@ export async function getSchoolCourses(schoolPrefix: string, programPrefix: stri
   try {
     const byProgram = (coursesBySchool as Record<string, any>)[schoolPrefix]
     if (!byProgram) return results
-    const list: RawCourse[] = (byProgram as Record<string, RawCourse[]>)[programPrefix] || []
+    const list: RawGroupedCourse[] = (byProgram as Record<string, RawGroupedCourse[]>)[programPrefix] || []
     for (const raw of list) {
-      const mapped = mapToUICourse(raw)
+      const mapped = mapGroupedToUICourse(raw)
       if (mapped) results.push(mapped)
     }
   } catch (e) {

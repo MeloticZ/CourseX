@@ -11,6 +11,7 @@
   --color-cx-text-muted: oklch(55.4% 0.046 257.417);     /* slate-500 */
   --color-cx-text-secondary: oklch(55.4% 0.046 257.417);  /* slate-600 */
   --color-cx-text-weak-muted: #334155; /* slate-700 */
+  --color-cx-text-weak-shimmer: oklch(27.9% 0.041 260.031); /* slate-800 */
 
   /* Surfaces / Borders */
   --color-cx-border: oklch(23.8% 0.042 265.755); /* slate-700 */
