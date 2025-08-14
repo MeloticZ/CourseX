@@ -109,7 +109,7 @@
               :key="block.id"
               class="absolute left-0 right-0 mx-1 rounded-md text-[10px] leading-tight px-1 py-0.5 cursor-pointer flex flex-col justify-between"
               :style="styleForBlock(block)"
-              @click.stop="() => onBlockClick(block.id)"
+              @click.stop="() => onBlockClick(block.id || '')"
             >
               <div class="truncate">{{ block.label || 'Block' }}</div>
               <div v-if="block.courseCode" class="text-[8px] opacity-70">{{ block.courseCode }}</div>
@@ -278,7 +278,7 @@ function onDayMouseDown(e: MouseEvent, dayIndex: number) {
     label: 'New',
     color: 'rgb(var(--color-green-500-rgb) / 0.25)',
   })
-  draftBlockId.value = id
+  draftBlockId.value = id || null
   window.addEventListener('mousemove', onWindowMouseMove)
   window.addEventListener('mouseup', onWindowMouseUp)
 }

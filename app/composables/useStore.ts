@@ -1,5 +1,6 @@
 import { computed, watch } from 'vue'
 import type { UICourse, UICourseSection } from '~/composables/useAPI'
+import { parseBlocksFromApiSpec, parseBlocksFromString, type ScheduleBlock } from '~/composables/scheduleUtils'
 
 type Initializer<T> = () => T
 
@@ -136,6 +137,40 @@ export function useStore() {
     }
   }
 
+  function checkScheduleCollision(spec: string): string[] {
+    const inputBlocksRaw: ScheduleBlock[] = (() => {
+      const color = undefined
+      const label = undefined
+      let parsed = parseBlocksFromString(spec, label, color)
+      if (!parsed || parsed.length === 0) {
+        parsed = parseBlocksFromApiSpec(spec, label, color)
+      }
+      return parsed
+    })()
+    if (!inputBlocksRaw || inputBlocksRaw.length === 0) return []
+
+    const scheduledBlocks: ScheduleBlock[] = []
+    const courses = Object.values(scheduledCoursesMap.value || {})
+    for (const course of courses) {
+      for (const section of course.sections || []) {
+        const blocks = parseBlocksFromApiSpec((section.schedule || '').toString(), course.title, undefined, course.code, section.sectionId)
+        scheduledBlocks.push(...blocks)
+      }
+    }
+
+    const collidingCodes = new Set<string>()
+    for (const a of inputBlocksRaw) {
+      for (const b of scheduledBlocks) {
+        if (a.dayIndex !== b.dayIndex) continue
+        const overlap = a.startMinutes < b.endMinutes && a.endMinutes > b.startMinutes
+        if (overlap && b.courseCode) {
+          collidingCodes.add((b.courseCode || '').toString().trim().toUpperCase())
+        }
+      }
+    }
+    return Array.from(collidingCodes)
+  }
+
   return {
     usePersistentState,
     selectedCourseCode,
@@ -147,6 +182,7 @@ export function useStore() {
     removeScheduledSection,
     totalScheduledUnits,
     totalScheduledUnitsLabel,
+    checkScheduleCollision,
   }
 }
 

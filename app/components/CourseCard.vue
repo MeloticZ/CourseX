@@ -58,8 +58,8 @@
 
           <div class="flex items-center gap-2 justify-between">
             <div class="flex items-center gap-1">
-              <Icon name="uil:clock" class="h-4 w-4 text-cx-text-muted" />
-              <span class="text-xs text-cx-text-secondary font-semibold line-clamp-1">{{ section.schedule }}</span>
+              <Icon name="uil:clock" class="h-4 w-4 text-cx-text-muted" :class="scheduleCollisionIconClassFor(section)" />
+              <span class="text-xs text-cx-text-secondary font-semibold line-clamp-1" :class="scheduleCollisionTextClassFor(section)">{{ section.schedule }}</span>
             </div>
 
             <div class="flex items-center gap-1">
@@ -87,6 +87,7 @@
 import { getCourseTypeMeta } from '~/composables/useCourseTypeMeta'
 import type { UICourseSection } from '~/composables/useAPI'
 import { useSchedule } from '~/composables/useSchedule'
+import { useStore } from '~/composables/useStore'
 
 defineEmits(['section-click'])
 
@@ -97,6 +98,8 @@ const props = defineProps<{
   sections: UICourseSection[]
 }>()
 
+const { checkScheduleCollision } = useStore()
+
 function occupancyIconClassFor(section: UICourseSection) {
   const isFull = (section.enrolled || 0) >= (section.capacity || 0)
   return isFull ? 'text-red-800' : 'text-cx-text-muted'
@@ -105,6 +108,14 @@ function occupancyIconClassFor(section: UICourseSection) {
 function occupancyTextClassFor(section: UICourseSection) {
   const isFull = (section.enrolled || 0) >= (section.capacity || 0)
   return isFull ? 'text-red-900' : 'text-cx-text-secondary'
+}
+
+function scheduleCollisionIconClassFor(section: UICourseSection) {
+  return checkScheduleCollision(section.schedule).length > 0 ? 'text-yellow-800' : 'text-cx-text-muted'
+}
+
+function scheduleCollisionTextClassFor(section: UICourseSection) {
+  return checkScheduleCollision(section.schedule).length > 0 ? 'text-yellow-900' : 'text-cx-text-secondary'
 }
 
 function sectionUnitsToRender(section: UICourseSection) {
