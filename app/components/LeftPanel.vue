@@ -15,7 +15,7 @@
         <span class="text-md">Show All Courses</span>
       </NuxtLink>
 
-      <div class="w-full flex flex-col gap-2 h-full overflow-y-scroll border-t border-cx-border pt-2">
+      <div class="w-full flex flex-col gap-2 h-full border-t border-cx-border pt-2">
         <!-- Schools & Programs List -->
         <ProgramTree :schools="schools" :query="query" />
       </div>
@@ -23,7 +23,7 @@
     <div class="w-full h-16">
       <div class="w-full h-full flex flex-col items-center justify-center">
         <span class="text-sm text-cx-text-muted">Built with ❤️ by Korgo</span>
-        <span class="text-[8px] text-cx-text-weak-muted">ver: {{ commitSha }} - data: 20250814 06:20 UTC</span>
+        <span class="text-[8px] text-cx-text-weak-muted">ver: <a href="https://github.com/MeloticZ/CourseX" class="underline hover:text-cx-text-secondary">{{ commitSha.slice(0, 7) }}</a> - data: 20250814 06:20 UTC</span>
       </div>
     </div>
 
@@ -39,7 +39,8 @@
 </style>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, nextTick, onActivated, onDeactivated, watch } from 'vue'
+import { useRoute, useRouter, onBeforeRouteLeave } from 'vue-router'
 import { listSchoolAndPrograms } from '~/composables/useAPI'
 
 type Program = {
@@ -67,17 +68,61 @@ const onLeftScroll = () => {
   leftScrollTop.value = el.scrollTop || 0
 }
 
+const restoreLeftScroll = async () => {
+  await nextTick()
+  const el = leftScrollRef.value
+  const target = leftScrollTop.value || 0
+  if (!el) return
+  if (target <= 0) return
+  el.scrollTop = target
+  requestAnimationFrame(() => {
+    if (!el) return
+    if (el.scrollTop !== target) el.scrollTop = target
+    setTimeout(() => {
+      if (!el) return
+      if (el.scrollTop !== target) el.scrollTop = target
+    }, 0)
+  })
+}
+
 // Temporary seed data; replace with real data source later
 const schools = ref<School[]>([])
 onMounted(async () => {
   const data = await listSchoolAndPrograms()
   schools.value = data.schools
-  // Restore scroll after data render
+  await restoreLeftScroll()
   const el = leftScrollRef.value
-  if (el && leftScrollTop.value > 0) {
-    el.scrollTop = leftScrollTop.value
-  }
   if (el) el.addEventListener('scroll', onLeftScroll, { passive: true })
+})
+
+onActivated(async () => {
+  await restoreLeftScroll()
+})
+
+onDeactivated(() => {
+  const el = leftScrollRef.value
+  if (el) leftScrollTop.value = el.scrollTop || 0
+})
+
+// Ensure state is saved before navigating away and restored after navigation
+const route = useRoute()
+const router = useRouter()
+
+onBeforeRouteLeave(() => {
+  const el = leftScrollRef.value
+  if (el) leftScrollTop.value = el.scrollTop || 0
+})
+
+watch(
+  () => route.fullPath,
+  async () => {
+    await restoreLeftScroll()
+  }
+)
+
+// As an extra safety, restore after any navigation completes
+router.afterEach(async () => {
+  await restoreLeftScroll()
 })
 
 onBeforeUnmount(() => {

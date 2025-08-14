@@ -9,12 +9,7 @@
 <script setup lang="ts">
 definePageMeta({
   keepalive: true,
-  key: (route) => {
-    const slug = (route.params.slug as string[] | undefined) || []
-    if (slug[0] === 'all') return 'course/all'
-    if (slug.length >= 2) return `course/${slug[0]}/${slug[1]}`
-    return 'course'
-  }
+  key: 'course'
 })
 
 const route = useRoute()
