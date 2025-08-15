@@ -99,7 +99,8 @@ export async function listAllCourses(): Promise<UICourse[]> {
         for (const raw of list) {
           const mapped = mapGroupedToUICourse(raw)
           if (!mapped) continue
-          const key = (mapped.code || '').toString().trim().toUpperCase()
+          // Use code + title to avoid merging different topical courses that share the same code
+          const key = `${(mapped.code || '').toString().trim().toUpperCase()}::${(mapped.title || '').toString().trim().toUpperCase()}`
           if (!key) continue
           const existing = byCode[key]
           if (!existing) {
@@ -270,7 +271,8 @@ export async function getSchoolCourses(schoolPrefix: string, programPrefix: stri
     for (const raw of list) {
       const mapped = mapGroupedToUICourse(raw)
       if (!mapped) continue
-      const key = (mapped.code || '').toString().trim().toUpperCase()
+      // Use code + title to avoid merging different topical courses that share the same code
+      const key = `${(mapped.code || '').toString().trim().toUpperCase()}::${(mapped.title || '').toString().trim().toUpperCase()}`
       if (!key) continue
       const existing = byCode[key]
       if (!existing) {

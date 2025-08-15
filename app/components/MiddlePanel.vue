@@ -98,7 +98,7 @@ const {
 } = useVariableVirtualList<UICourse>({
   items: filteredCourses,
   estimateItemHeight: 120,
-  getKey: (c) => c.code,
+  getKey: (c) => `${c.code}::${c.title}`,
 })
 
 // Scroll persistence
@@ -143,7 +143,7 @@ const onSectionClick = (courseCode: string, sectionId: string) => {
   }
 }
 
-const visibleKey = (course: UICourse, i: number) => `${course.code}`
+const visibleKey = (course: UICourse, i: number) => `${course.code}::${course.title}`
 </script>
 
 <style scoped>
