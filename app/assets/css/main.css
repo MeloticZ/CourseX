@@ -6,15 +6,14 @@
   --color-cx-brand-end: #d946ef;   /* fuchsia-500 */
 
   /* Neutrals / Text */
-  --color-cx-text-weak: #e2e8f0;      /* slate-200 */
-  --color-cx-text-subtle: oklch(87.2% 0.01 258.338);    /* gray-300 */
+  --color-cx-text-subtle: oklch(92.8% 0.006 264.531);    /* gray-300 */
   --color-cx-text-muted: oklch(55.4% 0.046 257.417);     /* slate-500 */
-  --color-cx-text-secondary: oklch(55.4% 0.046 257.417);  /* slate-600 */
+  --color-cx-text-secondary: oklch(70.4% 0.04 256.788);  /* slate-400 */
   --color-cx-text-weak-muted: #334155; /* slate-700 */
   --color-cx-text-weak-shimmer: oklch(27.9% 0.041 260.031); /* slate-800 */
 
   /* Surfaces / Borders */
-  --color-cx-border: oklch(23.8% 0.042 265.755); /* slate-700 */
+  --color-cx-border: oklch(24.8% 0.042 265.755); /* ~slate-890 */
   --color-cx-surface-700: #334155; /* slate-700 */
   --color-cx-surface-800: #1f2937; /* slate-800 */
   --color-cx-surface-950: #020617; /* slate-950 */
@@ -46,6 +45,13 @@
 .bg-zebra {
   background-image: repeating-linear-gradient(315deg,var(--color-cx-border)0,var(--color-cx-border)1px,transparent 0,transparent 50%);
   background-size: 10px 10px;
+  background-position: 0 0;
+  background-repeat: repeat;
+}
+
+.bg-dotted {
+  background-image: repeating-linear-gradient(315deg,var(--color-cx-text-weak-muted)0,var(--color-cx-text-weak-muted)1px,transparent 0%,transparent 90%);
+  background-size: 6px 6px;
   background-position: 0 0;
   background-repeat: repeat;
 }

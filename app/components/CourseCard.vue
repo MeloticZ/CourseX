@@ -43,7 +43,7 @@
         </div>
         
         <!-- Section Attributes -->
-        <div class="flex flex-col gap-1 w-full justify-center">
+        <div class="flex flex-col gap-1 w-full justify-center" :class="sectionClassFor(section)">
           <div class="flex items-center gap-2 justify-between">
             <div class="flex items-center gap-1">
               <Icon name="uil:graduation-cap" class="h-4 w-4 text-cx-text-muted" />
@@ -51,15 +51,15 @@
             </div>
 
             <div class="flex items-center gap-1">
-              <Icon name="uil:user" class="h-4 w-4" :class="occupancyIconClassFor(section)" />
-              <span class="text-xs font-semibold line-clamp-1" :class="occupancyTextClassFor(section)">{{ section.enrolled }} / {{ section.capacity }}</span>
+              <Icon name="uil:user" class="h-4 w-4" :class="occupancyClassFor(section, 'icon')" />
+              <span class="text-xs line-clamp-1" :class="occupancyClassFor(section, 'text')">{{ section.enrolled }} / {{ section.capacity }}</span>
             </div>
           </div>
 
           <div class="flex items-center gap-2 justify-between">
             <div class="flex items-center gap-1">
-              <Icon name="uil:clock" class="h-4 w-4 text-cx-text-muted" :class="scheduleCollisionIconClassFor(section)" />
-              <span class="text-xs text-cx-text-secondary font-semibold line-clamp-1" :class="scheduleCollisionTextClassFor(section)">{{ section.schedule }}</span>
+              <Icon name="uil:clock" class="h-4 w-4 text-cx-text-muted" :class="scheduleCollisionClassFor(section, 'icon')" />
+              <span class="text-xs text-cx-text-secondary line-clamp-1" :class="scheduleCollisionClassFor(section, 'text')">{{ section.schedule }}</span>
             </div>
 
             <div class="flex items-center gap-1">
@@ -100,22 +100,24 @@ const props = defineProps<{
 
 const { checkScheduleCollision } = useStore()
 
-function occupancyIconClassFor(section: UICourseSection) {
+function occupancyClassFor(section: UICourseSection, type: 'icon' | 'text') {
   const isFull = (section.enrolled || 0) >= (section.capacity || 0)
-  return isFull ? 'text-red-800' : 'text-cx-text-muted'
+  if (type === 'icon') return isFull ? 'text-red-800' : 'text-cx-text-muted'
+  else if (type === 'text') return isFull ? 'decoration-red-800 text-red-800 underline decoration-1' : 'text-cx-text-secondary font-semibold'
 }
 
-function occupancyTextClassFor(section: UICourseSection) {
+function scheduleCollisionClassFor(section: UICourseSection, type: 'icon' | 'text') {
+  const isColliding = checkScheduleCollision(section.schedule).length > 0
+  if (type === 'icon') return isColliding ? 'text-yellow-800' : 'text-cx-text-muted'
+  else if (type === 'text') return isColliding ? 'decoration-yellow-800 text-yellow-800 underline decoration-1' : 'text-cx-text-secondary font-semibold'
+}
+
+function sectionClassFor(section: UICourseSection) {
   const isFull = (section.enrolled || 0) >= (section.capacity || 0)
-  return isFull ? 'text-red-900' : 'text-cx-text-secondary'
-}
+  const isColliding = checkScheduleCollision(section.schedule).length > 0
 
-function scheduleCollisionIconClassFor(section: UICourseSection) {
-  return checkScheduleCollision(section.schedule).length > 0 ? 'text-yellow-800' : 'text-cx-text-muted'
-}
-
-function scheduleCollisionTextClassFor(section: UICourseSection) {
-  return checkScheduleCollision(section.schedule).length > 0 ? 'text-yellow-900' : 'text-cx-text-secondary'
+  if (isFull || isColliding) return 'bg-dotted'
+  else return ''
 }
 
 function sectionUnitsToRender(section: UICourseSection) {

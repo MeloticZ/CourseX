@@ -7,7 +7,7 @@
     >
       <button
         type="button"
-        class="w-full rounded-md flex items-center gap-2 text-cx-text-muted text-left min-w-0 hover:bg-cx-surface-800/40 rounded"
+        class="w-full text-[15px] rounded-md flex items-center gap-2 text-cx-text-muted text-left min-w-0 hover:bg-cx-surface-800/40 rounded"
         @click="toggleSchool(school)"
       >
         <Icon

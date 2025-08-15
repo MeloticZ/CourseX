@@ -22,6 +22,7 @@ export default defineNuxtConfig({
       title: 'CourseX',
       meta: [
         { name: 'description', content: 'CourseX is a website that helps you find courses at USC. Your experience is at the center of focus.' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
       ],
     }
   }
