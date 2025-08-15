@@ -135,7 +135,8 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { getCourseDetails, getSectionDetails, type CourseDetails } from '~/composables/useAPI'
-import { useSchedule, type ScheduleBlock } from '~/composables/useSchedule'
+import { useSchedule } from '~/composables/useSchedule'
+import type { ScheduleBlock } from '~/composables/scheduleUtils'
 import { getCourseTypeMeta } from '~/composables/useCourseTypeMeta'
 import { useStore } from '~/composables/useStore'
 

@@ -87,7 +87,7 @@ function mapGroupedToUICourse(raw: RawGroupedCourse): UICourse | null {
 
 // listAllCourses
 export async function listAllCourses(): Promise<UICourse[]> {
-  const results: UICourse[] = []
+  const byCode: Record<string, UICourse> = {}
   try {
     const schoolPrefixes = Object.keys(coursesBySchool as Record<string, unknown>)
     for (const schoolPrefix of schoolPrefixes) {
@@ -98,14 +98,36 @@ export async function listAllCourses(): Promise<UICourse[]> {
         const list = byProgram[programPrefix] || []
         for (const raw of list) {
           const mapped = mapGroupedToUICourse(raw)
-          if (mapped) results.push(mapped)
+          if (!mapped) continue
+          const key = (mapped.code || '').toString().trim().toUpperCase()
+          if (!key) continue
+          const existing = byCode[key]
+          if (!existing) {
+            byCode[key] = mapped
+          } else {
+            const mergedSectionsMap = new Map<string, UICourseSection>()
+            for (const s of existing.sections || []) {
+              const sid = (s.sectionId || '').toString().trim().toUpperCase()
+              if (sid) mergedSectionsMap.set(sid, s)
+            }
+            for (const s of mapped.sections || []) {
+              const sid = (s.sectionId || '').toString().trim().toUpperCase()
+              if (sid && !mergedSectionsMap.has(sid)) mergedSectionsMap.set(sid, s)
+            }
+            byCode[key] = {
+              title: existing.title || mapped.title,
+              code: existing.code || mapped.code,
+              description: existing.description || mapped.description,
+              sections: Array.from(mergedSectionsMap.values()),
+            }
+          }
         }
       }
     }
   } catch (e) {
     // swallow and return what we have
   }
-  return results
+  return Object.values(byCode)
 }
 
 // getCourseDetails
@@ -239,18 +261,41 @@ export async function getSectionDetails(courseCode: string, sectionId: string): 
 
 // getSchoolCourses
 export async function getSchoolCourses(schoolPrefix: string, programPrefix: string): Promise<UICourse[]> {
-  const results: UICourse[] = []
-  if (!schoolPrefix || !programPrefix) return results
+  const byCode: Record<string, UICourse> = {}
+  if (!schoolPrefix || !programPrefix) return []
   try {
     const byProgram = (coursesBySchool as Record<string, any>)[schoolPrefix]
-    if (!byProgram) return results
+    if (!byProgram) return []
     const list: RawGroupedCourse[] = (byProgram as Record<string, RawGroupedCourse[]>)[programPrefix] || []
     for (const raw of list) {
       const mapped = mapGroupedToUICourse(raw)
-      if (mapped) results.push(mapped)
+      if (!mapped) continue
+      const key = (mapped.code || '').toString().trim().toUpperCase()
+      if (!key) continue
+      const existing = byCode[key]
+      if (!existing) {
+        byCode[key] = mapped
+      } else {
+        const mergedSectionsMap = new Map<string, UICourseSection>()
+        for (const s of existing.sections || []) {
+          const sid = (s.sectionId || '').toString().trim().toUpperCase()
+          if (sid) mergedSectionsMap.set(sid, s)
+        }
+        for (const s of mapped.sections || []) {
+          const sid = (s.sectionId || '').toString().trim().toUpperCase()
+          if (sid && !mergedSectionsMap.has(sid)) mergedSectionsMap.set(sid, s)
+        }
+        byCode[key] = {
+          title: existing.title || mapped.title,
+          code: existing.code || mapped.code,
+          description: existing.description || mapped.description,
+          sections: Array.from(mergedSectionsMap.values()),
+        }
+      }
     }
   } catch (e) {
     // ignore
   }
+  const results: UICourse[] = Object.values(byCode)
   return results
 }

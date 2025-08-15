@@ -9,7 +9,7 @@
   --color-cx-text-subtle: oklch(92.8% 0.006 264.531);    /* gray-300 */
   --color-cx-text-muted: oklch(55.4% 0.046 257.417);     /* slate-500 */
   --color-cx-text-secondary: oklch(70.4% 0.04 256.788);  /* slate-400 */
-  --color-cx-text-weak-muted: #334155; /* slate-700 */
+  --color-cx-text-weak-muted: oklch(44.6% 0.043 257.281); /* slate-600 */
   --color-cx-text-weak-shimmer: oklch(37.9% 0.041 260.031); /* slate-800 */
 
   /* Surfaces / Borders */
@@ -34,6 +34,11 @@
 }
 
 /* Utilities */
+.hide-scrollbar-bg {
+  &::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+}
 .line-clamp-2 {
   display: -webkit-box;
   line-clamp: 2;
@@ -50,8 +55,15 @@
 }
 
 .bg-dotted {
-  background-image: repeating-linear-gradient(315deg,var(--color-cx-text-weak-muted)0,var(--color-cx-text-weak-muted)1px,transparent 0%,transparent 90%);
+  background-image: repeating-linear-gradient(315deg,var(--color-cx-text-weak-shimmer)0,var(--color-cx-text-weak-shimmer)1px,transparent 0%,transparent 90%);
   background-size: 6px 6px;
+  background-position: 0 0;
+  background-repeat: repeat;
+}
+
+.bg-dotted-sm {
+  background-image: repeating-linear-gradient(315deg,var(--color-cx-text-weak-shimmer)0,var(--color-cx-text-weak-shimmer)1px,transparent 0%,transparent 90%);
+  background-size: 4px 4px;
   background-position: 0 0;
   background-repeat: repeat;
 }

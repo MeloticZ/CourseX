@@ -6,7 +6,7 @@
       <span class="text-sm text-cx-text-muted">Course selection, by students, for students.</span>
     </div>
 
-    <div ref="leftScrollRef" class="w-full p-4 pb-0 gap-3 flex flex-col h-full grow overflow-y-scroll border-y border-cx-border">
+    <div ref="leftScrollRef" class="w-full p-4 pb-0 gap-3 flex flex-col h-full grow overflow-y-scroll overscroll-auto border-y border-cx-border hide-scrollbar-bg">
       <!-- <h1>Schools & Programs</h1> -->
       <input v-model="query" type="text" placeholder="Search Schools & Programs" class="w-full p-2 text-sm rounded-md border border-cx-border focus:outline-none focus:ring-1 focus:ring-cx-text-muted" />
 

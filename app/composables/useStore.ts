@@ -1,4 +1,4 @@
-import { computed, watch } from 'vue'
+import { computed, watch, onMounted } from 'vue'
 import type { UICourse, UICourseSection } from '~/composables/useAPI'
 import { parseBlocksFromApiSpec, parseBlocksFromString, type ScheduleBlock } from '~/composables/scheduleUtils'
 
@@ -11,31 +11,34 @@ export function useStore() {
     const state = useState<T>(nuxtKey, initialize)
     const flags = initFlags.value
 
-    if (process.client && !flags[nuxtKey]) {
-      try {
-        const raw = localStorage.getItem(storageKey)
-        if (raw != null) {
-          const parsed = JSON.parse(raw) as T
-          state.value = parsed as T
-        }
-      } catch (e) {
-        // ignore
-      }
-
-      watch(
-        state,
-        (val) => {
-          try {
-            localStorage.setItem(storageKey, JSON.stringify(val))
-          } catch (e) {
-            // ignore
+    if (process.client) {
+      onMounted(() => {
+        if (flags[nuxtKey]) return
+        try {
+          const raw = localStorage.getItem(storageKey)
+          if (raw != null) {
+            const parsed = JSON.parse(raw) as T
+            state.value = parsed as T
           }
-        },
-        { deep: true }
-      )
+        } catch (e) {
+          // ignore
+        }
 
-      flags[nuxtKey] = true
-      initFlags.value = { ...flags }
+        watch(
+          state,
+          (val) => {
+            try {
+              localStorage.setItem(storageKey, JSON.stringify(val))
+            } catch (e) {
+              // ignore
+            }
+          },
+          { deep: true }
+        )
+
+        flags[nuxtKey] = true
+        initFlags.value = { ...flags }
+      })
     }
 
     return state

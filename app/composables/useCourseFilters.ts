@@ -60,6 +60,7 @@ function sectionConflictsWithSchedule(section: UICourseSection, hasCollision: (s
 }
 
 function sectionMatchesScheduleFilters(section: UICourseSection, days: number[], start: number | null, end: number | null): boolean {
+  // No filters provided
   if ((!days || days.length === 0) && start == null && end == null) return true
   const spec = (section.schedule || '').toString()
   if (!spec) return false
@@ -71,8 +72,18 @@ function sectionMatchesScheduleFilters(section: UICourseSection, days: number[],
 
   const daySet = new Set(days || [])
 
+  // If only days are specified (no time bounds), require the section to be entirely on those days
+  if (daySet.size > 0 && start == null && end == null) {
+    // Every block must be on a selected day
+    return blocks.length > 0 && blocks.every((b) => daySet.has(b.dayIndex))
+  }
+
+  // Otherwise, apply time filter over relevant days
+  const isRelevantDay = (idx: number) => (daySet.size === 0 ? true : daySet.has(idx))
+
+  // Evaluate whether at least one relevant-day block matches time window (overlap semantics)
   for (const b of blocks) {
-    if (daySet.size > 0 && !daySet.has(b.dayIndex)) continue
+    if (!isRelevantDay(b.dayIndex)) continue
     const withinStart = start == null ? true : b.endMinutes > start
     const withinEnd = end == null ? true : b.startMinutes < end
     if (withinStart && withinEnd) return true
@@ -169,34 +180,67 @@ export function useCourseFilters(courses?: Ref<UICourse[]>) {
     sectionTypes: [],
   })
 
-  const coursePredicate = (course: UICourse): boolean => {
-    if (!courseMatchesSearch(course, filters.searchText)) return false
-    if (!courseMatchesLevel(course, filters.courseLevelMin, filters.courseLevelMax)) return false
+  const isSpecialType = (sec: UICourseSection): boolean => {
+    const t = normalizeSectionType(sec.type)
+    return t === 'lab' || t === 'discussion'
+  }
 
-    const matchSection = (sec: UICourseSection): boolean => {
-      if (!sectionMatchesScheduleFilters(sec, filters.days, filters.timeStartMinutes, filters.timeEndMinutes)) return false
-      if (!sectionMatchesUnits(sec, filters.unitsMin, filters.unitsMax)) return false
-      if (!sectionMatchesTypes(sec, filters.sectionTypes)) return false
-      if (!sectionMatchesTriState(sec.hasDClearance, filters.dClearance)) return false
-      if (!sectionMatchesTriState(sec.hasPrerequisites, filters.prerequisites)) return false
-      if (!sectionMatchesTriState(sec.hasDuplicatedCredit, filters.duplicatedCredit)) return false
-      if (!sectionMatchesEnrollment(sec, filters.enrollment)) return false
-      if (filters.conflicts !== 'any') {
-        const conf = sectionConflictsWithSchedule(sec, checkScheduleCollision)
-        if (filters.conflicts === 'only' && !conf) return false
-        if (filters.conflicts === 'exclude' && conf) return false
-      }
-      return true
+  const sectionMatchesOtherFilters = (sec: UICourseSection): boolean => {
+    if (!sectionMatchesScheduleFilters(sec, filters.days, filters.timeStartMinutes, filters.timeEndMinutes)) return false
+    if (!sectionMatchesTypes(sec, filters.sectionTypes)) return false
+    if (!sectionMatchesTriState(sec.hasDClearance, filters.dClearance)) return false
+    if (!sectionMatchesTriState(sec.hasPrerequisites, filters.prerequisites)) return false
+    if (!sectionMatchesTriState(sec.hasDuplicatedCredit, filters.duplicatedCredit)) return false
+    if (!sectionMatchesEnrollment(sec, filters.enrollment)) return false
+    if (filters.conflicts !== 'any') {
+      const conf = sectionConflictsWithSchedule(sec, checkScheduleCollision)
+      if (filters.conflicts === 'only' && !conf) return false
+      if (filters.conflicts === 'exclude' && conf) return false
+    }
+    return true
+  }
+
+  const filterSectionsForCourse = (course: UICourse): UICourseSection[] => {
+    const sections = course.sections || []
+    const hasUnitsFilter = filters.unitsMin != null || filters.unitsMax != null
+
+    // If units filter is active, require at least one section to satisfy it
+    if (hasUnitsFilter) {
+      const anyUnitMatch = sections.some((s) => sectionMatchesUnits(s, filters.unitsMin, filters.unitsMax))
+      if (!anyUnitMatch) return []
     }
 
-    return someSectionMatches(course, matchSection)
+    const isLecture = (s: UICourseSection) => normalizeSectionType(s.type) === 'lecture'
+
+    // Base included sections: only non-special, must satisfy other filters, and units when applicable
+    const baseIncluded: UICourseSection[] = []
+    for (const s of sections) {
+      if (isSpecialType(s)) continue
+      if (!sectionMatchesOtherFilters(s)) continue
+      if (hasUnitsFilter && !sectionMatchesUnits(s, filters.unitsMin, filters.unitsMax)) continue
+      baseIncluded.push(s)
+    }
+
+    const hasLectureIncluded = baseIncluded.some((s) => isLecture(s))
+
+    // If a lecture is included, include ALL special sections ignoring ALL filters
+    const specialsIncluded: UICourseSection[] = hasLectureIncluded
+      ? sections.filter((s) => isSpecialType(s))
+      : []
+
+    const finalSections = [...baseIncluded, ...specialsIncluded]
+    return finalSections
   }
 
   const apply = (list: UICourse[]): UICourse[] => {
     if (!list || list.length === 0) return []
     const out: UICourse[] = []
-    for (const c of list) {
-      if (coursePredicate(c)) out.push(c)
+    for (const course of list) {
+      if (!courseMatchesSearch(course, filters.searchText)) continue
+      if (!courseMatchesLevel(course, filters.courseLevelMin, filters.courseLevelMax)) continue
+      const passingSections = filterSectionsForCourse(course)
+      if (passingSections.length === 0) continue
+      out.push({ ...course, sections: passingSections })
     }
     return out
   }

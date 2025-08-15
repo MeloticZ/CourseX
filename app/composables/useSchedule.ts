@@ -8,7 +8,6 @@ import {
   type ScheduleBlock,
   type DayOfWeek,
 } from '~/composables/scheduleUtils'
-export type { ScheduleBlock, DayOfWeek } from '~/composables/scheduleUtils'
 
 export const DAY_LABELS: DayOfWeek[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 

@@ -102,14 +102,14 @@ const { checkScheduleCollision } = useStore()
 
 function occupancyClassFor(section: UICourseSection, type: 'icon' | 'text') {
   const isFull = (section.enrolled || 0) >= (section.capacity || 0)
-  if (type === 'icon') return isFull ? 'text-red-800' : 'text-cx-text-muted'
-  else if (type === 'text') return isFull ? 'decoration-red-800 text-red-800 underline decoration-1' : 'text-cx-text-secondary font-semibold'
+  if (type === 'icon') return isFull ? 'text-rose-700' : 'text-cx-text-muted'
+  else if (type === 'text') return isFull ? 'decoration-rose-700 text-rose-700 underline decoration-1' : 'text-cx-text-secondary font-semibold'
 }
 
 function scheduleCollisionClassFor(section: UICourseSection, type: 'icon' | 'text') {
   const isColliding = checkScheduleCollision(section.schedule).length > 0
-  if (type === 'icon') return isColliding ? 'text-yellow-800' : 'text-cx-text-muted'
-  else if (type === 'text') return isColliding ? 'decoration-yellow-800 text-yellow-800 underline decoration-1' : 'text-cx-text-secondary font-semibold'
+  if (type === 'icon') return isColliding ? 'text-yellow-700' : 'text-cx-text-muted'
+  else if (type === 'text') return isColliding ? 'decoration-yellow-700 text-yellow-700 underline decoration-1' : 'text-cx-text-secondary font-semibold'
 }
 
 function sectionClassFor(section: UICourseSection) {
