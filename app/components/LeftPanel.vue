@@ -6,10 +6,8 @@
       <span class="text-sm text-cx-text-muted">By students, for students.</span>
     </div>
 
-    <div ref="leftScrollRef" class="w-full p-4 pb-0 gap-3 flex flex-col h-full grow overflow-y-scroll overscroll-auto border-y border-cx-border hide-scrollbar-bg">
-      <!-- <h1>Schools & Programs</h1> -->
+    <div class="p-4 pb-3 flex flex-col gap-2 border-t border-cx-border">
       <input v-model="query" type="text" placeholder="Search Schools & Programs" class="w-full p-2 text-sm rounded-md border border-cx-border focus:outline-none focus:ring-1 focus:ring-cx-text-muted" />
-
       <div class="w-full flex flex-col">
         <NuxtLink to="/course/all" class="w-full rounded-md flex items-center gap-2 hover:bg-cx-surface-800/40 px-1 py-1 rounded">
           <Icon name="uil:list-ul" class="h-5 w-5"/>
@@ -27,8 +25,11 @@
           </div>
         </NuxtLink>
       </div>
+    </div>
 
-      <div class="w-full flex flex-col gap-2 h-full border-t border-cx-border pt-2">
+    <div ref="leftScrollRef" class="w-full px-4 gap-3 flex flex-col h-full grow overflow-y-scroll overscroll-auto border-b border-cx-border hide-scrollbar-bg">
+      <!-- <h1>Schools & Programs</h1> -->
+      <div class="w-full flex flex-col gap-2 h-full border-0 border-cx-border">
         <!-- Schools & Programs List -->
         <ProgramTree :schools="schools" :query="query" />
       </div>
