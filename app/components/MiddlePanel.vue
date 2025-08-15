@@ -1,17 +1,61 @@
 <template>
   <div class="w-full h-full border-x border-cx-border flex flex-col min-w-0 p-4">
-    <div class="w-full flex flex-col gap-2 pb-1 border-cx-border">
+    <div class="w-full flex flex-col gap-2 pb-3 border-cx-border">
       <span class="text-sm text-cx-text-subtle">Available Courses</span>
-      <input v-model="query" type="text" placeholder="Search Courses" class="w-full p-2 text-sm rounded-md border border-cx-border focus:outline-none focus:ring-1 focus:ring-cx-text-muted" />
+      <input v-model="filters.searchText" type="text" placeholder="Search Courses" class="w-full p-2 text-sm rounded-md border border-cx-border focus:outline-none focus:ring-1 focus:ring-cx-text-muted" />
 
-      <div class="w-full flex flex-col justify-center items-center">
+      <!-- Filters -->
+      <div class="w-full flex justify-center py-1">
+        <div class="flex gap-4">
+          <!-- All the filters can be reset to their default state via right clicking -->
+          <div class="flex grid grid-cols-7 grid-rows-2 gap-1">
+            <!-- The user can select to toggle days of the week (default none is selected) and if time is not specified, show only course sections on the specified dates (Do not allow courses with schedule partially on the specified days)
+             They can also specify start and/or end times to filter all the days. If they specify both, the schedule must match the specified time on the specified days. -->
+            <button class="w-8 h-8 text-xl font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Filter by Sunday">S</button>
+            <button class="w-8 h-8 text-xl font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Filter by Monday">M</button>
+            <button class="w-8 h-8 text-xl font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Filter by Tuesday">T</button>
+            <button class="w-8 h-8 text-xl font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Filter by Wednesday">W</button>
+            <button class="w-8 h-8 text-xl font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Filter by Thursday">H</button>
+            <button class="w-8 h-8 text-xl font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Filter by Friday">F</button>
+            <button class="w-8 h-8 text-xl font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Filter by Saturday">S</button>
+            <input type="text" placeholder="00:00" maxlength="5" class="w-26 h-8 text-center text-xl line-clamp-1 font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer col-span-3" title="Filter by Start Time" />
+            <div class="w-8 h-8 text-xl font-semibold leading-none grid place-items-center text-cx-text-weak-shimmer" title="Schedule Filter">—</div>
+            <input type="text" placeholder="23:59" maxlength="5" class="w-26 h-8 text-center text-xl line-clamp-1 font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer col-span-3" title="Filter by End Time" />
+          </div>
+          
+          <div class="flex grid grid-cols-2 grid-rows-2 grid-flow-col gap-1">
+            <!-- The user can specify a minimum and/or maximum number of units for filtering -->
+            <input type="text" placeholder="0" maxlength="2" class="w-8 h-8 text-center text-xl line-clamp-1 font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Filter by Minimum Units" />
+            <input type="text" placeholder="16" maxlength="2" class="w-8 h-8 text-center text-xl line-clamp-1 font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Filter by Maximum Units" />
+            <!-- The user can input a course level to filter by. Even though it's 3 digit input, we only look at the first one digit to determine the level (0/1/2/3/4/5/6/7/8/9)-->
+            <input type="text" placeholder="5XX" maxlength="3" class="w-8 h-17 text-center text-xl text-sideways line-clamp-1 font-semibold leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer row-span-2" title="Filter by Course Level" />
+          </div>
+
+          <div class="flex grid grid-cols-3 grid-rows-2 gap-1">
+            <!-- You should emit visible UI indicators when the filter is toggled -->
+            <!-- For these two filters, they have three filter modes, any -> only -> exclude -->
+            <button class="w-8 h-8 text-xl font-semibold line-clamp-1 leading-none grid place-items-center bg-zebra-sm-rose text-rose-400" title="Showing Courses requiring D-Clearance">D</button>
+            <button class="w-8 h-8 text-xl font-semibold line-clamp-1 leading-none grid place-items-center bg-zebra-sm-yellow text-yellow-400" title="Showing Courses with Prerequisites">R</button>
+            <!-- The user can reset all filters to their default state -->
+            <button class="w-8 h-full text-xl text-sideways font-semibold line-clamp-1 leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer row-span-2" title="Reset Filters">Reset</button>
+            <!-- These two filters can only be toggled on or off (any -> exclude) -->
+            <button class="w-8 h-8 text-xl font-semibold line-clamp-1 leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Showing Courses with Schedule Conflicts"><Icon name="uil:clock" class="h-5 w-5 text-cx-text-weak-shimmer" /></button>
+            <button class="w-8 h-8 text-xl font-semibold line-clamp-1 leading-none grid place-items-center bg-zebra-sm text-cx-text-weak-shimmer" title="Showing Courses with Full Enrollment"><Icon name="uil:user" class="h-5 w-5 text-cx-text-weak-shimmer" /></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-between items-center px-2">
+        <div class="flex gap-1">
+          <Icon name="uil:filter" class="rotate-180 h-4 w-4 text-cx-text-weak-muted" />
+          <span class="text-xs text-cx-text-secondary">Filters</span>
+        </div>
         <span class="text-xs text-cx-text-secondary">{{ filteredCourses.length }} courses found</span>
       </div>
     </div>
 
     <div ref="scrollContainerRef" class="w-full grow overflow-y-auto overflow-x-hidden min-w-0">
       <div class="w-full flex flex-col gap-3 min-w-0">
-        <div :style="{ height: topPadding + 'px' }"></div>
         <template v-for="(course, i) in visibleCourses" :key="visibleKey(course, i)">
           <div :ref="(el) => onRowRef(el, startIndex + i)" :data-row-index="startIndex + i">
             <CourseCard
@@ -36,6 +80,7 @@ import { computed, onMounted, ref, watch, nextTick, onBeforeUnmount } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import { listAllCourses, getSchoolCourses, type UICourse } from '~/composables/useAPI'
 import { useStore } from '~/composables/useStore'
+import { useCourseFilters } from '~/composables/useCourseFilters'
 
 const route = useRoute()
 const router = useRouter()
@@ -51,8 +96,8 @@ const currentScopeKey = () => {
   return 'unknown'
 }
 
-const query = ref('')
 const courses = ref<UICourse[]>([])
+const { filters, filteredCourses } = useCourseFilters(courses)
 
 // Route-aware data loading
 type ModeAll = { mode: 'all'; courseCode: string | null; sectionId: string | null }
@@ -107,22 +152,7 @@ watch(scheduledCourses, () => {
   }
 })
 
-// Text search
-const normalize = (value: string) => value.toLowerCase().trim()
-
-const filteredCourses = computed(() => {
-  const search = normalize(query.value)
-  if (!search) return courses.value
-  return courses.value.filter((c) => {
-    const sectionStrings = (c.sections || [])
-      .flatMap((s) => [s.sectionId, s.instructor, s.schedule, s.location, String(s.units ?? ''), s.type ?? ''])
-      .filter(Boolean)
-    const haystack = [c.title, c.code, c.description, ...sectionStrings]
-      .join(' ')
-      .toLowerCase()
-    return haystack.includes(search)
-  })
-})
+// Filtering handled by useCourseFilters
 
 // Variable-height virtualization
 const scrollContainerRef = ref<HTMLElement | null>(null)

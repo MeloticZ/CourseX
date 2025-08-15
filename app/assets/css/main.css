@@ -10,10 +10,10 @@
   --color-cx-text-muted: oklch(55.4% 0.046 257.417);     /* slate-500 */
   --color-cx-text-secondary: oklch(70.4% 0.04 256.788);  /* slate-400 */
   --color-cx-text-weak-muted: #334155; /* slate-700 */
-  --color-cx-text-weak-shimmer: oklch(27.9% 0.041 260.031); /* slate-800 */
+  --color-cx-text-weak-shimmer: oklch(37.9% 0.041 260.031); /* slate-800 */
 
   /* Surfaces / Borders */
-  --color-cx-border: oklch(24.8% 0.042 265.755); /* ~slate-890 */
+  --color-cx-border: oklch(29.8% 0.045 265.755); /* ~slate-890 */
   --color-cx-surface-700: #334155; /* slate-700 */
   --color-cx-surface-800: #1f2937; /* slate-800 */
   --color-cx-surface-950: #020617; /* slate-950 */
