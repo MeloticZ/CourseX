@@ -20,14 +20,6 @@ export function timeToMinutes(time: string): number {
   return h * 60 + mm
 }
 
-export function minutesToTime(total: number): string {
-  const h = Math.floor(total / 60)
-  const m = total % 60
-  const hh = h.toString().padStart(2, '0')
-  const mm = m.toString().padStart(2, '0')
-  return `${hh}:${mm}`
-}
-
 export function dayIndexFromToken(token: string): number | null {
   const map: Record<string, number> = {
     sun: 0,

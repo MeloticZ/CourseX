@@ -4,10 +4,10 @@ import {
   parseBlocksFromString,
   parseBlocksFromApiSpec,
   timeToMinutes,
-  minutesToTime,
   type ScheduleBlock,
   type DayOfWeek,
 } from '~/composables/scheduleUtils'
+import { minutesToTime } from '~/composables/useTimeParsing'
 
 export const DAY_LABELS: DayOfWeek[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 

@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="font-serif w-full items-center pb-4 p-4">
       <h1 class="text-4xl text-transparent bg-clip-text bg-gradient-to-r from-cx-brand-start to-cx-brand-end global-shadow">CourseX</h1>
-      <span class="text-sm text-cx-text-muted">Course selection, by students, for students.</span>
+      <span class="text-sm text-cx-text-muted">By students, for students.</span>
     </div>
 
     <div ref="leftScrollRef" class="w-full p-4 pb-0 gap-3 flex flex-col h-full grow overflow-y-scroll overscroll-auto border-y border-cx-border hide-scrollbar-bg">
