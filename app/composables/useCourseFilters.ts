@@ -72,25 +72,23 @@ function sectionMatchesScheduleFilters(section: UICourseSection, days: number[],
 
   const daySet = new Set(days || [])
 
-  // If only days are specified (no time bounds), require the section to be entirely on those days
-  if (daySet.size > 0 && start == null && end == null) {
-    // Every block must be on a selected day
-    return blocks.length > 0 && blocks.every((b) => daySet.has(b.dayIndex))
+  // If any days are selected, the section must be entirely on those days
+  if (daySet.size > 0) {
+    const isSubsetOfSelectedDays = blocks.every((b) => daySet.has(b.dayIndex))
+    if (!isSubsetOfSelectedDays) return false
   }
 
-  // Otherwise, apply time filter over relevant days
-  const isRelevantDay = (idx: number) => (daySet.size === 0 ? true : daySet.has(idx))
-
-  // Require a block whose start is after/equal to the start filter and whose end
-  // is before/equal to the end filter. This ensures the class fully fits within
-  // the requested time window instead of merely overlapping it.
-  for (const b of blocks) {
-    if (!isRelevantDay(b.dayIndex)) continue
-    const meetsStart = start == null ? true : b.startMinutes >= start
-    const meetsEnd = end == null ? true : b.endMinutes <= end
-    if (meetsStart && meetsEnd) return true
+  // If a time window is set, ALL meeting blocks must fully fit within the window
+  if (start != null) {
+    const allStartAfter = blocks.every((b) => b.startMinutes >= start)
+    if (!allStartAfter) return false
   }
-  return false
+  if (end != null) {
+    const allEndBefore = blocks.every((b) => b.endMinutes <= end)
+    if (!allEndBefore) return false
+  }
+
+  return true
 }
 
 function sectionMatchesTriState(flag: boolean, state: TriState): boolean {
