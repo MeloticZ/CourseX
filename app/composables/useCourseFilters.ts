@@ -81,12 +81,14 @@ function sectionMatchesScheduleFilters(section: UICourseSection, days: number[],
   // Otherwise, apply time filter over relevant days
   const isRelevantDay = (idx: number) => (daySet.size === 0 ? true : daySet.has(idx))
 
-  // Evaluate whether at least one relevant-day block matches time window (overlap semantics)
+  // Require a block whose start is after/equal to the start filter and whose end
+  // is before/equal to the end filter. This ensures the class fully fits within
+  // the requested time window instead of merely overlapping it.
   for (const b of blocks) {
     if (!isRelevantDay(b.dayIndex)) continue
-    const withinStart = start == null ? true : b.endMinutes > start
-    const withinEnd = end == null ? true : b.startMinutes < end
-    if (withinStart && withinEnd) return true
+    const meetsStart = start == null ? true : b.startMinutes >= start
+    const meetsEnd = end == null ? true : b.endMinutes <= end
+    if (meetsStart && meetsEnd) return true
   }
   return false
 }
