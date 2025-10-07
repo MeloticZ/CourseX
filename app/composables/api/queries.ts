@@ -57,12 +57,16 @@ export async function getSchoolCourses(schoolPrefix: string, programPrefix: stri
 export async function getCourseDetails(courseCode: string): Promise<CourseDetails | null> {
   if (!courseCode) return null
   const { termId } = useTermId()
+  // Ensure the index for the current term is built before accessing details
+  await ensureIndexAsync(termId.value)
   return getAggregatedCourseDetails(courseCode, termId.value)
 }
 
 export async function getSectionDetails(courseCode: string, sectionId: string): Promise<CourseDetails | null> {
   if (!courseCode || !sectionId) return null
   const { termId } = useTermId()
+  // Ensure the index for the current term is built before accessing details
+  await ensureIndexAsync(termId.value)
   return getSectionDetailsIndexed(courseCode, sectionId, termId.value)
 }
 
