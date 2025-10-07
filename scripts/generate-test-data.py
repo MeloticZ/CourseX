@@ -3,7 +3,7 @@ import requests
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-response = requests.get("https://classes.usc.edu/api/Schools/TermCode?termCode=20253")
+response = requests.get("https://classes.usc.edu/api/Schools/TermCode?termCode=20261")
 
 data = response.json()
 
@@ -23,7 +23,7 @@ for school in data:
         "programs": programs
     })
 
-with open("../app/assets/data/programs.json", "w", encoding="utf-8") as f:
+with open("../public/data/programs.json", "w", encoding="utf-8") as f:
     json.dump(output, f, ensure_ascii=False)
 
 print("Program data generated successfully, gathering data for courses...")
@@ -105,8 +105,8 @@ def get_courses(school_code, program_code):
     for attempt_index in range(1, 5):  # initial try + 3 retries
         try:
             response = requests.get(
-                f"https://classes.usc.edu/api/Courses/CoursesByTermSchoolProgram?termCode=20253&school={school_code}&program={program_code}",
-                timeout=30,
+                f"https://classes.usc.edu/api/Courses/CoursesByTermSchoolProgram?termCode=20261&school={school_code}&program={program_code}",
+                timeout=60,
             )
             response.raise_for_status()
             data = response.json()
@@ -174,7 +174,7 @@ def fetch_program_courses(school_prefix, program_prefix):
         return (school_prefix, program_prefix, None, e)
 
 tasks = []
-with ThreadPoolExecutor(max_workers=16) as executor:
+with ThreadPoolExecutor(max_workers=12) as executor:
     for school in output.get("schools", []):
         school_prefix = school.get("prefix")
         if not school_prefix:
@@ -195,7 +195,7 @@ with ThreadPoolExecutor(max_workers=16) as executor:
             courses_by_school[school_prefix] = {}
         courses_by_school[school_prefix][program_prefix] = courses
 
-with open("../app/assets/data/courses.json", "w", encoding="utf-8") as f:
+with open("../public/data/courses.json", "w", encoding="utf-8") as f:
     json.dump(courses_by_school, f, ensure_ascii=False)
 
 print("Course data generated successfully.")

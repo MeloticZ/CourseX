@@ -9,12 +9,12 @@
     <div class="p-4 pb-3 flex flex-col gap-2 border-t border-cx-border">
       <input v-model="query" type="text" placeholder="Search Schools & Programs" class="w-full p-2 text-sm rounded-md border border-cx-border focus:outline-none focus:ring-1 focus:ring-cx-text-muted" />
       <div class="w-full flex flex-col">
-        <NuxtLink to="/course/all" class="w-full rounded-md flex items-center gap-2 hover:bg-cx-surface-800/40 px-1 py-1 rounded">
+        <NuxtLink :to="`/course/${termId}/all`" class="w-full rounded-md flex items-center gap-2 hover:bg-cx-surface-800/40 px-1 py-1 rounded">
           <Icon name="uil:list-ul" class="h-5 w-5"/>
           <span class="text-md">All Courses</span>
         </NuxtLink>
 
-        <NuxtLink to="/course/scheduled" class="w-full rounded-md flex justify-between items-center gap-2 hover:bg-cx-surface-800/40 px-1 py-1 rounded">
+        <NuxtLink :to="`/course/${termId}/scheduled`" class="w-full rounded-md flex justify-between items-center gap-2 hover:bg-cx-surface-800/40 px-1 py-1 rounded">
           <div class="flex gap-2 items-center shrink-0">
             <Icon name="uil:calendar" class="h-5 w-5"/>
             <span class="text-md">Scheduled Courses</span>
@@ -49,9 +49,9 @@
             <div class="w-full h-fit rounded-md text-sm flex items-center p-2 gap-2 hover:bg-cx-surface-800/90">
               <Icon name="uil:calendar" class="h-5 w-5" />
               <!-- selector, remove downwards arrow -->
-              <select class="rounded-md appearance-none h-full">
-                <option value="fall-2025">Fall 2025</option>
-                <option value="spring-2025">Spring 2026</option>
+              <select :value="termId" @change="onTermChange" aria-label="Select term" class="rounded-md appearance-none h-full">
+                <option value="20253">Fall 2025</option>
+                <option value="20261">Spring 2026</option>
               </select>
             </div>
           </div>
@@ -59,7 +59,7 @@
       </div>
       <div class="w-full h-full flex flex-col items-center justify-center">
         <span class="text-sm text-cx-text-muted">Built with ❤️ by Korgo</span>
-        <span class="text-[8px] text-cx-text-weak-muted">ver: <a href="https://github.com/MeloticZ/CourseX" class="underline hover:text-cx-text-secondary">{{ commitSha.slice(0, 7) }}</a> - data: 20250818 09:30 UTC</span>
+        <span class="text-[8px] text-cx-text-weak-muted">ver: <a href="https://github.com/MeloticZ/CourseX" class="underline hover:text-cx-text-secondary">{{ commitSha.slice(0, 7) }}</a> - data: 20251006 22:50 PST</span>
       </div>
     </div>
 
@@ -79,6 +79,7 @@ import { ref, computed, onMounted, onBeforeUnmount, nextTick, onActivated, onDea
 import { useRoute, useRouter, onBeforeRouteLeave } from 'vue-router'
 import { listSchoolAndPrograms } from '~/composables/useAPI'
 import { useStore } from '~/composables/useStore'
+import { useTermId } from '@/composables/useTermId'
  
 
 type Program = {
@@ -98,6 +99,7 @@ const runtimeConfig = useRuntimeConfig()
 const commitSha = computed(() => runtimeConfig.public.WORKERS_CI_COMMIT_SHA || 'dev')
 
 const { totalScheduledUnits, totalScheduledUnitsLabel } = useStore()
+const { termId } = useTermId()
 
 // Persist left panel scroll position
 const leftScrollTop = useState<number>('ui:scroll:left', () => 0)
@@ -220,6 +222,15 @@ function onDocumentClick(e: MouseEvent) {
 
 function onDocumentKeydown(e: KeyboardEvent) {
   if (e.key === 'Escape') settingsOpen.value = false
+}
+
+function onTermChange(e: Event) {
+  const target = e.target as HTMLSelectElement | null
+  const selected = (target?.value || '').toString()
+  if (!/^\d{5}$/.test(selected)) return
+  const slug = (route.params.slug as string[] | undefined) || []
+  const nextPath = ['/course', selected, ...slug].join('/')
+  router.push(nextPath)
 }
 
 </script>

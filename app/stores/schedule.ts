@@ -1,31 +1,67 @@
 import { defineStore } from 'pinia'
 import { computed, ref, watch, onMounted } from 'vue'
+import { useTermId } from '@/composables/useTermId'
 import type { UICourse, UICourseSection } from '@/composables/api/types'
 import { parseBlocksFromApiSpec, parseBlocksFromString, type ScheduleBlock } from '@/composables/scheduleUtils'
 
 export const useScheduleStore = defineStore('schedule', () => {
-  const map = ref<Record<string, UICourse>>({})
+  const byTerm = ref<Record<string, Record<string, UICourse>>>({})
+  const { termId } = useTermId()
 
-  const KEY = 'ui:scheduled:courses:v1'
+  function keyFor(term: string) { return `cx:schedule:${term}` }
+
+  function normalizeCourseMapRaw(raw: unknown, term: string): Record<string, UICourse> {
+    try {
+      const obj: any = raw || {}
+      // Unwrap { schedulesByTerm: { [term]: { ...courses } } }
+      let map: any = (obj && obj.schedulesByTerm && obj.schedulesByTerm[term]) ? obj.schedulesByTerm[term] : obj
+      // If the map itself accidentally contains a nested schedulesByTerm, unwrap again
+      if (map && map.schedulesByTerm && map.schedulesByTerm[term]) {
+        map = map.schedulesByTerm[term]
+      }
+      // Defensive: strip accidental wrapper key from course map
+      if (map && typeof map === 'object' && 'schedulesByTerm' in map) {
+        const cloned = { ...(map as any) }
+        delete (cloned as any).schedulesByTerm
+        map = cloned
+      }
+      return (map && typeof map === 'object') ? map as Record<string, UICourse> : {}
+    } catch {
+      return {}
+    }
+  }
+
+  function currentMap(): Record<string, UICourse> {
+    return byTerm.value[termId.value] || {}
+  }
+
+  function setCurrentMap(next: Record<string, UICourse>) {
+    byTerm.value = { ...byTerm.value, [termId.value]: next }
+  }
 
   if (process.client) {
     onMounted(() => {
       try {
-        const raw = localStorage.getItem(KEY)
-        if (raw != null) map.value = JSON.parse(raw)
+        const raw = localStorage.getItem(keyFor(termId.value))
+        if (raw != null) {
+          const parsed = JSON.parse(raw)
+          byTerm.value[termId.value] = normalizeCourseMapRaw(parsed, termId.value)
+        }
       } catch {}
-      watch(map, (v) => {
-        try { localStorage.setItem(KEY, JSON.stringify(v)) } catch {}
+      watch(() => byTerm.value[termId.value], (v) => {
+        // Ensure we never persist nested wrappers
+        const normalized = normalizeCourseMapRaw(v as any, termId.value)
+        try { localStorage.setItem(keyFor(termId.value), JSON.stringify({ schedulesByTerm: normalized ? { [termId.value]: normalized } : {} })) } catch {}
       }, { deep: true })
     })
   }
 
-  const scheduledCourses = computed<UICourse[]>(() => Object.values(map.value || {}))
+  const scheduledCourses = computed<UICourse[]>(() => Object.values(currentMap() || {}))
 
   const totalScheduledUnits = computed<number>(() => {
     try {
       let sum = 0
-      for (const course of Object.values(map.value || {})) {
+      for (const course of Object.values(currentMap() || {})) {
         for (const section of course.sections || []) {
           const u = typeof section.units === 'number' ? section.units : parseFloat(((section.units as any) || '0').toString())
           sum += Number.isFinite(u) ? u : 0
@@ -42,7 +78,7 @@ export const useScheduleStore = defineStore('schedule', () => {
   function upsertScheduledSection(course: { code: string; title: string; description: string }, section: UICourseSection) {
     const code = (course.code || '').toString().trim().toUpperCase()
     if (!code) return
-    const existing = map.value[code] || {
+    const existing = currentMap()[code] || {
       title: course.title,
       code,
       description: course.description || '',
@@ -50,13 +86,13 @@ export const useScheduleStore = defineStore('schedule', () => {
     }
     const nextSections = (existing.sections || []).filter((s) => s.sectionId !== section.sectionId)
     nextSections.push({ ...section })
-    map.value = { ...map.value, [code]: { ...existing, title: course.title, description: course.description || '', sections: nextSections } }
+    setCurrentMap({ ...currentMap(), [code]: { ...existing, title: course.title, description: course.description || '', sections: nextSections } })
   }
 
   function hasScheduled(courseCode?: string | null, sectionId?: string | null): boolean {
     const code = (courseCode || '').toString().trim().toUpperCase()
     if (!code) return false
-    const course = map.value[code]
+    const course = currentMap()[code]
     if (!course) return false
     const sid = (sectionId || '').toString().trim().toUpperCase()
     if (!sid) return (course.sections || []).length > 0
@@ -66,22 +102,22 @@ export const useScheduleStore = defineStore('schedule', () => {
   function removeScheduledSection(courseCode?: string | null, sectionId?: string | null) {
     const code = (courseCode || '').toString().trim().toUpperCase()
     if (!code) return
-    const course = map.value[code]
+    const course = currentMap()[code]
     if (!course) return
     if (!sectionId) {
-      const next = { ...map.value }
+      const next = { ...currentMap() }
       delete next[code]
-      map.value = next
+      setCurrentMap(next)
       return
     }
     const sid = (sectionId || '').toString().trim().toUpperCase()
     const nextSections = (course.sections || []).filter((s) => (s.sectionId || '').toString().trim().toUpperCase() !== sid)
     if (nextSections.length === 0) {
-      const next = { ...map.value }
+      const next = { ...currentMap() }
       delete next[code]
-      map.value = next
+      setCurrentMap(next)
     } else {
-      map.value = { ...map.value, [code]: { ...course, sections: nextSections } }
+      setCurrentMap({ ...currentMap(), [code]: { ...course, sections: nextSections } })
     }
   }
 
@@ -96,7 +132,7 @@ export const useScheduleStore = defineStore('schedule', () => {
     if (!inputBlocksRaw || inputBlocksRaw.length === 0) return []
 
     const scheduledBlocks: ScheduleBlock[] = []
-    for (const course of Object.values(map.value || {})) {
+    for (const course of Object.values(currentMap() || {})) {
       for (const section of course.sections || []) {
         const blocks = parseBlocksFromApiSpec((section.schedule || '').toString(), course.title, undefined, course.code, section.sectionId)
         scheduledBlocks.push(...blocks)
@@ -115,7 +151,7 @@ export const useScheduleStore = defineStore('schedule', () => {
   }
 
   return {
-    map,
+    byTerm,
     scheduledCourses,
     upsertScheduledSection,
     hasScheduled,

@@ -1,7 +1,8 @@
-import { computed, reactive } from 'vue'
+import { computed, reactive, watch } from 'vue'
 import type { Ref } from 'vue'
 import type { UICourse, UICourseSection } from '~/composables/useAPI'
 import { useStore } from '~/composables/useStore'
+import { useTermId } from '@/composables/useTermId'
 import { parseUnitsToNumber } from '@/composables/filters/units'
 import { normalizeString, normalizeSectionType } from '@/composables/filters/normalize'
 import { courseMatchesSearch } from '@/composables/filters/search'
@@ -53,6 +54,7 @@ function someSectionMatches(
 
 export function useCourseFilters(courses?: Ref<UICourse[]>) {
   const { checkScheduleCollision } = useStore()
+  const { termId } = useTermId()
 
   const filters = reactive<CourseFiltersState>({
     searchText: '',
@@ -179,6 +181,11 @@ export function useCourseFilters(courses?: Ref<UICourse[]>) {
   const filteredCourses = computed<UICourse[]>(() => {
     if (!courses) return []
     return apply(courses.value || [])
+  })
+
+  // Reset filters when term changes (prevents stale conflicts cache)
+  watch(() => termId.value, () => {
+    reset()
   })
 
   const reset = () => {

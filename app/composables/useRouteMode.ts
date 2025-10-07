@@ -8,6 +8,7 @@ export type RouteMode = ModeAll | ModeScheduled | ModeProgram | ModeUnknown
 
 export function useRouteMode() {
   const route = useRoute()
+  const term = computed(() => (route.params as any)?.termId as string | undefined)
 
   const mode = computed<RouteMode>(() => {
     const parts = (route.params.slug as string[] | undefined) || []
@@ -27,13 +28,14 @@ export function useRouteMode() {
   })
 
   function makeSelectionPath(target: RouteMode, code: string, sectionId: string | null): string {
+    const t = term.value || '20261'
     if (target.mode === 'all' || target.mode === 'unknown') {
-      return `/course/all/${encodeURIComponent(code)}/${encodeURIComponent(sectionId || 'section')}`
+      return `/course/${t}/all/${encodeURIComponent(code)}/${encodeURIComponent(sectionId || 'section')}`
     }
     if (target.mode === 'scheduled') {
-      return `/course/scheduled/${encodeURIComponent(code)}/${encodeURIComponent(sectionId || 'section')}`
+      return `/course/${t}/scheduled/${encodeURIComponent(code)}/${encodeURIComponent(sectionId || 'section')}`
     }
-    return `/course/${encodeURIComponent(target.school)}/${encodeURIComponent(target.program)}/${encodeURIComponent(code)}/${encodeURIComponent(sectionId || 'section')}`
+    return `/course/${t}/${encodeURIComponent(target.school)}/${encodeURIComponent(target.program)}/${encodeURIComponent(code)}/${encodeURIComponent(sectionId || 'section')}`
   }
 
   const scopeKey = computed<string>(() => {

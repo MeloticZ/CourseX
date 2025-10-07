@@ -1,4 +1,4 @@
-import coursesBySchool from '@/assets/data/courses.json'
+import { useTermId } from '@/composables/useTermId'
 import type { CourseDetails, RawGroupedCourse, RawSection, UICourse, UICourseSection } from '../api/types'
 import { mapGroupedToUICourse, mergeSectionsById } from '../api/mappers'
 import { normalizeCourseCode, normalizeSectionId } from '@/utils/normalize'
@@ -12,13 +12,22 @@ type CourseIndex = {
   aggregatedByCode: Map<string, CourseDetails>
 }
 
-let cached: CourseIndex | null = null
+const cachedByTerm = new Map<string, CourseIndex>()
 
-function buildIndex(): CourseIndex {
+async function loadCoursesBySchool(termId: string): Promise<Record<string, any>> {
+  const data = await $fetch(`/data/${termId}/courses.json`)
+  if (!data) {
+    throw createError({ statusCode: 404, statusMessage: 'Courses not found for term' })
+  }
+  return (data || {}) as any
+}
+
+async function buildIndex(termId: string): Promise<CourseIndex> {
   const byKeyMerged = new Map<string, UICourse>()
   const byCodeToSections = new Map<string, SectionEntry[]>()
   const byCodeSection = new Map<string, SectionEntry>()
 
+  const coursesBySchool = await loadCoursesBySchool(termId)
   const schools = Object.keys(coursesBySchool as Record<string, unknown>)
   for (const schoolPrefix of schools) {
     const byProgram = (coursesBySchool as Record<string, any>)[schoolPrefix] as Record<string, RawGroupedCourse[]>
@@ -104,19 +113,30 @@ function buildIndex(): CourseIndex {
   }
 }
 
-export function ensureIndex(): CourseIndex {
-  if (!cached) cached = buildIndex()
-  return cached
+export function ensureIndex(termId?: string): CourseIndex {
+  const id = termId || '20261'
+  const existing = cachedByTerm.get(id)
+  if (!existing) throw new Error('Index not built yet for term: ' + id)
+  return existing
 }
 
-export function getAggregatedCourseDetails(code: string): CourseDetails | null {
-  const idx = ensureIndex()
+export async function ensureIndexAsync(termId?: string): Promise<CourseIndex> {
+  const id = termId || '20261'
+  const existing = cachedByTerm.get(id)
+  if (existing) return existing
+  const built = await buildIndex(id)
+  cachedByTerm.set(id, built)
+  return built
+}
+
+export function getAggregatedCourseDetails(code: string, termId?: string): CourseDetails | null {
+  const idx = ensureIndex(termId)
   const key = normalizeCourseCode(code)
   return idx.aggregatedByCode.get(key) || null
 }
 
-export function getSectionDetailsIndexed(code: string, sectionId: string): CourseDetails | null {
-  const idx = ensureIndex()
+export function getSectionDetailsIndexed(code: string, sectionId: string, termId?: string): CourseDetails | null {
+  const idx = ensureIndex(termId)
   const c = normalizeCourseCode(code)
   const s = normalizeSectionId(sectionId)
   const entry = idx.byCodeSection.get(`${c}#${s}`)

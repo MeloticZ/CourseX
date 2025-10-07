@@ -38,9 +38,3 @@ Locally preview production build:
 ```bash
 bun run preview
 ```
-
-## Code Reference
-
-See CODEMAP for a complete file and API overview:
-
-- [CODEMAP.md](./CODEMAP.md)

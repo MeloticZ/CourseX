@@ -23,7 +23,7 @@
           v-for="program in school.filteredPrograms"
           :key="program.prefix"
           class="w-full rounded-md flex items-center gap-2 justify-between hover:bg-slate-800/40 px-1 py-1 rounded"
-          :to="`/course/${school.prefix}/${program.prefix}`"
+          :to="`/course/${termId}/${school.prefix}/${program.prefix}`"
         >
           <div class="flex items-center gap-2 flex-1 min-w-0">
             <Icon name="uil:book-open" class="h-4 w-4 shrink-0"/>
@@ -39,6 +39,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { useTermId } from '@/composables/useTermId'
 
 type Program = {
   name: string
@@ -107,6 +108,8 @@ const toggleSchool = (school: School) => {
   else set.add(key)
   openSchoolKeySet.value = set
 }
+
+const { termId } = useTermId()
 
 </script>
 

@@ -1,12 +1,14 @@
 import { ref, computed, watchEffect } from 'vue'
 import type { Ref } from 'vue'
 import { listAllCourses, getSchoolCourses, type UICourse } from '~/composables/useAPI'
+import { useTermId } from '@/composables/useTermId'
 import { useStore } from '~/composables/useStore'
 import { useRouteMode, type RouteMode } from '~/composables/useRouteMode'
 
 export function useCourseListSource() {
   const { scheduledCourses } = useStore()
   const { mode, scopeKey } = useRouteMode()
+  const { termId } = useTermId()
 
   const courses: Ref<UICourse[]> = ref([])
 
@@ -30,7 +32,9 @@ export function useCourseListSource() {
     const m = mode.value
     // react to scheduled list changes only when in scheduled mode
     const scheduleVersion = m.mode === 'scheduled' ? (scheduledCourses.value.length) : 0
+    const t = termId.value
     void scheduleVersion // dependency capture
+    void t
     reload()
   })
 
