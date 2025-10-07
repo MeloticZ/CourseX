@@ -139,8 +139,11 @@ import { useSchedule } from '~/composables/useSchedule'
 import type { ScheduleBlock } from '~/composables/scheduleUtils'
 import { getCourseTypeMeta } from '~/composables/useCourseTypeMeta'
 import { useStore } from '~/composables/useStore'
+import { useCourseListSource } from '~/composables/useCourseListSource'
 
-const { selectedCourseCode, selectedSectionId } = useCourseSelection()
+const { selectedCourseCode, selectedSectionId, selectCourse } = useCourseSelection()
+const router = useRouter()
+const { mode } = useCourseListSource()
 
 const details = ref<CourseDetails | null>(null)
 
@@ -327,8 +330,21 @@ onBeforeUnmount(() => {
 function onBlockClick(id: string) {
   const target = blocks.value.find((b) => b.id === id)
   if (!target) return
-  // remove all blocks linked to the same course/section
-  removeCourseSection(target.courseCode || null, target.sectionId || null)
+  const courseCode = target.courseCode
+  if (!courseCode) return
+  const sectionId = target.sectionId || 'section'
+
+  // Update selection immediately for responsive UI
+  selectCourse(courseCode, target.sectionId || null)
+
+  const parsed = mode.value
+  if (parsed.mode === 'all' || parsed.mode === 'unknown') {
+    router.push(`/course/all/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId)}`)
+  } else if (parsed.mode === 'scheduled') {
+    router.push(`/course/scheduled/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId)}`)
+  } else {
+    router.push(`/course/all/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId)}`)
+  }
 }
 
 function hashColorFromCode(code: string): string {

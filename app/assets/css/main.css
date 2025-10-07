@@ -14,9 +14,68 @@
 
   /* Surfaces / Borders */
   --color-cx-border: oklch(29.8% 0.045 265.755); /* ~slate-890 */
-  --color-cx-surface-700: #334155; /* slate-700 */
-  --color-cx-surface-800: #1f2937; /* slate-800 */
-  --color-cx-surface-950: #020617; /* slate-950 */
+  --color-cx-background: oklch(13% 0.028 261.692); /* gray-950 */
+  --color-cx-background-decorative: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  --color-cx-surface-700: oklch(37.2% 0.044 257.287); /* slate-700 */
+  --color-cx-surface-800: oklch(27.9% 0.041 260.031); /* slate-800 */
+  --color-cx-surface-950: oklch(12.9% 0.042 264.695); /* slate-950 */
+
+  /* Status / Accents */
+  --color-cx-yellow-700: #ca8a04;
+  --color-cx-rose-700: #be123c;
+  --color-cx-green-700: #166534;
+  --color-cx-blue-700: #1e40af;
+  --color-cx-violet-700: #6d28d9;
+}
+
+/* Color mode overrides
+   Nuxt color mode sets a class of either `dark` or `light` on <html>.
+   We override our CSS variables under those classes so components update live. */
+.dark {
+  --color-cx-brand-start: #8b5cf6; /* violet-500 */
+  --color-cx-brand-end: #d946ef;   /* fuchsia-500 */
+
+  /* Neutrals / Text */
+  --color-cx-text-subtle: oklch(92.8% 0.006 264.531);    /* gray-300 */
+  --color-cx-text-muted: oklch(55.4% 0.046 257.417);     /* slate-500 */
+  --color-cx-text-secondary: oklch(70.4% 0.04 256.788);  /* slate-400 */
+  --color-cx-text-weak-muted: oklch(44.6% 0.043 257.281); /* slate-600 */
+  --color-cx-text-weak-shimmer: oklch(37.9% 0.041 260.031); /* slate-800 */
+
+  /* Surfaces / Borders */
+  --color-cx-border: oklch(29.8% 0.045 265.755); /* ~slate-890 */
+  --color-cx-background: oklch(13% 0.028 261.692); /* gray-950 */
+  --color-cx-background-decorative: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  --color-cx-surface-700: oklch(37.2% 0.044 257.287); /* slate-700 */
+  --color-cx-surface-800: oklch(27.9% 0.041 260.031); /* slate-800 */
+  --color-cx-surface-950: oklch(12.9% 0.042 264.695); /* slate-950 */
+
+  /* Status / Accents */
+  --color-cx-yellow-700: #ca8a04;
+  --color-cx-rose-700: #be123c;
+  --color-cx-green-700: #166534;
+  --color-cx-blue-700: #1e40af;
+  --color-cx-violet-700: #6d28d9;
+}
+
+.light {
+  --color-cx-brand-start: #8b5cf6; /* violet-500 */
+  --color-cx-brand-end: #d946ef;   /* fuchsia-500 */
+
+  /* Neutrals / Text */
+  --color-cx-text-subtle: oklch(27.8% 0.033 256.848);    /* gray-800 */
+  --color-cx-text-muted: oklch(55.4% 0.046 257.417);     /* slate-500 */
+  --color-cx-text-secondary: oklch(44.6% 0.043 257.281);  /* slate-600 */
+  --color-cx-text-weak-muted: oklch(70.4% 0.04 256.788); /* slate-400 */
+  --color-cx-text-weak-shimmer: oklch(92.9% 0.013 255.508); /* slate-200 */
+
+  /* Surfaces / Borders */
+  --color-cx-border: oklch(86.9% 0.022 252.894); /* slate-300 */
+  --color-cx-background: oklch(98.5% 0.002 247.839); /* gray-50 */
+  --color-cx-background-decorative: oklch(98.5% 0 0); /* zinc-50 */
+  --color-cx-surface-700: oklch(86.9% 0.022 252.894); /* slate-300 */
+  --color-cx-surface-800: oklch(92.9% 0.013 255.508); /* slate-200 */
+  --color-cx-surface-950: oklch(98.4% 0.003 247.858); /* slate-50 */
 
   /* Status / Accents */
   --color-cx-yellow-700: #ca8a04;

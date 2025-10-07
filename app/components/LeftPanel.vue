@@ -34,7 +34,29 @@
         <ProgramTree :schools="schools" :query="query" />
       </div>
     </div>
-    <div class="w-full h-16">
+    <div class="w-full h-16 flex justify-between items-center">
+      <div class="flex items-center gap-2 p-1 border-r border-cx-border" ref="settingsRef">
+        <!-- Settings menu -->
+        <div class="relative">
+          <button @click="toggleSettings" title="Settings" class="flex justify-center items-center p-2 rounded-md hover:bg-cx-surface-700/20">
+            <Icon name="uil:cog" class="h-6 w-6 text-cx-text-subtle" />
+          </button>
+          <div v-if="settingsOpen" class="absolute bottom-full left-0 mb-2 w-48 rounded-md border border-cx-border bg-cx-surface-800/30 backdrop-blur shadow-lg p-2 z-50">
+            <button @click="cycleTheme" :title="`Theme: ${preferenceLabel}`" class="w-full flex items-center gap-2 p-2 rounded-md hover:bg-cx-surface-800/80">
+              <Icon :name="themeIcon" class="h-5 w-5" />
+              <span class="text-sm">Cycle Theme</span>
+            </button>
+            <div class="w-full h-fit rounded-md text-sm flex items-center p-2 gap-2 hover:bg-cx-surface-800/90">
+              <Icon name="uil:calendar" class="h-5 w-5" />
+              <!-- selector, remove downwards arrow -->
+              <select class="rounded-md appearance-none h-full">
+                <option value="fall-2025">Fall 2025</option>
+                <option value="spring-2025">Spring 2026</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="w-full h-full flex flex-col items-center justify-center">
         <span class="text-sm text-cx-text-muted">Built with ❤️ by Korgo</span>
         <span class="text-[8px] text-cx-text-weak-muted">ver: <a href="https://github.com/MeloticZ/CourseX" class="underline hover:text-cx-text-secondary">{{ commitSha.slice(0, 7) }}</a> - data: 20250818 09:30 UTC</span>
@@ -57,6 +79,7 @@ import { ref, computed, onMounted, onBeforeUnmount, nextTick, onActivated, onDea
 import { useRoute, useRouter, onBeforeRouteLeave } from 'vue-router'
 import { listSchoolAndPrograms } from '~/composables/useAPI'
 import { useStore } from '~/composables/useStore'
+ 
 
 type Program = {
   name: string
@@ -110,6 +133,9 @@ onMounted(async () => {
   await restoreLeftScroll()
   const el = leftScrollRef.value
   if (el) el.addEventListener('scroll', onLeftScroll, { passive: true })
+  // Global listeners for settings popup
+  document.addEventListener('click', onDocumentClick, true)
+  document.addEventListener('keydown', onDocumentKeydown)
 })
 
 onActivated(async () => {
@@ -148,6 +174,52 @@ onBeforeUnmount(() => {
     leftScrollTop.value = el.scrollTop || 0
     el.removeEventListener('scroll', onLeftScroll)
   }
+  document.removeEventListener('click', onDocumentClick, true)
+  document.removeEventListener('keydown', onDocumentKeydown)
 })
+
+// Theme: auto -> dark -> light cycle using Nuxt color mode
+const colorMode = useColorMode()
+type ModePref = 'system' | 'dark' | 'light'
+
+function getPreference(): ModePref {
+  const pref = colorMode.preference
+  return (pref === 'system' || pref === 'dark' || pref === 'light') ? pref : 'system'
+}
+
+const themeIcon = computed(() => {
+  const pref = getPreference()
+  if (pref === 'system') return 'uil:adjust-half' // auto
+  if (pref === 'dark') return 'uil:moon'
+  return 'uil:sun'
+})
+
+function cycleTheme() {
+  const order: ModePref[] = ['system', 'dark', 'light']
+  const current = getPreference()
+  const idx = (order.indexOf(current) + 1) % order.length
+  const next = order[idx] ?? 'system'
+  colorMode.preference = next
+}
+
+const preferenceLabel = computed(() => getPreference())
+
+// Settings popup state and handlers
+const settingsOpen = ref(false)
+const settingsRef = ref<HTMLElement | null>(null)
+function toggleSettings() {
+  settingsOpen.value = !settingsOpen.value
+}
+
+function onDocumentClick(e: MouseEvent) {
+  if (!settingsOpen.value) return
+  const root = settingsRef.value
+  const target = e.target as Node | null
+  if (root && target && !root.contains(target)) settingsOpen.value = false
+}
+
+function onDocumentKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape') settingsOpen.value = false
+}
 
 </script>
