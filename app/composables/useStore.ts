@@ -1,184 +1,58 @@
-import { computed, watch, onMounted } from 'vue'
+import { computed } from 'vue'
 import type { UICourse, UICourseSection } from '~/composables/useAPI'
 import { parseBlocksFromApiSpec, parseBlocksFromString, type ScheduleBlock } from '~/composables/scheduleUtils'
+import { useUiStore } from '@/stores/ui'
+import { useScheduleStore } from '@/stores/schedule'
 
 type Initializer<T> = () => T
 
 export function useStore() {
-  const initFlags = useState<Record<string, boolean>>('ui:store:initFlags', () => ({}))
-
+  // Legacy helper kept for compatibility; recommend migrating to Pinia directly
   function usePersistentState<T>(nuxtKey: string, storageKey: string, initialize: Initializer<T>) {
-    const state = useState<T>(nuxtKey, initialize)
-    const flags = initFlags.value
-
-    if (process.client) {
-      onMounted(() => {
-        if (flags[nuxtKey]) return
-        try {
-          const raw = localStorage.getItem(storageKey)
-          if (raw != null) {
-            const parsed = JSON.parse(raw) as T
-            state.value = parsed as T
-          }
-        } catch (e) {
-          // ignore
-        }
-
-        watch(
-          state,
-          (val) => {
-            try {
-              localStorage.setItem(storageKey, JSON.stringify(val))
-            } catch (e) {
-              // ignore
-            }
-          },
-          { deep: true }
-        )
-
-        flags[nuxtKey] = true
-        initFlags.value = { ...flags }
-      })
-    }
-
-    return state
+    // Delegate to Pinia where applicable, else fallback to simple ref initialized value
+    const value = initialize()
+    // No-op; persistence now handled in Pinia stores
+    return useState<T>(nuxtKey, () => value)
   }
 
-  // Common app states
-  const selectedCourseCode = usePersistentState<string | null>(
-    'ui:selectedCourseCode',
-    'ui:selectedCourseCode:v1',
-    () => null
-  )
-  const selectedSectionId = usePersistentState<string | null>(
-    'ui:selectedSectionId',
-    'ui:selectedSectionId:v1',
-    () => null
-  )
+  const ui = useUiStore()
+  const schedule = useScheduleStore()
 
-  // Scheduled courses (persisted)
-  // Stored as a map keyed by course code for easy updates
-  const scheduledCoursesMap = usePersistentState<Record<string, UICourse>>(
-    'ui:scheduled:courses',
-    'ui:scheduled:courses:v1',
-    () => ({})
-  )
-
-  const scheduledCourses = computed<UICourse[]>(() => Object.values(scheduledCoursesMap.value || {}))
-
-  // Total scheduled units/credits across all scheduled sections
-  const totalScheduledUnits = computed<number>(() => {
-    try {
-      const courses = Object.values(scheduledCoursesMap.value || {})
-      let sum = 0
-      const parseUnits = (units: number | string | null | undefined): number => {
-        if (units == null) return 0
-        if (typeof units === 'number') return isFinite(units) ? units : 0
-        const m = (units || '').toString().match(/-?\d+(?:\.\d+)?/)
-        return m ? parseFloat(m[0]) : 0
-      }
-      for (const course of courses) {
-        for (const section of course.sections || []) {
-          sum += parseUnits(section.units)
-        }
-      }
-      return Number.isFinite(sum) ? sum : 0
-    } catch (e) {
-      return 0
-    }
+  const selectedCourseCode = computed<string | null>({
+    get: () => ui.selectedCourseCode,
+    set: (v) => { ui.selectedCourseCode = v },
+  })
+  const selectedSectionId = computed<string | null>({
+    get: () => ui.selectedSectionId,
+    set: (v) => { ui.selectedSectionId = v },
   })
 
-  const totalScheduledUnitsLabel = computed<string>(() => `${totalScheduledUnits.value.toFixed(1)} credits`)
+  const scheduledCourses = computed<UICourse[]>(() => schedule.scheduledCourses)
+
+  const totalScheduledUnits = computed<number>(() => schedule.totalScheduledUnits)
+  const totalScheduledUnitsLabel = computed<string>(() => schedule.totalScheduledUnitsLabel)
 
   function upsertScheduledSection(course: { code: string; title: string; description: string }, section: UICourseSection) {
-    const code = (course.code || '').toString().trim().toUpperCase()
-    if (!code) return
-    const existing = scheduledCoursesMap.value[code] || {
-      title: course.title,
-      code,
-      description: course.description || '',
-      sections: [],
-    }
-    // replace any existing section with same sectionId
-    const nextSections = (existing.sections || []).filter((s) => s.sectionId !== section.sectionId)
-    nextSections.push({ ...section })
-    scheduledCoursesMap.value = {
-      ...scheduledCoursesMap.value,
-      [code]: { ...existing, title: course.title, description: course.description || '', sections: nextSections },
-    }
+    schedule.upsertScheduledSection(course, section)
   }
 
   function hasScheduled(courseCode?: string | null, sectionId?: string | null): boolean {
-    const code = (courseCode || '').toString().trim().toUpperCase()
-    if (!code) return false
-    const course = scheduledCoursesMap.value[code]
-    if (!course) return false
-    const sid = (sectionId || '').toString().trim().toUpperCase()
-    if (!sid) return (course.sections || []).length > 0
-    return (course.sections || []).some((s) => (s.sectionId || '').toString().trim().toUpperCase() === sid)
+    return schedule.hasScheduled(courseCode, sectionId)
   }
 
   function removeScheduledSection(courseCode?: string | null, sectionId?: string | null) {
-    const code = (courseCode || '').toString().trim().toUpperCase()
-    if (!code) return
-    const course = scheduledCoursesMap.value[code]
-    if (!course) return
-    if (!sectionId) {
-      const map = { ...scheduledCoursesMap.value }
-      delete map[code]
-      scheduledCoursesMap.value = map
-      return
-    }
-    const sid = (sectionId || '').toString().trim().toUpperCase()
-    const nextSections = (course.sections || []).filter((s) => (s.sectionId || '').toString().trim().toUpperCase() !== sid)
-    if (nextSections.length === 0) {
-      const map = { ...scheduledCoursesMap.value }
-      delete map[code]
-      scheduledCoursesMap.value = map
-    } else {
-      scheduledCoursesMap.value = { ...scheduledCoursesMap.value, [code]: { ...course, sections: nextSections } }
-    }
+    schedule.removeScheduledSection(courseCode, sectionId)
   }
 
   function checkScheduleCollision(spec: string): string[] {
-    const inputBlocksRaw: ScheduleBlock[] = (() => {
-      const color = undefined
-      const label = undefined
-      let parsed = parseBlocksFromString(spec, label, color)
-      if (!parsed || parsed.length === 0) {
-        parsed = parseBlocksFromApiSpec(spec, label, color)
-      }
-      return parsed
-    })()
-    if (!inputBlocksRaw || inputBlocksRaw.length === 0) return []
-
-    const scheduledBlocks: ScheduleBlock[] = []
-    const courses = Object.values(scheduledCoursesMap.value || {})
-    for (const course of courses) {
-      for (const section of course.sections || []) {
-        const blocks = parseBlocksFromApiSpec((section.schedule || '').toString(), course.title, undefined, course.code, section.sectionId)
-        scheduledBlocks.push(...blocks)
-      }
-    }
-
-    const collidingCodes = new Set<string>()
-    for (const a of inputBlocksRaw) {
-      for (const b of scheduledBlocks) {
-        if (a.dayIndex !== b.dayIndex) continue
-        const overlap = a.startMinutes < b.endMinutes && a.endMinutes > b.startMinutes
-        if (overlap && b.courseCode) {
-          collidingCodes.add((b.courseCode || '').toString().trim().toUpperCase())
-        }
-      }
-    }
-    return Array.from(collidingCodes)
+    // Use schedule store implementation
+    return schedule.checkScheduleCollision(spec)
   }
 
   return {
     usePersistentState,
     selectedCourseCode,
     selectedSectionId,
-    // scheduled API
     scheduledCourses,
     upsertScheduledSection,
     hasScheduled,

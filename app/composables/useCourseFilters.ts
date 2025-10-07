@@ -1,12 +1,14 @@
 import { computed, reactive } from 'vue'
 import type { Ref } from 'vue'
 import type { UICourse, UICourseSection } from '~/composables/useAPI'
-import { parseBlocksFromApiSpec, parseBlocksFromString } from '~/composables/scheduleUtils'
 import { useStore } from '~/composables/useStore'
+import { parseUnitsToNumber } from '@/composables/filters/units'
+import { normalizeString, normalizeSectionType } from '@/composables/filters/normalize'
+import { courseMatchesSearch } from '@/composables/filters/search'
+import { sectionMatchesEnrollment, type EnrollmentFilter } from '@/composables/filters/enrollment'
+import { sectionMatchesScheduleFilters, sectionMatchesTriState } from '@/composables/filters/schedule'
 
 export type TriState = 'any' | 'only' | 'exclude'
-
-export type EnrollmentFilter = 'any' | 'only-full' | 'only-open'
 
 export type CourseFiltersState = {
   searchText: string
@@ -25,17 +27,6 @@ export type CourseFiltersState = {
   sectionTypes: string[]
 }
 
-function parseUnitsToNumber(units: number | string | null | undefined): number {
-  if (units == null) return 0
-  if (typeof units === 'number') return Number.isFinite(units) ? units : 0
-  const m = (units || '').toString().match(/-?\d+(?:\.\d+)?/)
-  return m ? parseFloat(m[0]) : 0
-}
-
-function normalizeString(value: string | null | undefined): string {
-  return (value || '').toString().toLowerCase().trim()
-}
-
 function extractCourseLevel(code: string | null | undefined): number | null {
   const m = (code || '').toString().match(/(\d{3})/)
   const levelStr = (m && m[1]) ? m[1].toString() : ''
@@ -43,111 +34,11 @@ function extractCourseLevel(code: string | null | undefined): number | null {
   return parseInt(levelStr, 10)
 }
 
-function normalizeSectionType(raw: string | null | undefined): string {
-  const t = normalizeString(raw)
-  if (!t) return ''
-  if (t === 'disc' || t === 'dis' || t === 'discussion') return 'discussion'
-  if (t === 'lec' || t === 'lecture') return 'lecture'
-  if (t === 'lab') return 'lab'
-  return t
-}
-
-function sectionConflictsWithSchedule(section: UICourseSection, hasCollision: (spec: string) => string[]): boolean {
-  const spec = (section.schedule || '').toString()
-  if (!spec) return false
-  const collisions = hasCollision(spec)
-  return Array.isArray(collisions) && collisions.length > 0
-}
-
-function sectionMatchesScheduleFilters(section: UICourseSection, days: number[], start: number | null, end: number | null): boolean {
-  // No filters provided
-  if ((!days || days.length === 0) && start == null && end == null) return true
-  const spec = (section.schedule || '').toString()
-  if (!spec) return false
-  let blocks = parseBlocksFromApiSpec(spec)
-  if (!blocks || blocks.length === 0) {
-    blocks = parseBlocksFromString(spec)
-  }
-  if (!blocks || blocks.length === 0) return false
-
-  const daySet = new Set(days || [])
-
-  // If any days are selected, the section must be entirely on those days
-  if (daySet.size > 0) {
-    const isSubsetOfSelectedDays = blocks.every((b) => daySet.has(b.dayIndex))
-    if (!isSubsetOfSelectedDays) return false
-  }
-
-  // If a time window is set, ALL meeting blocks must fully fit within the window
-  if (start != null) {
-    const allStartAfter = blocks.every((b) => b.startMinutes >= start)
-    if (!allStartAfter) return false
-  }
-  if (end != null) {
-    const allEndBefore = blocks.every((b) => b.endMinutes <= end)
-    if (!allEndBefore) return false
-  }
-
-  return true
-}
-
-function sectionMatchesTriState(flag: boolean, state: TriState): boolean {
-  if (state === 'any') return true
-  if (state === 'only') return !!flag
-  return !flag
-}
-
-function sectionMatchesEnrollment(section: UICourseSection, mode: EnrollmentFilter): boolean {
-  if (mode === 'any') return true
-  const cap = Number(section.capacity || 0)
-  const enrolled = Number(section.enrolled || 0)
-  const isFull = cap > 0 ? enrolled >= cap : false
-  if (mode === 'only-full') return isFull
-  return !isFull
-}
-
-function sectionMatchesUnits(section: UICourseSection, min: number | null, max: number | null): boolean {
-  if (min == null && max == null) return true
-  const u = parseUnitsToNumber(section.units)
-  if (min != null && u < min) return false
-  if (max != null && u > max) return false
-  return true
-}
-
-function courseMatchesLevel(course: UICourse, min: number | null, max: number | null): boolean {
-  if (min == null && max == null) return true
-  const lvl = extractCourseLevel(course.code)
-  if (lvl == null) return false
-  if (min != null && lvl < min) return false
-  if (max != null && lvl > max) return false
-  return true
-}
-
-function courseMatchesSearch(course: UICourse, search: string): boolean {
-  const s = normalizeString(search)
-  if (!s) return true
-  const sectionStrings = (course.sections || [])
-    .flatMap((sec) => [
-      sec.sectionId,
-      sec.instructor,
-      sec.schedule,
-      sec.location,
-      String(sec.units ?? ''),
-      sec.type ?? '',
-    ])
-    .filter(Boolean)
-  const haystack = [course.title, course.code, course.description, ...sectionStrings]
-    .join(' ')
-    .toLowerCase()
-  return haystack.includes(s)
-}
-
-function sectionMatchesTypes(section: UICourseSection, types: string[]): boolean {
-  if (!types || types.length === 0) return true
+function sectionMatchesTypes(section: UICourseSection, types: Set<string>): boolean {
+  if (!types || types.size === 0) return true
   const normalized = normalizeSectionType(section.type)
   if (!normalized) return false
-  const target = new Set(types.map((t) => normalizeSectionType(t)))
-  return target.has(normalized)
+  return types.has(normalized)
 }
 
 function someSectionMatches(
@@ -180,56 +71,96 @@ export function useCourseFilters(courses?: Ref<UICourse[]>) {
     sectionTypes: [],
   })
 
-  const isSpecialType = (sec: UICourseSection): boolean => {
-    const t = normalizeSectionType(sec.type)
-    return t === 'lab' || t === 'discussion'
-  }
+  const compileSectionPredicate = () => {
+    const typesSet = new Set((filters.sectionTypes || []).map((t) => normalizeSectionType(t)))
+    const hasUnitsFilter = filters.unitsMin != null || filters.unitsMax != null
 
-  const sectionMatchesOtherFilters = (sec: UICourseSection): boolean => {
-    if (!sectionMatchesScheduleFilters(sec, filters.days, filters.timeStartMinutes, filters.timeEndMinutes)) return false
-    if (!sectionMatchesTypes(sec, filters.sectionTypes)) return false
-    if (!sectionMatchesTriState(sec.hasDClearance, filters.dClearance)) return false
-    if (!sectionMatchesTriState(sec.hasPrerequisites, filters.prerequisites)) return false
-    if (!sectionMatchesTriState(sec.hasDuplicatedCredit, filters.duplicatedCredit)) return false
-    if (!sectionMatchesEnrollment(sec, filters.enrollment)) return false
-    if (filters.conflicts !== 'any') {
-      const conf = sectionConflictsWithSchedule(sec, checkScheduleCollision)
-      if (filters.conflicts === 'only' && !conf) return false
-      if (filters.conflicts === 'exclude' && conf) return false
+    // Memoize expensive checks by schedule spec
+    const conflictMemo = new Map<string, boolean>()
+    const scheduleMemo = new Map<string, boolean>()
+
+    const hasConflict = (sec: UICourseSection): boolean => {
+      if (filters.conflicts === 'any') return false
+      const spec = (sec.schedule || '').toString()
+      if (!spec) return false
+      const cached = conflictMemo.get(spec)
+      if (cached != null) return cached
+      const v = checkScheduleCollision(spec).length > 0
+      conflictMemo.set(spec, v)
+      return v
     }
-    return true
+
+    const matchesSchedule = (sec: UICourseSection): boolean => {
+      const spec = (sec.schedule || '').toString()
+      const key = spec
+      const cached = scheduleMemo.get(key)
+      if (cached != null) return cached
+      const v = sectionMatchesScheduleFilters(sec, filters.days, filters.timeStartMinutes, filters.timeEndMinutes)
+      scheduleMemo.set(key, v)
+      return v
+    }
+
+    return (sec: UICourseSection): boolean => {
+      if (!matchesSchedule(sec)) return false
+      if (!sectionMatchesTypes(sec, typesSet)) return false
+      if (!sectionMatchesTriState(sec.hasDClearance, filters.dClearance)) return false
+      if (!sectionMatchesTriState(sec.hasPrerequisites, filters.prerequisites)) return false
+      if (!sectionMatchesTriState(sec.hasDuplicatedCredit, filters.duplicatedCredit)) return false
+      if (!sectionMatchesEnrollment(sec, filters.enrollment)) return false
+      if (filters.conflicts !== 'any') {
+        const conf = hasConflict(sec)
+        if (filters.conflicts === 'only' && !conf) return false
+        if (filters.conflicts === 'exclude' && conf) return false
+      }
+      if (hasUnitsFilter) {
+        const u = parseUnitsToNumber(sec.units)
+        if (filters.unitsMin != null && u < filters.unitsMin) return false
+        if (filters.unitsMax != null && u > filters.unitsMax) return false
+      }
+      return true
+    }
   }
 
   const filterSectionsForCourse = (course: UICourse): UICourseSection[] => {
     const sections = course.sections || []
     const hasUnitsFilter = filters.unitsMin != null || filters.unitsMax != null
 
-    // If units filter is active, require at least one section to satisfy it
+    // If units filter is active, require at least one section to satisfy it (coarse pre-check)
     if (hasUnitsFilter) {
-      const anyUnitMatch = sections.some((s) => sectionMatchesUnits(s, filters.unitsMin, filters.unitsMax))
+      const anyUnitMatch = sections.some((s) => {
+        const u = parseUnitsToNumber(s.units)
+        if (filters.unitsMin != null && u < filters.unitsMin) return false
+        if (filters.unitsMax != null && u > filters.unitsMax) return false
+        return true
+      })
       if (!anyUnitMatch) return []
     }
 
     const isLecture = (s: UICourseSection) => normalizeSectionType(s.type) === 'lecture'
-
-    // Base included sections: only non-special, must satisfy other filters, and units when applicable
-    const baseIncluded: UICourseSection[] = []
-    for (const s of sections) {
-      if (isSpecialType(s)) continue
-      if (!sectionMatchesOtherFilters(s)) continue
-      if (hasUnitsFilter && !sectionMatchesUnits(s, filters.unitsMin, filters.unitsMax)) continue
-      baseIncluded.push(s)
+    const isSpecial = (s: UICourseSection) => {
+      const t = normalizeSectionType(s.type)
+      return t === 'lab' || t === 'discussion'
     }
+    const sectionPasses = compileSectionPredicate()
 
-    const hasLectureIncluded = baseIncluded.some((s) => isLecture(s))
+    // Gate by lecture only: find lectures that satisfy all active predicates
+    const lecturesPassing: UICourseSection[] = sections.filter((s) => isLecture(s) && sectionPasses(s))
+    if (lecturesPassing.length === 0) return []
 
-    // If a lecture is included, include ALL special sections ignoring ALL filters
-    const specialsIncluded: UICourseSection[] = hasLectureIncluded
-      ? sections.filter((s) => isSpecialType(s))
-      : []
+    // If any lecture passes, include all labs/discussions regardless of conflicts or schedule
+    const specialsIncluded: UICourseSection[] = sections.filter((s) => isSpecial(s))
 
-    const finalSections = [...baseIncluded, ...specialsIncluded]
-    return finalSections
+    // Include only the passing lectures (do not include other non-special types here)
+    return [...lecturesPassing, ...specialsIncluded]
+  }
+
+  const courseMatchesLevel = (course: UICourse, min: number | null, max: number | null): boolean => {
+    if (min == null && max == null) return true
+    const lvl = extractCourseLevel(course.code)
+    if (lvl == null) return false
+    if (min != null && lvl < min) return false
+    if (max != null && lvl > max) return false
+    return true
   }
 
   const apply = (list: UICourse[]): UICourse[] => {

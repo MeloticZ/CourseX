@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useStore } from '~/composables/useStore'
 import {
   parseBlocksFromString,
@@ -7,6 +8,7 @@ import {
   type ScheduleBlock,
   type DayOfWeek,
 } from '~/composables/scheduleUtils'
+import { useScheduleManualStore } from '~/stores/scheduleManual'
 import { minutesToTime } from '~/composables/useTimeParsing'
 
 export const DAY_LABELS: DayOfWeek[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -26,18 +28,18 @@ function roundToFiveMinutes(minutes: number): number {
 }
 
 export function useSchedule() {
-  const { usePersistentState, selectedCourseCode, selectedSectionId, scheduledCourses, hasScheduled, removeScheduledSection } = useStore()
-  // Manual blocks created by user interactions (dragging). Persisted separately.
-  const manualBlocks = usePersistentState<ScheduleBlock[]>('ui:schedule:manualBlocks', STORAGE_KEY_MANUAL, () => [])
-  const persistenceInitialized = useState<boolean>('ui:schedule:persist:init', () => true)
+  const { selectedCourseCode, selectedSectionId, scheduledCourses, hasScheduled, removeScheduledSection } = useStore()
+  // Manual blocks created by user interactions (dragging). Persisted via Pinia store.
+  const manualStore = useScheduleManualStore()
+  const { manualBlocks } = storeToRefs(manualStore)
   // Ephemeral preview blocks that should never be persisted
   const previewBlocks = useState<ScheduleBlock[]>('ui:schedule:preview', () => [])
 
   const totalRangeMinutes = END_MINUTES - START_MINUTES
 
   // listBlocks is computed from scheduled courses + any manual blocks
-  const listBlocks = computed(() => {
-    return [...scheduledComputedBlocks.value, ...manualBlocks.value]
+  const listBlocks = computed<ScheduleBlock[]>(() => {
+    return [...scheduledComputedBlocks.value, ...(manualBlocks.value || [])]
   })
 
   const normalizeId = (value?: string | null): string | undefined => {
@@ -67,7 +69,7 @@ export function useSchedule() {
   }
 
   const updateBlock = (id: string, patch: Partial<Omit<ScheduleBlock, 'id'>>) => {
-    manualBlocks.value = manualBlocks.value.map((b) => {
+    manualBlocks.value = (manualBlocks.value || []).map((b: ScheduleBlock) => {
       if (b.id !== id) return b
       const next: ScheduleBlock = { ...b, ...patch }
       next.dayIndex = clamp(next.dayIndex, 0, 6)
@@ -83,7 +85,7 @@ export function useSchedule() {
   }
 
   const removeBlock = (id: string) => {
-    manualBlocks.value = manualBlocks.value.filter((b) => b.id !== id)
+    manualBlocks.value = (manualBlocks.value || []).filter((b: ScheduleBlock) => b.id !== id)
   }
 
   const clearBlocks = () => {

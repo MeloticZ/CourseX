@@ -1,29 +1,37 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from "@tailwindcss/vite";
+import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/ui',
+    '@nuxt/content',
+    '@pinia/nuxt',
+  ],
   srcDir: 'app',
-  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxt/content'],
-  css: ['~/assets/css/main.css'],
-  runtimeConfig: {
-    public: {
-      WORKERS_CI_COMMIT_SHA: process.env.WORKERS_CI_COMMIT_SHA || ''
-    }
+  css: [
+    '@/assets/css/main.css',
+  ],
+  nitro: {
+    // no server aliases needed
+  },
+  alias: {
+    // Ensure @/stores resolves to app/stores
+    '@stores': '/Users/korgo/Desktop/Projects/CourseX/app/stores',
   },
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [],
   },
   app: {
     head: {
-      title: 'CourseX',
       meta: [
-        { name: 'description', content: 'CourseX is a website that helps you find courses at USC. Your experience is at the center of focus.' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
-    }
-  }
+    },
+  },
+  runtimeConfig: {
+    public: {
+      WORKERS_CI_COMMIT_SHA: process.env.WORKERS_CI_COMMIT_SHA || '',
+    },
+  },
 })

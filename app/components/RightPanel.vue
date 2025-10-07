@@ -81,53 +81,12 @@
     </div>
 
     <div class="w-full h-full max-h-2/5 min-h-56 border-t border-cx-border pt-2">
-      <div class="w-full h-full flex flex-col gap-2 overflow-hidden">
-        <div class="w-full grid grid-cols-7 text-xs text-cx-text-muted select-none">
-          <div v-for="(d, di) in displayDayLabels" :key="di" class="text-center">{{ d }}</div>
-        </div>
-        <div class="w-full grow grid grid-cols-7 overflow-hidden">
-          <div
-            v-for="(dayIndex, colIdx) in displayDayIndices"
-            :key="`col-` + dayIndex"
-            :class="['relative border-r last:border-r-0 border-cx-border bg-cx-surface-950/20 overflow-hidden', { 'pl-8': colIdx === 0 }]"
-            :data-day-column="dayIndex"
-            @mousedown="(e) => onDayMouseDown(e, dayIndex)"
-          >
-            <!-- hour grid lines -->
-            <div v-for="(tick, i) in hourTicks" :key="i" class="absolute left-0 right-0 border-t border-cx-border" :style="{ top: tick.topPct + '%' }"></div>
-
-            <!-- time gutter inside Sunday column -->
-            <div v-if="colIdx === 0" class="absolute inset-0 pointer-events-none">
-              <div v-for="(tick, i) in hourTicks" :key="i" class="absolute left-1/2 -translate-x-1/2" :style="{ top: tick.topPct + '%' }">
-                <div class="text-[10px] text-cx-text-weak-muted -translate-y-1/2">{{ tick.label }}</div>
-              </div>
-            </div>
-
-            <!-- blocks -->
-            <div
-              v-for="block in blocksByDay(dayIndex)"
-              :key="block.id"
-              class="absolute left-0 right-0 mx-1 rounded-md text-[10px] leading-tight px-1 py-0.5 cursor-pointer flex flex-col justify-between"
-              :style="styleForBlock(block)"
-              @click.stop="() => onBlockClick(block.id || '')"
-            >
-              <div class="truncate">{{ block.label || 'Block' }}</div>
-              <div v-if="block.courseCode" class="text-[8px] opacity-70">{{ block.courseCode }}</div>
-            </div>
-
-            <!-- preview blocks (ephemeral, orange) -->
-            <div
-              v-for="p in previewBlocksByDay(dayIndex)"
-              :key="'preview-' + p.id"
-              class="absolute left-0 right-0 mx-1 rounded-md text-[10px] leading-tight px-1 py-0.5 pointer-events-none"
-              :style="styleForPreviewBlock(p)"
-            >
-              <div class="truncate">{{ p.label || 'Preview' }}</div>
-              <div v-if="p.courseCode" class="text-[8px] opacity-70">{{ p.courseCode }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ScheduleGrid
+        :blocks="blocks"
+        :preview-blocks="previewBlocks"
+        :on-block-click="onBlockClick"
+        :on-day-mouse-down="onDayMouseDown"
+      />
     </div>
   </div>
 </template>
@@ -140,10 +99,14 @@ import type { ScheduleBlock } from '~/composables/scheduleUtils'
 import { getCourseTypeMeta } from '~/composables/useCourseTypeMeta'
 import { useStore } from '~/composables/useStore'
 import { useCourseListSource } from '~/composables/useCourseListSource'
+import { useCourseSelection } from '~/composables/useCourseSelection'
+import { useRouteMode } from '~/composables/useRouteMode'
+import ScheduleGrid from '~/components/ScheduleGrid.vue'
 
 const { selectedCourseCode, selectedSectionId, selectCourse } = useCourseSelection()
 const router = useRouter()
 const { mode } = useCourseListSource()
+const { makeSelectionPath } = useRouteMode()
 
 const details = ref<CourseDetails | null>(null)
 
@@ -166,9 +129,7 @@ const loadDetails = async () => {
 
 watch(
   () => [selectedCourseCode.value, selectedSectionId.value],
-  () => {
-    loadDetails()
-  },
+  () => { loadDetails() },
   { immediate: true }
 )
 
@@ -216,56 +177,6 @@ const hourTicks = computed(() => {
   return ticks
 })
 
-const blocksByDay = (dayIndex: number) => blocks.value.filter((b) => b.dayIndex === dayIndex)
-const previewBlocksByDay = (dayIndex: number) => previewBlocks.value.filter((b) => b.dayIndex === dayIndex)
-
-const styleForBlock = (block: ScheduleBlock) => {
-  const g = geometryFor(block)
-  const color = block.color || 'rgb(var(--color-cx-blue-500-rgb) / 0.25)'
-  const border = block.color || 'rgb(var(--color-cx-blue-500-rgb) / 0.65)'
-  return {
-    top: `${g.topPct}%`,
-    height: `${g.heightPct}%`,
-    background: color,
-    border: `1px solid ${border}`,
-  }
-}
-
-const styleForPreviewBlock = (block: ScheduleBlock) => {
-  const g = geometryFor(block)
-  const color = block.color || 'rgb(var(--color-cx-orange-500-rgb) / 0.25)'
-  const border = 'rgb(var(--color-cx-orange-500-rgb) / 0.7)'
-  return {
-    top: `${g.topPct}%`,
-    height: `${g.heightPct}%`,
-    background: color,
-    border: `1px dashed ${border}`,
-  }
-}
-
-const formatRange = (start: number, end: number) => `${minutesToTime(start)}–${minutesToTime(end)}`
-
-// Display order: start week on Sunday
-const displayDayIndices = computed(() => [0, 1, 2, 3, 4, 5, 6])
-const displayDayLabels = computed(() => dayLabels)
-
-// Interaction: click-drag to create a block (snapped to 5 minutes)
-const enableManualCalendarSlotCreation = ref(false)
-const isDragging = ref(false)
-const dragDayIndex = ref<number | null>(null)
-const dragStart = ref(START_MINUTES)
-const dragCurrent = ref(START_MINUTES)
-const draftBlockId = ref<string | null>(null)
-const dragColumnEl = ref<HTMLElement | null>(null)
-
-function eventMinutesInColumn(e: MouseEvent, columnEl: HTMLElement): number {
-  const rect = columnEl.getBoundingClientRect()
-  const y = e.clientY - rect.top
-  const frac = Math.max(0, Math.min(1, y / Math.max(rect.height, 1)))
-  const minutes = START_MINUTES + Math.round((frac * totalRange) / SLOT_MINUTES) * SLOT_MINUTES
-  return Math.max(START_MINUTES, Math.min(END_MINUTES, minutes))
-}
-
 function onDayMouseDown(e: MouseEvent, dayIndex: number) {
   if (!enableManualCalendarSlotCreation.value) return
   const el = e.currentTarget as HTMLElement
@@ -275,16 +186,18 @@ function onDayMouseDown(e: MouseEvent, dayIndex: number) {
   dragStart.value = start
   dragCurrent.value = start
   dragColumnEl.value = el
-  const id = addBlock({
-    dayIndex,
-    startMinutes: start,
-    endMinutes: start + 5,
-    label: 'New',
-    color: 'rgb(var(--color-green-500-rgb) / 0.25)',
-  })
+  const id = addBlock({ dayIndex, startMinutes: start, endMinutes: start + 5, label: 'New', color: 'rgb(var(--color-green-500-rgb) / 0.25)' })
   draftBlockId.value = id || null
   window.addEventListener('mousemove', onWindowMouseMove)
   window.addEventListener('mouseup', onWindowMouseUp)
+}
+
+function eventMinutesInColumn(e: MouseEvent, columnEl: HTMLElement): number {
+  const rect = columnEl.getBoundingClientRect()
+  const y = e.clientY - rect.top
+  const frac = Math.max(0, Math.min(1, y / Math.max(rect.height, 1)))
+  const minutes = START_MINUTES + Math.round((frac * totalRange) / SLOT_MINUTES) * SLOT_MINUTES
+  return Math.max(START_MINUTES, Math.min(END_MINUTES, minutes))
 }
 
 function onWindowMouseMove(e: MouseEvent) {
@@ -296,12 +209,7 @@ function onWindowMouseMove(e: MouseEvent) {
   const minutes = eventMinutesInColumn(e, columnEl)
   dragCurrent.value = minutes
   const id = draftBlockId.value
-  if (id) {
-    updateBlock(id, {
-      startMinutes: Math.min(dragStart.value, dragCurrent.value),
-      endMinutes: Math.max(dragStart.value, dragCurrent.value),
-    })
-  }
+  if (id) updateBlock(id, { startMinutes: Math.min(dragStart.value, dragCurrent.value), endMinutes: Math.max(dragStart.value, dragCurrent.value) })
 }
 
 function onWindowMouseUp() {
@@ -309,23 +217,22 @@ function onWindowMouseUp() {
   isDragging.value = false
   window.removeEventListener('mousemove', onWindowMouseMove)
   window.removeEventListener('mouseup', onWindowMouseUp)
-  // Ensure minimum 5 minutes length
   const id = draftBlockId.value
   if (id) {
     const b = blocks.value.find((x) => x.id === id)
-    if (b && b.endMinutes - b.startMinutes < SLOT_MINUTES) {
-      updateBlock(id, { endMinutes: b.startMinutes + SLOT_MINUTES })
-    }
+    if (b && b.endMinutes - b.startMinutes < SLOT_MINUTES) updateBlock(id, { endMinutes: b.startMinutes + SLOT_MINUTES })
   }
   draftBlockId.value = null
   dragColumnEl.value = null
 }
 
-onBeforeUnmount(() => {
-  window.removeEventListener('mousemove', onWindowMouseMove)
-  window.removeEventListener('mouseup', onWindowMouseUp)
-  clearHoverPreview()
-})
+const enableManualCalendarSlotCreation = ref(false)
+const isDragging = ref(false)
+const dragDayIndex = ref<number | null>(null)
+const dragStart = ref(START_MINUTES)
+const dragCurrent = ref(START_MINUTES)
+const draftBlockId = ref<string | null>(null)
+const dragColumnEl = ref<HTMLElement | null>(null)
 
 function onBlockClick(id: string) {
   const target = blocks.value.find((b) => b.id === id)
@@ -333,27 +240,9 @@ function onBlockClick(id: string) {
   const courseCode = target.courseCode
   if (!courseCode) return
   const sectionId = target.sectionId || 'section'
-
-  // Update selection immediately for responsive UI
   selectCourse(courseCode, target.sectionId || null)
-
   const parsed = mode.value
-  if (parsed.mode === 'all' || parsed.mode === 'unknown') {
-    router.push(`/course/all/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId)}`)
-  } else if (parsed.mode === 'scheduled') {
-    router.push(`/course/scheduled/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId)}`)
-  } else {
-    router.push(`/course/all/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId)}`)
-  }
-}
-
-function hashColorFromCode(code: string): string {
-  const s = (code || '').toUpperCase()
-  let hash = 0
-  for (let i = 0; i < s.length; i++) hash = (hash * 31 + s.charCodeAt(i)) >>> 0
-  const hue = hash % 360
-  const color = `hsla(${hue}, 85%, 60%, 0.25)`
-  return color
+  router.push(makeSelectionPath(parsed, courseCode, sectionId))
 }
 
 const isInSchedule = computed(() => {
@@ -372,7 +261,6 @@ function onAddOrRemove() {
     removeCourseSection(courseCode, sectionId)
     return
   }
-  // Add to scheduled store
   const section = {
     sectionId: (sectionId || 'COURSE') as string,
     instructor: (details.value.instructors || []).join(', ') || 'TBA',
@@ -395,12 +283,8 @@ function onHoverPreviewEnter() {
     const spec = (details.value.times || []).join('; ').trim()
     if (!spec) return
     setHoverPreviewFromString(spec, details.value.title, details.value.code)
-  } catch (e) {
-    // no-op
-  }
+  } catch {}
 }
 
-function onHoverPreviewLeave() {
-  clearHoverPreview()
-}
+function onHoverPreviewLeave() { clearHoverPreview() }
 </script>

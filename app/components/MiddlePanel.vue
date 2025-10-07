@@ -56,9 +56,9 @@ import { useCourseSelection } from '~/composables/useCourseSelection'
 import { useCourseListSource } from '~/composables/useCourseListSource'
 import { useVariableVirtualList } from '~/composables/useVariableVirtualList'
 import { useScrollMemory } from '~/composables/useScrollMemory'
+import { useRouteMode } from '~/composables/useRouteMode'
 import FilterBar from '~/components/FilterBar.vue'
 
-const route = useRoute()
 const router = useRouter()
 
 // UI state
@@ -130,17 +130,12 @@ watch(filteredCourses, () => {
 
 // Click to navigate
 const { selectCourse } = useCourseSelection()
+const { makeSelectionPath } = useRouteMode()
 
 const onSectionClick = (courseCode: string, sectionId: string) => {
   const parsed = mode.value
   selectCourse(courseCode, sectionId || null)
-  if (parsed.mode === 'all' || parsed.mode === 'unknown') {
-    router.push(`/course/all/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId || 'section')}`)
-  } else if (parsed.mode === 'scheduled') {
-    router.push(`/course/scheduled/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId || 'section')}`)
-  } else {
-    router.push(`/course/${encodeURIComponent(parsed.school)}/${encodeURIComponent(parsed.program)}/${encodeURIComponent(courseCode)}/${encodeURIComponent(sectionId || 'section')}`)
-  }
+  router.push(makeSelectionPath(parsed, courseCode, sectionId || 'section'))
 }
 
 const visibleKey = (course: UICourse, i: number) => `${course.code}::${course.title}`
