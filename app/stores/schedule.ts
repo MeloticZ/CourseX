@@ -41,13 +41,22 @@ export const useScheduleStore = defineStore('schedule', () => {
 
   if (process.client) {
     onMounted(() => {
-      try {
-        const raw = localStorage.getItem(keyFor(termId.value))
-        if (raw != null) {
-          const parsed = JSON.parse(raw)
-          byTerm.value[termId.value] = normalizeCourseMapRaw(parsed, termId.value)
-        }
-      } catch {}
+      const loadFromStorageForCurrentTerm = () => {
+        try {
+          const raw = localStorage.getItem(keyFor(termId.value))
+          if (raw != null) {
+            const parsed = JSON.parse(raw)
+            byTerm.value[termId.value] = normalizeCourseMapRaw(parsed, termId.value)
+          }
+        } catch {}
+      }
+
+      loadFromStorageForCurrentTerm()
+
+      // Reload from storage whenever the term changes (client-side navigation)
+      watch(termId, () => {
+        loadFromStorageForCurrentTerm()
+      })
       watch(() => byTerm.value[termId.value], (v) => {
         // Ensure we never persist nested wrappers
         const normalized = normalizeCourseMapRaw(v as any, termId.value)

@@ -26,13 +26,22 @@ export const useScheduleManualStore = defineStore('scheduleManual', () => {
 
   if (process.client) {
     onMounted(() => {
-      try {
-        const raw = localStorage.getItem(keyFor(termId.value))
-        if (raw != null) {
-          const parsed = JSON.parse(raw)
-          manualBlocks.value = normalizeManualBlocksRaw(parsed, termId.value)
-        }
-      } catch {}
+      const loadFromStorageForCurrentTerm = () => {
+        try {
+          const raw = localStorage.getItem(keyFor(termId.value))
+          if (raw != null) {
+            const parsed = JSON.parse(raw)
+            manualBlocks.value = normalizeManualBlocksRaw(parsed, termId.value)
+          }
+        } catch {}
+      }
+
+      loadFromStorageForCurrentTerm()
+
+      // Reload from storage whenever the term changes (client-side navigation)
+      watch(termId, () => {
+        loadFromStorageForCurrentTerm()
+      })
       watch(manualBlocks, (v) => {
         const normalized = normalizeManualBlocksRaw(v as any, termId.value)
         try { localStorage.setItem(keyFor(termId.value), JSON.stringify({ schedulesByTerm: { [termId.value]: normalized } })) } catch {}
