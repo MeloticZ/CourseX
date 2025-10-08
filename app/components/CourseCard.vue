@@ -5,11 +5,11 @@
     <!-- Title, Class Code and Description -->
     <div class="flex flex-col gap-1">
       <div class="flex items-center gap-2">
-          <span
+          <!-- <span
             class="w-fit h-5 px-1 text-sm font-semibold line-clamp-1 leading-none grid place-items-center text-cx-text-weak-muted"
           >
             GESM
-          </span>
+          </span> -->
         <span class="text-sm truncate block flex-1 min-w-0 max-w-full">{{ title }}</span>
         <span class="text-xs text-cx-text-secondary font-semibold shrink-0 ml-auto">{{ code }}</span>
       </div>
