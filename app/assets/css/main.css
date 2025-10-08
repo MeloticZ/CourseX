@@ -92,6 +92,10 @@
   --color-cx-green-500-rgb: 34 197 94;
 }
 
+html {
+  background-color: var(--color-cx-background);
+}
+
 /* Utilities */
 .hide-scrollbar-bg {
   &::-webkit-scrollbar-track {
@@ -182,6 +186,6 @@
   background: #00000000;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 6px;
+  background-color: #99999977;
+  border-radius: 10px;
 }
