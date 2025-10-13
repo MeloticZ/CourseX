@@ -38,8 +38,15 @@ function extractCourseLevel(code: string | null | undefined): number | null {
 function sectionMatchesTypes(section: UICourseSection, types: Set<string>): boolean {
   if (!types || types.size === 0) return true
   const normalized = normalizeSectionType(section.type)
-  if (!normalized) return false
-  return types.has(normalized)
+  // Direct match against normalized canonical type
+  if (normalized && types.has(normalized)) return true
+  // Gracefully handle composite labels like "lecture/lab" or "lec & lab"
+  const raw = normalizeString(section.type as any)
+  if (!raw) return false
+  if (types.has('lecture') && /\blec(ture)?\b/.test(raw)) return true
+  if (types.has('lab') && /\blab\b/.test(raw)) return true
+  if (types.has('discussion') && /\b(dis(cussion)?|disc)\b/.test(raw)) return true
+  return false
 }
 
 function someSectionMatches(
