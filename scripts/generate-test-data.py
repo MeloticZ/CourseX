@@ -2,12 +2,27 @@ import json
 import os
 import requests
 import time
+import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# Configure basic logging for clearer diagnostics and progress visibility
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+)
 
 TERM_CODE = "20253"
 
-response = requests.get(f"https://classes.usc.edu/api/Schools/TermCode?termCode={TERM_CODE}")
-data = response.json()
+try:
+    response = requests.get(
+        f"https://classes.usc.edu/api/Schools/TermCode?termCode={TERM_CODE}",
+        timeout=60,
+    )
+    response.raise_for_status()
+    data = response.json()
+except Exception as error:
+    logging.error(f"Failed to fetch schools for term {TERM_CODE}: {error}")
+    raise
 
 output = {"schools": [], "success": True}
 
@@ -39,76 +54,229 @@ term_dir = os.path.join("..", "public", "data", TERM_CODE)
 os.makedirs(term_dir, exist_ok=True)
 
 with open(os.path.join(term_dir, "programs.json"), "w", encoding="utf-8") as f:
-    json.dump(output, f, ensure_ascii=False)
+    json.dump(output, f, ensure_ascii=False, indent=2)
 
-print("Program data generated successfully, gathering data for courses...")
+logging.info("Program data generated successfully, gathering data for courses…")
 
-def process_course(course):
+
+def _safe_course_code(course, preferred_prefix=None):
+    """
+    Choose a stable course code (courseHyphen) with preference for the requested program's prefix.
+
+    Preference order:
+    1) Any code whose prefix matches preferred_prefix (if provided)
+    2) scheduledCourseCode
+    3) matchedCourseCode
+    4) publishedCourseCode
+    Returns the first non-empty courseHyphen found.
+    """
+    try:
+        scheduled = course.get("scheduledCourseCode") or {}
+        matched = course.get("matchedCourseCode") or {}
+        published = course.get("publishedCourseCode") or {}
+
+        candidates = [scheduled, matched, published]
+        if preferred_prefix:
+            for c in candidates:
+                if (c or {}).get("prefix") == preferred_prefix and c.get("courseHyphen"):
+                    return c.get("courseHyphen")
+        for c in candidates:
+            if c.get("courseHyphen"):
+                return c.get("courseHyphen")
+    except Exception as error:
+        logging.debug(f"Failed to resolve course code: {error}")
+    return None
+
+
+def _parse_units(units_value):
+    """
+    Normalize units to a number when possible; otherwise keep the original string.
+    Accepts list/str/number, handles values like "4.0", 4, ["4"], [4], etc.
+    Leaves ranges (e.g., "2-4") or non-numeric values as strings.
+    """
+    if units_value is None:
+        return None
+    try:
+        value = units_value
+        if isinstance(value, list):
+            value = value[0] if value else None
+        if value is None:
+            return None
+        if isinstance(value, (int, float)):
+            # Coerce 4.0 -> 4 when exact integer
+            return int(value) if float(value).is_integer() else float(value)
+        if isinstance(value, str):
+            text = value.strip()
+            # Skip clear ranges like "2-4" or "1–4"
+            if "-" in text or "–" in text:
+                return text
+            # Remove trailing .0 for cleanliness when safe to do
+            try:
+                num = float(text)
+                return int(num) if num.is_integer() else num
+            except Exception:
+                return text
+        return value
+    except Exception:
+        return units_value
+
+
+_DAY_NAME_TO_ABBR = {
+    "Mon": "M",
+    "Tue": "Tu",
+    "Wed": "W",
+    "Thu": "Th",
+    "Fri": "F",
+    "Sat": "Sa",
+    "Sun": "Su",
+}
+
+
+def _format_days(days_list, fallback_day_code):
+    """
+    Build a compact day string like "TuTh" from a list of day names.
+    If days_list is empty, attempt to use fallback_day_code with a small fix
+    for Thursday (H -> Th). Returns None if nothing can be formed.
+    """
+    try:
+        days_list = days_list or []
+        if days_list:
+            abbrs = [_DAY_NAME_TO_ABBR.get(d, d[:2]) for d in days_list if d]
+            return "".join(abbrs) if abbrs else None
+        code = (fallback_day_code or "").strip().upper()
+        if not code:
+            return None
+        # Replace the standalone "H" with "Th" for Thursday
+        # e.g., TH -> TTh, H -> Th
+        code = code.replace("H", "Th")
+        return code
+    except Exception:
+        return None
+
+
+def _format_time(schedule_entries):
+    """
+    Produce a human-friendly time string from schedule entries.
+    If multiple distinct meeting times exist, return the first, plus a "+N" indicator.
+    """
+    try:
+        schedule_entries = schedule_entries or []
+        if not schedule_entries:
+            return "TBA"
+        formatted = []
+        for entry in schedule_entries:
+            days = entry.get("days") or []
+            day_code = entry.get("dayCode")
+            start = entry.get("startTime") or ""
+            end = entry.get("endTime") or ""
+            day_str = _format_days(days, day_code) or ""
+            if not (day_str or start or end):
+                continue
+            if start and end:
+                formatted.append(f"{day_str} {start} - {end}".strip())
+            elif start:
+                formatted.append(f"{day_str} {start}".strip())
+            else:
+                formatted.append(day_str)
+        if not formatted:
+            return "TBA"
+        # If there are multiple distinct meeting patterns, show the first and count remainder
+        unique = []
+        seen = set()
+        for f in formatted:
+            if f not in seen:
+                unique.append(f)
+                seen.add(f)
+        if len(unique) == 1:
+            return unique[0]
+        return f"{unique[0]} (+{len(unique) - 1} more)"
+    except Exception:
+        return "TBA"
+
+
+def _split_duplicate_credit(text):
+    """
+    Split duplicate credit strings on common separators.
+    """
+    if not isinstance(text, str):
+        return []
+    parts = []
+    for chunk in text.replace("/", ",").replace(";", ",").split(","):
+        for sub in chunk.split(" and "):
+            value = sub.strip()
+            if value:
+                parts.append(value)
+    return parts
+
+def process_course(course, preferred_prefix=None):
     sections_output = []
     sections = course.get("sections") or []
     for section in sections:
-        if section.get("isCancelled"):
-            continue
-
-        schedule_entries = section.get("schedule") or []
-        first_schedule = schedule_entries[0] if len(schedule_entries) > 0 else {}
-
-        units_value = section.get("units")
-        if isinstance(units_value, list):
-            units_value = units_value[0] if len(units_value) > 0 else None
-
-        duplicate_credit_value = course.get("duplicateCredit") or ""
-        duplicated_credits_list = [s.strip() for s in duplicate_credit_value.split(" and ") if s.strip()] if isinstance(duplicate_credit_value, str) else []
-
-        prerequisite_codes = course.get("prerequisiteCourseCodes") or []
-        prerequisites_list = []
-        for prerequisite in prerequisite_codes:
-            try:
-                option = prerequisite.get("courseOptions", [{}])[0]
-                code = option.get("courseHyphen")
-                if code:
-                    prerequisites_list.append(code)
-            except Exception:
+        try:
+            if section.get("isCancelled"):
                 continue
 
-        instructors = []
-        for instructor in section.get("instructors") or []:
-            first_name = instructor.get("firstName") or ""
-            last_name = instructor.get("lastName") or ""
-            full_name = (first_name + " " + last_name).strip()
-            if full_name:
-                instructors.append(full_name)
+            schedule_entries = section.get("schedule") or []
+            first_schedule = schedule_entries[0] if len(schedule_entries) > 0 else {}
 
-        course_code = None
-        published = course.get("publishedCourseCode") or {}
-        if isinstance(published, dict):
-            course_code = published.get("courseHyphen")
+            units_value = _parse_units(section.get("units"))
 
-        title_value = section.get("name") or course.get("name") or course.get("fullCourseName") or (course.get("publishedCourseCode") or {}).get("courseSpace")
-        description_value = course.get("description")
+            duplicate_credit_value = course.get("duplicateCredit") or ""
+            duplicated_credits_list = _split_duplicate_credit(duplicate_credit_value)
 
-        sections_output.append({
-            "title": title_value,
-            "description": description_value,
-            "courseCode": course_code,
-            "section": {
-                "sectionCode": section.get("sisSectionId"),
-                "instructors": instructors,
-                "units": units_value,
-                "total": section.get("totalSeats"),
-                "registered": section.get("registeredSeats"),
-                "location": first_schedule.get("location"),
-                "time": (first_schedule.get("dayCode") or "").replace("H", "Th")
-                        + (" " if first_schedule.get("dayCode") else "")
-                        + (first_schedule.get("startTime") or "")
-                        + (" - " if first_schedule.get("startTime") and first_schedule.get("endTime") else "")
-                        + (first_schedule.get("endTime") or ""),
-                "duplicatedCredits": duplicated_credits_list,
-                "prerequisites": prerequisites_list,
-                "dClearance": section.get("hasDClearance"),
-                "type": section.get("rnrMode"),
-            },
-        })
+            prerequisite_codes = course.get("prerequisiteCourseCodes") or []
+            prerequisites_list = []
+            for prerequisite in prerequisite_codes:
+                try:
+                    options = prerequisite.get("courseOptions") or []
+                    if not options:
+                        continue
+                    code = (options[0] or {}).get("courseHyphen")
+                    if code:
+                        prerequisites_list.append(code)
+                except Exception:
+                    continue
+
+            instructors = []
+            for instructor in section.get("instructors") or []:
+                first_name = (instructor or {}).get("firstName") or ""
+                last_name = (instructor or {}).get("lastName") or ""
+                full_name = (first_name + " " + last_name).strip()
+                if full_name:
+                    instructors.append(full_name)
+
+            course_code = _safe_course_code(course, preferred_prefix)
+
+            title_value = (
+                section.get("name")
+                or course.get("name")
+                or course.get("fullCourseName")
+                or ((course.get("publishedCourseCode") or {}).get("courseSpace"))
+            )
+            description_value = course.get("description")
+
+            time_string = _format_time(schedule_entries)
+
+            sections_output.append({
+                "title": title_value,
+                "description": description_value,
+                "courseCode": course_code,
+                "section": {
+                    "sectionCode": section.get("sisSectionId"),
+                    "instructors": instructors,
+                    "units": units_value,
+                    "total": section.get("totalSeats"),
+                    "registered": section.get("registeredSeats"),
+                    "location": first_schedule.get("location"),
+                    "time": time_string,
+                    "duplicatedCredits": duplicated_credits_list,
+                    "prerequisites": prerequisites_list,
+                    "dClearance": section.get("hasDClearance"),
+                    "type": section.get("rnrMode"),
+                },
+            })
+        except Exception as error:
+            logging.warning(f"Skipping problematic section due to error: {error}")
 
     return sections_output
 
@@ -129,7 +297,7 @@ def get_courses(school_code, program_code):
             # Aggregate sections by (title, description, courseCode)
             aggregation = {}
             for course in data.get("courses", []):
-                processed_sections = process_course(course)
+                processed_sections = process_course(course, preferred_prefix=program_code)
                 for item in processed_sections:
                     title_value = item.get("title")
                     description_value = item.get("description")
@@ -167,8 +335,8 @@ def get_courses(school_code, program_code):
             last_error = error
             if attempt_index < 4:
                 wait_seconds = attempt_index * 5
-                print(
-                    f"Attempt {attempt_index} failed for {school_code}/{program_code}: {error}. Retrying in {wait_seconds}s..."
+                logging.warning(
+                    f"Attempt {attempt_index} failed for {school_code}/{program_code}: {error}. Retrying in {wait_seconds}s…"
                 )
                 time.sleep(wait_seconds)
             else:
@@ -205,7 +373,7 @@ with ThreadPoolExecutor(max_workers=12) as executor:
     for future in as_completed(tasks):
         school_prefix, program_prefix, courses, error = future.result()
         if error is not None:
-            print(f"Error fetching courses for {school_prefix}/{program_prefix}: {error}")
+            logging.error(f"Error fetching courses for {school_prefix}/{program_prefix}: {error}")
             continue
 
         if school_prefix not in courses_by_school:
@@ -246,10 +414,10 @@ def fetch_ge_courses(ge_type, category_prefix):
     raise last_error
 
 
-def aggregate_grouped_from_courses(course_list):
+def aggregate_grouped_from_courses(course_list, preferred_prefix=None):
     aggregation = {}
     for course in course_list or []:
-        processed = process_course(course)
+        processed = process_course(course, preferred_prefix=preferred_prefix)
         for item in processed:
             key = (
                 item.get("title"),
@@ -325,12 +493,12 @@ def merge_group_into_target(target_list, grouped_item, ge_tags=None):
 gesm_courses = []
 try:
     gesm_payload = fetch_ge_courses("ACORELIT", "GESM")
-    gesm_courses = aggregate_grouped_from_courses((gesm_payload or {}).get("courses", []))
+    gesm_courses = aggregate_grouped_from_courses((gesm_payload or {}).get("courses", []), preferred_prefix="GESM")
     if gesm_courses:
         courses_by_school.setdefault("GE", {})["GESM"] = gesm_courses
-        print(f"Ingested GESM courses: {len(gesm_courses)}")
+        logging.info(f"Ingested GESM courses: {len(gesm_courses)}")
 except Exception as e:
-    print(f"Failed to ingest GESM via GE endpoint: {e}")
+    logging.warning(f"Failed to ingest GESM via GE endpoint: {e}")
 
 # Fallback: try normal program fetch for any school that has GESM
 if not gesm_courses:
@@ -340,9 +508,9 @@ if not gesm_courses:
             fallback_courses = get_courses(owner_school, "GESM")
             if fallback_courses:
                 courses_by_school.setdefault("GE", {})["GESM"] = fallback_courses
-                print(f"Fallback ingested GESM via normal program: {len(fallback_courses)}")
+                logging.info(f"Fallback ingested GESM via normal program: {len(fallback_courses)}")
         except Exception as e:
-            print(f"Fallback GESM via normal program failed: {e}")
+            logging.warning(f"Fallback GESM via normal program failed: {e}")
 
 
 # Ingest other GE categories and tag original departments
@@ -380,17 +548,17 @@ for ge_type, category_prefix, ge_letter in GE_CATEGORY_MAP:
             if not prog_prefix or not school_prefix:
                 # cannot resolve destination
                 continue
-            grouped_list = aggregate_grouped_from_courses([course])
+            grouped_list = aggregate_grouped_from_courses([course], preferred_prefix=prog_prefix)
             # GE tags should only include the translated GE letter (A–H)
             ge_tags = [ge_letter]
             dest = courses_by_school.setdefault(school_prefix, {}).setdefault(prog_prefix, [])
             for g in grouped_list:
                 merge_group_into_target(dest, g, ge_tags)
     except Exception as e:
-        print(f"Failed to ingest GE {ge_type}/{category_prefix}: {e}")
+        logging.warning(f"Failed to ingest GE {ge_type}/{category_prefix}: {e}")
 
 
 with open(os.path.join(term_dir, "courses.json"), "w", encoding="utf-8") as f:
-    json.dump(courses_by_school, f, ensure_ascii=False)
+    json.dump(courses_by_school, f, ensure_ascii=False, indent=2)
 
-print("Course data generated successfully.")
+logging.info("Course data generated successfully.")
