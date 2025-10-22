@@ -5,11 +5,22 @@
     <!-- Title, Class Code and Description -->
     <div class="flex flex-col gap-1">
       <div class="flex items-center gap-2">
-          <!-- <span
-            class="w-fit h-5 px-1 text-sm font-semibold line-clamp-1 leading-none grid place-items-center text-cx-text-weak-muted"
+        <div class="flex items-center" v-if="isGESM || geLetters.length > 0">
+          <span
+            class="w-fit h-5 text-sm font-semibold line-clamp-1 leading-none grid place-items-center text-cx-text-weak-muted"
           >
-            GESM
-          </span> -->
+            {{ isGESM ? 'GESM-' : 'GE-' }}
+          </span>
+          <div class="flex items-center" v-if="geLetters.length > 0">
+              <span
+              v-for="g in geLetters"
+              :key="g"
+              class="w-fit h-5 text-sm font-semibold line-clamp-1 leading-none grid place-items-center text-cx-text-weak-muted"
+            >
+              {{ g }}
+            </span>
+          </div>
+        </div>
         <span class="text-sm truncate block flex-1 min-w-0 max-w-full">{{ title }}</span>
         <span class="text-xs text-cx-text-secondary font-semibold shrink-0 ml-auto">{{ code }}</span>
       </div>
@@ -90,7 +101,7 @@
 
 <script setup lang="ts">
 import { getCourseTypeMeta } from '~/composables/useCourseTypeMeta'
-import type { UICourseSection } from '~/composables/useAPI'
+import type { UICourse, UICourseSection } from '~/composables/useAPI'
 import { useSchedule } from '~/composables/useSchedule'
 import { useStore } from '~/composables/useStore'
 
@@ -101,9 +112,13 @@ const props = defineProps<{
   code: string
   description: string
   sections: UICourseSection[]
+  ge?: string[]
 }>()
 
 const { checkScheduleCollision } = useStore()
+
+const isGESM = computed(() => (props.code || '').toUpperCase().startsWith('GESM'))
+const geLetters = computed(() => Array.from(new Set(props.ge || [])).filter(Boolean))
 
 function occupancyClassFor(section: UICourseSection, type: 'icon' | 'text') {
   const isFull = (section.enrolled || 0) >= (section.capacity || 0)

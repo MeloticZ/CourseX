@@ -31,6 +31,7 @@ export function mapGroupedToUICourse(raw: RawGroupedCourse): UICourse | null {
     code,
     description: (raw.description || '').trim(),
     sections,
+    ge: (raw as any).GE || [],
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex flex-col gap-2">
+  <div class="w-full flex flex-col gap-2 pb-8">
     <div
       v-for="school in filteredSchools"
       :key="school.name"

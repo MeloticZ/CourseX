@@ -17,6 +17,7 @@ export type UICourse = {
   code: string
   description: string
   sections: UICourseSection[]
+  ge?: string[]
 }
 
 export type RawSection = {
@@ -38,6 +39,7 @@ export type RawGroupedCourse = {
   description?: string
   courseCode?: string
   sections?: RawSection[]
+  GE?: string[]
 }
 
 export type CourseDetails = {

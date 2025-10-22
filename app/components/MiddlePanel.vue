@@ -37,6 +37,7 @@
               :code="course.code"
               :description="course.description"
               :sections="course.sections"
+              :ge="(course as any).ge || []"
               @section-click="(sid) => onSectionClick(course.code, sid)"
             />
           </div>

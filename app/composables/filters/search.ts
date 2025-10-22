@@ -14,7 +14,14 @@ export function courseMatchesSearch(course: UICourse, search: string): boolean {
       sec.type ?? '',
     ])
     .filter(Boolean)
-  const haystack = [course.title, course.code, course.description, ...sectionStrings]
+  const geLetters = Array.from(new Set((course as any).ge || [])).filter(Boolean) as string[]
+  const geTokens = geLetters.flatMap((g) => [
+    `GE-${g}`,
+    `GE ${g}`,
+  ])
+  const isGESM = (course.code || '').toUpperCase().startsWith('GESM')
+  const gesmTokens = isGESM ? ['GESM', 'GESM-'] : []
+  const haystack = [course.title, course.code, course.description, ...geTokens, ...gesmTokens, ...sectionStrings]
     .join(' ')
     .toLowerCase()
   return haystack.includes(s)

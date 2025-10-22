@@ -44,7 +44,8 @@ async function buildIndex(termId: string): Promise<CourseIndex> {
             byKeyMerged.set(key, mapped)
           } else {
             const mergedSections = mergeSectionsById(existing.sections || [], mapped.sections || [])
-            byKeyMerged.set(key, { ...existing, sections: mergedSections })
+            const mergedGe = Array.from(new Set([...(existing.ge || []), ...(mapped.ge || [])]))
+            byKeyMerged.set(key, { ...existing, sections: mergedSections, ge: mergedGe })
           }
         }
 
