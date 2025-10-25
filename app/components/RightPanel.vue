@@ -22,7 +22,24 @@
         <div v-if="details" class="flex flex-col gap-1.5 border-y border-cx-border py-4">
           <div class="flex items-center gap-2">
             <Icon name="uil:graduation-cap" class="h-5 w-5 text-cx-text-muted"/>
-            <span class="text-sm text-cx-text-subtle">{{ instructors }}</span>
+            <div class="flex flex-wrap items-center">
+              <template v-if="instructorViews.length > 0">
+                <template v-for="item in instructorViews" :key="item.name">
+                  <a
+                    :href="item.link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm underline decoration-1 decoration-dashed hover:text-cx-text-muted"
+                    :class="{ 'text-rose-600': item.isLow, 'text-cx-text-subtle': !item.isLow }"
+                  >
+                    <span v-if="!Number.isNaN(item.rating)" class="text-sm text-cx-text-subtle border-cx-text-secondary" :class="{ 'text-rose-600': item.isLow, 'text-cx-text-subtle': !item.isLow }">{{ item.rating.toFixed(1) }}</span>
+                    {{ item.name }}
+                  </a>
+                  <span class="text-cx-text-muted" v-if="item !== instructorViews[instructorViews.length - 1]">,&nbsp;</span>
+                </template>
+              </template>
+              <span v-else class="text-sm text-cx-text-subtle">TBA</span>
+            </div>
           </div>
           <div class="flex items-center gap-2">
             <Icon name="uil:user" class="h-5 w-5" :class="{ 'text-rose-800': details.enrolled === details.capacity, 'text-cx-text-muted': details.enrolled !== details.capacity }" />
@@ -39,9 +56,9 @@
         </div>
 
         <div v-if="details" class="flex flex-col gap-2">
-          <div v-if="details.units != null && details.units !== ''" class="flex items-center gap-2">
+          <div v-if="details.units != null" class="flex items-center gap-2">
             <Icon name="uil:bill" class="h-5 w-5 text-cx-text-muted" />
-            <span class="text-sm text-cx-text-subtle">{{ details.units }} units</span>
+            <span class="text-sm text-cx-text-subtle">{{ Number(details.units).toFixed(1) }} units</span>
           </div>
           
           <div v-if="details.duplicatedCredits.length > 0" class="flex items-center gap-2">
@@ -102,6 +119,7 @@ import { useCourseListSource } from '~/composables/useCourseListSource'
 import { useCourseSelection } from '~/composables/useCourseSelection'
 import { useRouteMode } from '~/composables/useRouteMode'
 import ScheduleGrid from '~/components/ScheduleGrid.vue'
+import { useRMPRatings } from '~/composables/useRMPRatings'
 
 const { selectedCourseCode, selectedSectionId, selectCourse } = useCourseSelection()
 const router = useRouter()
@@ -133,10 +151,32 @@ watch(
   { immediate: true }
 )
 
-const instructors = computed(() =>
-  details.value && details.value.instructors && details.value.instructors.length > 0
-    ? details.value.instructors.join(', ')
-    : 'TBA'
+// RateMyProfessors integration
+const { getProfessor } = useRMPRatings()
+type InstructorView = { name: string; rating: number; link: string; isLow: boolean }
+const instructorViews = ref<InstructorView[]>([])
+
+async function updateInstructorViews() {
+  const names = Array.from(new Set((details.value?.instructors || []).filter(Boolean)))
+  if (names.length === 0) {
+    instructorViews.value = []
+    return
+  }
+  const results = await Promise.all(
+    names.map(async (name) => {
+      const prof = await getProfessor(name)
+      const rating = prof && typeof prof.rating === 'number' && !Number.isNaN(prof.rating) ? prof.rating : NaN
+      const link = prof?.link || `https://www.ratemyprofessors.com/search/professors?q=${encodeURIComponent(name)}`
+      const isLow = typeof rating === 'number' && !Number.isNaN(rating) ? rating < 3.0 : false
+      return { name, rating, link, isLow } as InstructorView
+    })
+  )
+  instructorViews.value = results
+}
+watch(
+  () => details.value?.instructors,
+  () => { void updateInstructorViews() },
+  { immediate: true }
 )
 
 const typeMeta = computed(() => getCourseTypeMeta(details.value?.type))
@@ -263,7 +303,7 @@ function onAddOrRemove() {
   }
   const section = {
     sectionId: (sectionId || 'COURSE') as string,
-    instructor: (details.value.instructors || []).join(', ') || 'TBA',
+    instructors: Array.from(new Set(details.value.instructors || [])),
     enrolled: Number(details.value.enrolled || 0),
     capacity: Number(details.value.capacity || 0),
     schedule: (details.value.times || []).join('; '),

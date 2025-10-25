@@ -1,6 +1,6 @@
 export type UICourseSection = {
   sectionId: string
-  instructor: string
+  instructors: string[]
   enrolled: number
   capacity: number
   schedule: string
@@ -8,7 +8,7 @@ export type UICourseSection = {
   hasDClearance: boolean
   hasPrerequisites: boolean
   hasDuplicatedCredit: boolean
-  units?: number | string | null
+  units?: number | null
   type?: string | null
 }
 
@@ -47,7 +47,7 @@ export type CourseDetails = {
   code: string
   description: string
   instructors: string[]
-  units?: number | string | null
+  units?: number | null
   enrolled: number
   capacity: number
   times: string[]

@@ -72,7 +72,7 @@ export const useScheduleStore = defineStore('schedule', () => {
       let sum = 0
       for (const course of Object.values(currentMap() || {})) {
         for (const section of course.sections || []) {
-          const u = typeof section.units === 'number' ? section.units : parseFloat(((section.units as any) || '0').toString())
+          const u = typeof section.units === 'number' ? section.units : 0
           sum += Number.isFinite(u) ? u : 0
         }
       }

@@ -79,7 +79,12 @@ async function buildIndex(termId: string): Promise<CourseIndex> {
       code: (firstCourse.courseCode || '').toString().trim(),
       description: (firstCourse.description || '').toString().trim(),
       instructors: Array.from(new Set((firstSection.instructors || []))).map((s) => (s || '').toString().trim()).filter(Boolean),
-      units: firstSection.units ?? null,
+      units: (() => {
+        const u = firstSection.units as any
+        if (u == null || u === '') return null
+        const n = typeof u === 'number' ? u : parseFloat((u || '').toString())
+        return Number.isFinite(n) ? n : null
+      })(),
       enrolled: Number(firstSection.registered || 0),
       capacity: Number(firstSection.total || 0),
       times: firstSection.time ? [firstSection.time] : [],
@@ -98,7 +103,11 @@ async function buildIndex(termId: string): Promise<CourseIndex> {
       details.duplicatedCredits = Array.from(new Set([...(details.duplicatedCredits || []), ...((section.duplicatedCredits || []))]))
       details.prerequisites = Array.from(new Set([...(details.prerequisites || []), ...((section.prerequisites || []))]))
       details.dClearance = details.dClearance || !!section.dClearance
-      if (details.units == null && section.units != null) details.units = section.units
+      if (details.units == null && section.units != null) {
+        const u = section.units as any
+        const n = typeof u === 'number' ? u : parseFloat((u || '').toString())
+        details.units = Number.isFinite(n) ? n : details.units
+      }
       if (details.type == null && section.type != null) details.type = section.type
     }
     details.times = Array.from(new Set(details.times))
@@ -149,7 +158,12 @@ export function getSectionDetailsIndexed(code: string, sectionId: string, termId
     code: (course.courseCode || '').toString().trim(),
     description: (course.description || '').toString().trim(),
     instructors: Array.from(new Set(sec.instructors || [])),
-    units: sec.units ?? null,
+    units: (() => {
+      const u = sec.units as any
+      if (u == null || u === '') return null
+      const n = typeof u === 'number' ? u : parseFloat((u || '').toString())
+      return Number.isFinite(n) ? n : null
+    })(),
     enrolled: Number(sec.registered || 0),
     capacity: Number(sec.total || 0),
     times: sec.time ? [sec.time] : [],

@@ -7,10 +7,10 @@ export function courseMatchesSearch(course: UICourse, search: string): boolean {
   const sectionStrings = (course.sections || [])
     .flatMap((sec) => [
       sec.sectionId,
-      sec.instructor,
+      ...(Array.isArray((sec as any).instructors) ? (sec as any).instructors : []),
       sec.schedule,
       sec.location,
-      String(sec.units ?? ''),
+      (sec.units != null ? Number(sec.units).toFixed(1) : ''),
       sec.type ?? '',
     ])
     .filter(Boolean)

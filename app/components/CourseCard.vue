@@ -63,7 +63,22 @@
           <div class="flex items-center gap-2 justify-between">
             <div class="flex items-center gap-1">
               <Icon name="uil:graduation-cap" class="h-4 w-4 text-cx-text-muted" />
-              <span class="text-xs text-cx-text-secondary font-semibold line-clamp-1">{{ section.instructor }}</span>
+              <!-- Instructors with RMP-based coloring and links -->
+              <span class="text-xs font-semibold line-clamp-1">
+                <template v-if="instructorViewsFor(section.sectionId).length > 0">
+                  <template v-for="(item, idx) in instructorViewsFor(section.sectionId)" :key="item.name">
+                    <a
+                      :class="{ 'text-rose-600': item.isLow, 'text-cx-text-secondary': !item.isLow }"
+                    >
+                      {{ item.name }}
+                    </a>
+                    <span class="text-cx-text-muted" v-if="idx < instructorViewsFor(section.sectionId).length - 1">,&nbsp;</span>
+                  </template>
+                </template>
+                <template v-else>
+                  <span class="text-cx-text-secondary">{{ renderInstructors(section) }}</span>
+                </template>
+              </span>
             </div>
 
             <div class="flex items-center gap-1">
@@ -104,6 +119,7 @@ import { getCourseTypeMeta } from '~/composables/useCourseTypeMeta'
 import type { UICourse, UICourseSection } from '~/composables/useAPI'
 import { useSchedule } from '~/composables/useSchedule'
 import { useStore } from '~/composables/useStore'
+import { useRMPRatings } from '~/composables/useRMPRatings'
 
 defineEmits(['section-click'])
 
@@ -142,8 +158,8 @@ function sectionClassFor(section: UICourseSection) {
 
 function sectionUnitsToRender(section: UICourseSection) {
   const value = section.units
-  if (value == null || value === '') return ''
-  return String(value)
+  if (value == null) return ''
+  return Number(value).toFixed(1)
 }
 
 function sectionMeta(section: UICourseSection) {
@@ -159,6 +175,54 @@ function sectionTypeLabel(section: UICourseSection) {
   const meta = sectionMeta(section)
   return meta ? meta.cardLabel : sectionUnitsToRender(section)
 }
+
+function renderInstructors(section: UICourseSection) {
+  const list = (section as any).instructors as string[] | undefined
+  if (list && list.length > 0) return list.join(', ')
+  return 'TBA'
+}
+
+// RMP integration per section
+const { getProfessor } = useRMPRatings()
+type InstructorView = { name: string; rating: number; link: string; isLow: boolean }
+const instructorViewsBySection = reactive<Record<string, InstructorView[]>>({})
+
+function instructorViewsFor(sectionId: string | undefined): InstructorView[] {
+  if (!sectionId) return []
+  return instructorViewsBySection[sectionId] || []
+}
+
+async function ensureSectionInstructorViews(section: UICourseSection) {
+  const key = section.sectionId
+  if (!key) return
+  if (instructorViewsBySection[key]) return
+  const rawList = (((section as any).instructors || []) as unknown[]).filter((x): x is string => typeof x === 'string')
+  const names: string[] = Array.from(new Set<string>(rawList))
+  if (names.length === 0) {
+    instructorViewsBySection[key] = []
+    return
+  }
+  const results = await Promise.all(
+    names.map(async (name: string) => {
+      const prof = await getProfessor(name)
+      const rating = prof && typeof prof.rating === 'number' && !Number.isNaN(prof.rating) ? prof.rating : NaN
+      const link = prof?.link || `https://www.ratemyprofessors.com/search/professors?q=${encodeURIComponent(name)}`
+      const isLow = typeof rating === 'number' && !Number.isNaN(rating) ? rating < 3.0 : false
+      return { name, rating, link, isLow } as InstructorView
+    })
+  )
+  instructorViewsBySection[key] = results
+}
+
+watch(
+  () => props.sections.map((s) => s.sectionId).join('|'),
+  async () => {
+    for (const section of props.sections) {
+      void ensureSectionInstructorViews(section)
+    }
+  },
+  { immediate: true }
+)
 
 // Hover preview per section
 const { setHoverPreviewFromString, clearHoverPreview } = useSchedule()

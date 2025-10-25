@@ -6,7 +6,7 @@ export function mapSection(raw: RawSection): UICourseSection | null {
   if (!sectionId) return null
   return {
     sectionId,
-    instructor: (raw.instructors?.join(', ') || 'TBA').trim(),
+    instructors: Array.from(new Set((raw.instructors || []).map((s) => (s || '').toString().trim()).filter(Boolean))),
     enrolled: Number(raw.registered || 0),
     capacity: Number(raw.total || 0),
     schedule: (raw.time || '').trim(),
@@ -14,7 +14,12 @@ export function mapSection(raw: RawSection): UICourseSection | null {
     hasDClearance: !!raw.dClearance,
     hasPrerequisites: !!(raw.prerequisites && raw.prerequisites.length > 0),
     hasDuplicatedCredit: !!(raw.duplicatedCredits && raw.duplicatedCredits.length > 0),
-    units: raw.units ?? null,
+    units: (() => {
+      const u = raw.units as any
+      if (u == null || u === '') return null
+      const n = typeof u === 'number' ? u : parseFloat((u || '').toString())
+      return Number.isFinite(n) ? n : null
+    })(),
     type: raw.type ?? null,
   }
 }
