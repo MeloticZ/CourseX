@@ -67,7 +67,7 @@
   --color-cx-text-muted: oklch(55.4% 0.046 257.417);     /* slate-500 */
   --color-cx-text-secondary: oklch(44.6% 0.043 257.281);  /* slate-600 */
   --color-cx-text-weak-muted: oklch(70.4% 0.04 256.788); /* slate-400 */
-  --color-cx-text-weak-shimmer: oklch(92.9% 0.013 255.508); /* slate-200 */
+  --color-cx-text-weak-shimmer: oklch(86.9% 0.022 252.894); /* slate-300 */
 
   /* Surfaces / Borders */
   --color-cx-border: oklch(86.9% 0.022 252.894); /* slate-300 */
@@ -77,12 +77,12 @@
   --color-cx-surface-800: oklch(92.9% 0.013 255.508); /* slate-200 */
   --color-cx-surface-950: oklch(98.4% 0.003 247.858); /* slate-50 */
 
-  /* Status / Accents */
-  --color-cx-yellow-700: #ca8a04;
-  --color-cx-rose-700: #be123c;
-  --color-cx-green-700: #166534;
-  --color-cx-blue-700: #1e40af;
-  --color-cx-violet-700: #6d28d9;
+  /* Status / Accents , 300 level */
+  --color-cx-yellow-700: oklch(90.5% 0.182 98.111);
+  --color-cx-rose-700: oklch(81% 0.117 11.638);
+  --color-cx-green-700: oklch(87.1% 0.15 154.449);
+  --color-cx-blue-700: oklch(80.9% 0.105 251.813);
+  --color-cx-violet-700: oklch(81.1% 0.111 293.571);
 }
 
 /* RGB tokens for runtime alpha composition in inline styles */
