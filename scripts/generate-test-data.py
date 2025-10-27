@@ -11,7 +11,7 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s",
 )
 
-TERM_CODE = "20253"
+TERM_CODE = "20261"
 
 try:
     response = requests.get(

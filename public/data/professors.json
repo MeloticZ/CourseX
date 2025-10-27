@@ -1,17 +1,332 @@
 {
+  "Rebecca Broyer": {
+    "id": 1538668,
+    "difficulty": 4.1,
+    "rating": 2.7,
+    "rating_count": 183,
+    "take_again": 37.4233
+  },
+  "Diana Beltran": {
+    "id": 2877872,
+    "difficulty": 4,
+    "rating": 4.7,
+    "rating_count": 6,
+    "take_again": 83.3333
+  },
+  "Iony  Ezawa": {
+    "id": 3042289,
+    "difficulty": 1,
+    "rating": 5,
+    "rating_count": 1,
+    "take_again": 100
+  },
+  "Hamid Chabok": {
+    "id": 2623794,
+    "difficulty": 3.3,
+    "rating": 4.1,
+    "rating_count": 126,
+    "take_again": 80.9524
+  },
+  "Anthony Borquez": {
+    "id": 34374,
+    "difficulty": 2.6,
+    "rating": 4.6,
+    "rating_count": 85,
+    "take_again": 91.3043
+  },
+  "Dion Dickman": {
+    "id": 2004580,
+    "difficulty": 3.5,
+    "rating": 4,
+    "rating_count": 40,
+    "take_again": 89.7436
+  },
+  "Dowell Myers": {
+    "id": 1307870,
+    "difficulty": 3.2,
+    "rating": 2.9,
+    "rating_count": 31,
+    "take_again": 48
+  },
+  "Sherry Zaks": {
+    "id": 2539679,
+    "difficulty": 3.4,
+    "rating": 3,
+    "rating_count": 23,
+    "take_again": 47.8261
+  },
+  "Lauren  McElvain": {
+    "id": 3009534,
+    "difficulty": 4.3,
+    "rating": 2.2,
+    "rating_count": 16,
+    "take_again": 25
+  },
+  "Jenny Chio": {
+    "id": 2403739,
+    "difficulty": 4.2,
+    "rating": 3.3,
+    "rating_count": 12,
+    "take_again": 33.3333
+  },
+  "Mitch Feinman": {
+    "id": 2827380,
+    "difficulty": 2.8,
+    "rating": 4.4,
+    "rating_count": 5,
+    "take_again": 80
+  },
+  "Bo Shrewsbury": {
+    "id": 3088220,
+    "difficulty": 2.5,
+    "rating": 4.3,
+    "rating_count": 4,
+    "take_again": 80
+  },
+  "Gilbert Ampomah": {
+    "id": 3125605,
+    "difficulty": 4,
+    "rating": 3,
+    "rating_count": 1,
+    "take_again": -1
+  },
   "Catherine Skibo": {
     "id": 1738659,
     "difficulty": 4.5,
     "rating": 1.4,
-    "rating_count": 414,
+    "rating_count": 416,
     "take_again": 5.4974
   },
-  "Andrew Gracey": {
-    "id": 1417646,
-    "difficulty": 4,
+  "Marco Papa": {
+    "id": 1104782,
+    "difficulty": 3.8,
+    "rating": 3,
+    "rating_count": 408,
+    "take_again": 47.7212
+  },
+  "George Braunegg": {
+    "id": 2462056,
+    "difficulty": 3.3,
+    "rating": 4.3,
+    "rating_count": 250,
+    "take_again": 81.2
+  },
+  "Mohammad Rajati": {
+    "id": 2294843,
+    "difficulty": 3.3,
+    "rating": 3.4,
+    "rating_count": 108,
+    "take_again": 60.1852
+  },
+  "Lowell Stott": {
+    "id": 180790,
+    "difficulty": 3.4,
     "rating": 2.9,
+    "rating_count": 81,
+    "take_again": 58.9744
+  },
+  "Julia Plotts": {
+    "id": 293200,
+    "difficulty": 3.5,
+    "rating": 4.5,
+    "rating_count": 64,
+    "take_again": 88.4615
+  },
+  "Rick Berg": {
+    "id": 2416430,
+    "difficulty": 4.3,
+    "rating": 2.6,
+    "rating_count": 63,
+    "take_again": 32.2581
+  },
+  "Robert Vos": {
+    "id": 2082054,
+    "difficulty": 3.3,
+    "rating": 3.2,
+    "rating_count": 54,
+    "take_again": 45.098
+  },
+  "Megan Becker": {
+    "id": 2126490,
+    "difficulty": 3,
+    "rating": 2.4,
+    "rating_count": 44,
+    "take_again": 27.907
+  },
+  "Peter Winsky": {
+    "id": 2733213,
+    "difficulty": 2.4,
+    "rating": 5,
+    "rating_count": 27,
+    "take_again": 100
+  },
+  "Erik Hanson": {
+    "id": 2834438,
+    "difficulty": 2.4,
+    "rating": 4.3,
+    "rating_count": 24,
+    "take_again": 83.3333
+  },
+  "Kyoung sook  Kim": {
+    "id": 3004590,
+    "difficulty": 3.6,
+    "rating": 3,
+    "rating_count": 19,
+    "take_again": 57.8947
+  },
+  "Lucy Kim": {
+    "id": 2115272,
+    "difficulty": 3.2,
+    "rating": 2.9,
+    "rating_count": 19,
+    "take_again": 33.3333
+  },
+  "Taylor Wiesen": {
+    "id": 2856110,
+    "difficulty": 2.8,
+    "rating": 5,
+    "rating_count": 11,
+    "take_again": 100
+  },
+  "Juliet Musso": {
+    "id": 455867,
+    "difficulty": 2.9,
+    "rating": 4,
+    "rating_count": 10,
+    "take_again": 50
+  },
+  "Tiffany  Gist": {
+    "id": 3078906,
+    "difficulty": 2.5,
+    "rating": 3,
+    "rating_count": 2,
+    "take_again": 50
+  },
+  "Gandhi Puvvada": {
+    "id": 15633,
+    "difficulty": 3.5,
+    "rating": 3.7,
+    "rating_count": 177,
+    "take_again": 59.6491
+  },
+  "TreaAndrea Russworm": {
+    "id": 2949104,
+    "difficulty": 3.1,
+    "rating": 1.7,
+    "rating_count": 55,
+    "take_again": 5.4545
+  },
+  "Antonio Ortega": {
+    "id": 1741359,
+    "difficulty": 4.3,
+    "rating": 3.4,
+    "rating_count": 36,
+    "take_again": 51.4286
+  },
+  "Deborah Natoli": {
+    "id": 2754023,
+    "difficulty": 2,
+    "rating": 2.7,
+    "rating_count": 7,
+    "take_again": 42.8571
+  },
+  "Saty Raghavachary": {
+    "id": 798241,
+    "difficulty": 2.5,
+    "rating": 4.1,
+    "rating_count": 234,
+    "take_again": 75.3769
+  },
+  "Brighde Mullins": {
+    "id": 2472246,
+    "difficulty": 1.7,
+    "rating": 4.9,
     "rating_count": 31,
-    "take_again": 60.8696
+    "take_again": 100
+  },
+  "Inna Abramova": {
+    "id": 1999537,
+    "difficulty": 3.5,
+    "rating": 3.5,
+    "rating_count": 24,
+    "take_again": 52.1739
+  },
+  "Sarah Kessler": {
+    "id": 2491497,
+    "difficulty": 2.4,
+    "rating": 4.1,
+    "rating_count": 23,
+    "take_again": 82.6087
+  },
+  "Kristof Aldenderfer": {
+    "id": 2635980,
+    "difficulty": 2.7,
+    "rating": 4.3,
+    "rating_count": 17,
+    "take_again": 82.3529
+  },
+  "Jean Maarek": {
+    "id": 172481,
+    "difficulty": 3.3,
+    "rating": 3.7,
+    "rating_count": 16,
+    "take_again": 50
+  },
+  "Karla Heidelberg": {
+    "id": 1742864,
+    "difficulty": 2.9,
+    "rating": 4.9,
+    "rating_count": 16,
+    "take_again": 100
+  },
+  "Peter Robbins": {
+    "id": 2821177,
+    "difficulty": 2.4,
+    "rating": 4.6,
+    "rating_count": 9,
+    "take_again": 88.8889
+  },
+  "Backer Abu-Jaradeh": {
+    "id": 3065263,
+    "difficulty": 5,
+    "rating": 2.7,
+    "rating_count": 3,
+    "take_again": 33.3333
+  },
+  "Maria Colman": {
+    "id": 2002809,
+    "difficulty": 4,
+    "rating": 2.4,
+    "rating_count": 95,
+    "take_again": 35.5556
+  },
+  "Will Berelson": {
+    "id": 816694,
+    "difficulty": 3.8,
+    "rating": 2.8,
+    "rating_count": 76,
+    "take_again": 40.9091
+  },
+  "Rodney Ramcharan": {
+    "difficulty": 3.95,
+    "rating": 2.7,
+    "rating_count": 20,
+    "take_again": 30.26,
+    "duplicated": true
+  },
+  "Gokhan Esirgen": {
+    "id": 2591127,
+    "difficulty": 3.1,
+    "rating": 2,
+    "rating_count": 23,
+    "take_again": 34.7826
+  },
+  "Nicolai Haydn": {
+    "id": 171096,
+    "difficulty": 3.3,
+    "rating": 2.6,
+    "rating_count": 25,
+    "take_again": 50
   },
   "Juan Gonzalez": {
     "id": 3120117,
@@ -20,19 +335,12 @@
     "rating_count": 4,
     "take_again": 0
   },
-  "Bo Shrewsbury": {
-    "id": 3088220,
-    "difficulty": 2.3,
-    "rating": 5,
-    "rating_count": 3,
-    "take_again": 75
-  },
   "Wei-Min Shen": {
     "id": 2183918,
     "difficulty": 4.4,
     "rating": 1.5,
     "rating_count": 109,
-    "take_again": 13.7615
+    "take_again": 13.6364
   },
   "Trond Sigurdsen": {
     "id": 2235391,
@@ -117,13 +425,6 @@
     "rating": 4.5,
     "rating_count": 131,
     "take_again": 85.1064
-  },
-  "Mohammad Rajati": {
-    "id": 2294843,
-    "difficulty": 3.3,
-    "rating": 3.4,
-    "rating_count": 107,
-    "take_again": 60.1852
   },
   "Andrew De Silva": {
     "id": 1807850,
@@ -230,13 +531,6 @@
     "rating_count": 21,
     "take_again": 28.5714
   },
-  "Gokhan Esirgen": {
-    "id": 2591127,
-    "difficulty": 3.3,
-    "rating": 1.8,
-    "rating_count": 20,
-    "take_again": 34.7826
-  },
   "Carolyn Phillips": {
     "id": 2056281,
     "difficulty": 3.6,
@@ -277,7 +571,7 @@
     "difficulty": 2.8,
     "rating": 3.8,
     "rating_count": 9,
-    "take_again": 66.6667
+    "take_again": 70
   },
   "Fabien Pinaud": {
     "id": 2363428,
@@ -299,20 +593,6 @@
     "rating": 5,
     "rating_count": 2,
     "take_again": 100
-  },
-  "Saty Raghavachary": {
-    "id": 798241,
-    "difficulty": 2.5,
-    "rating": 4.1,
-    "rating_count": 233,
-    "take_again": 75.3769
-  },
-  "Hamid Chabok": {
-    "id": 2623794,
-    "difficulty": 3.3,
-    "rating": 4,
-    "rating_count": 124,
-    "take_again": 80.9524
   },
   "Antonio Idini": {
     "id": 1487280,
@@ -790,13 +1070,6 @@
     "rating_count": 103,
     "take_again": 48.4848
   },
-  "Rick Berg": {
-    "id": 2416430,
-    "difficulty": 4.3,
-    "rating": 2.7,
-    "rating_count": 61,
-    "take_again": 31.746
-  },
   "Sanjay Sharma": {
     "id": 2831489,
     "difficulty": 2,
@@ -894,13 +1167,6 @@
     "rating": 3.7,
     "rating_count": 80,
     "take_again": 64.1509
-  },
-  "Rodney Ramcharan": {
-    "difficulty": 4.0,
-    "rating": 2.7,
-    "rating_count": 19,
-    "take_again": 30.26,
-    "duplicated": true
   },
   "Jennifer Misran": {
     "id": 2192253,
@@ -1014,16 +1280,16 @@
     "rating_count": 2,
     "take_again": 100
   },
-  "Eric Friedlander": {
-    "id": 3120516,
-    "difficulty": 4,
+  "Todd Brabec": {
+    "id": 3120678,
+    "difficulty": 2,
     "rating": 4,
     "rating_count": 1,
     "take_again": 100
   },
-  "Todd Brabec": {
-    "id": 3120678,
-    "difficulty": 2,
+  "Eric Friedlander": {
+    "id": 3120516,
+    "difficulty": 4,
     "rating": 4,
     "rating_count": 1,
     "take_again": 100
@@ -1034,20 +1300,6 @@
     "rating": 4,
     "rating_count": 1,
     "take_again": 100
-  },
-  "Marco Papa": {
-    "id": 1104782,
-    "difficulty": 3.8,
-    "rating": 3,
-    "rating_count": 407,
-    "take_again": 47.7212
-  },
-  "Gandhi Puvvada": {
-    "id": 15633,
-    "difficulty": 3.5,
-    "rating": 3.7,
-    "rating_count": 176,
-    "take_again": 59.6491
   },
   "Brijesh Pinto": {
     "id": 2365202,
@@ -1126,20 +1378,6 @@
     "rating_count": 2,
     "take_again": 100
   },
-  "George Braunegg": {
-    "id": 2462056,
-    "difficulty": 3.3,
-    "rating": 4.3,
-    "rating_count": 249,
-    "take_again": 81.2
-  },
-  "Inna Abramova": {
-    "id": 1999537,
-    "difficulty": 3.5,
-    "rating": 3.5,
-    "rating_count": 23,
-    "take_again": 50
-  },
   "Saakar Byahut": {
     "id": 2928145,
     "difficulty": 3.6,
@@ -1167,13 +1405,6 @@
     "rating": 4.1,
     "rating_count": 134,
     "take_again": 84.1121
-  },
-  "Maria Colman": {
-    "id": 2002809,
-    "difficulty": 4,
-    "rating": 2.4,
-    "rating_count": 94,
-    "take_again": 35.5556
   },
   "Lucas Herchenroeder": {
     "id": 2136215,
@@ -1392,13 +1623,6 @@
     "rating_count": 154,
     "take_again": 69.9187
   },
-  "Brighde Mullins": {
-    "id": 2472246,
-    "difficulty": 1.7,
-    "rating": 5,
-    "rating_count": 29,
-    "take_again": 100
-  },
   "Devon Brooks": {
     "id": 1816585,
     "difficulty": 4.1,
@@ -1441,13 +1665,6 @@
     "rating_count": 23,
     "take_again": 61.9048
   },
-  "Sherry Zaks": {
-    "id": 2539679,
-    "difficulty": 3.4,
-    "rating": 3.1,
-    "rating_count": 22,
-    "take_again": 47.8261
-  },
   "Roger Ghanem": {
     "id": 801093,
     "difficulty": 3.3,
@@ -1476,13 +1693,6 @@
     "take_again": 0.0,
     "duplicated": true
   },
-  "Rebecca Broyer": {
-    "id": 1538668,
-    "difficulty": 4,
-    "rating": 2.7,
-    "rating_count": 180,
-    "take_again": 37.8882
-  },
   "Mark Marino": {
     "id": 720949,
     "difficulty": 3,
@@ -1509,7 +1719,7 @@
     "difficulty": 3.4,
     "rating": 4,
     "rating_count": 19,
-    "take_again": 80
+    "take_again": 75
   },
   "Morten Bay": {
     "id": 2591291,
@@ -1833,13 +2043,6 @@
     "rating_count": 119,
     "take_again": 94.8718
   },
-  "Anthony Borquez": {
-    "id": 34374,
-    "difficulty": 2.6,
-    "rating": 4.6,
-    "rating_count": 84,
-    "take_again": 91.3043
-  },
   "Richard Arratia": {
     "id": 463754,
     "difficulty": 3.1,
@@ -1853,13 +2056,6 @@
     "rating": 4.6,
     "rating_count": 34,
     "take_again": 94.1176
-  },
-  "Lucy Kim": {
-    "id": 2115272,
-    "difficulty": 3.1,
-    "rating": 2.9,
-    "rating_count": 18,
-    "take_again": 33.3333
   },
   "Elirama Betkolia": {
     "id": 3064249,
@@ -2526,13 +2722,6 @@
     "rating_count": 38,
     "take_again": 20.5882
   },
-  "Mitch Feinman": {
-    "id": 2827380,
-    "difficulty": 2.8,
-    "rating": 4.3,
-    "rating_count": 4,
-    "take_again": 80
-  },
   "Emily Warren": {
     "difficulty": 1.0,
     "rating": 2.5,
@@ -3092,13 +3281,6 @@
     "rating": 3.1,
     "rating_count": 21,
     "take_again": 53.3333
-  },
-  "Robert Vos": {
-    "id": 2082054,
-    "difficulty": 3.4,
-    "rating": 3.2,
-    "rating_count": 53,
-    "take_again": 45.098
   },
   "Najm Meshkati": {
     "id": 862989,
@@ -3828,19 +4010,19 @@
     "rating_count": 31,
     "take_again": 100
   },
-  "Rena Heinrich": {
-    "id": 2440744,
-    "difficulty": 3.4,
-    "rating": 4,
-    "rating_count": 30,
-    "take_again": 76.6667
-  },
   "Eva Buechel": {
     "id": 2566716,
     "difficulty": 2.6,
     "rating": 3.3,
     "rating_count": 30,
     "take_again": 50
+  },
+  "Rena Heinrich": {
+    "id": 2440744,
+    "difficulty": 3.4,
+    "rating": 4,
+    "rating_count": 30,
+    "take_again": 76.6667
   },
   "Calum Rickard": {
     "id": 2344466,
@@ -4038,13 +4220,6 @@
     "rating_count": 23,
     "take_again": 86.9565
   },
-  "Sarah Kessler": {
-    "id": 2491497,
-    "difficulty": 2.4,
-    "rating": 4.1,
-    "rating_count": 22,
-    "take_again": 82.6087
-  },
   "Ashutosh Nayyar": {
     "id": 2090012,
     "difficulty": 3.6,
@@ -4212,13 +4387,6 @@
     "rating": 3.8,
     "rating_count": 21,
     "take_again": 52.381
-  },
-  "Kyoung sook  Kim": {
-    "id": 3004590,
-    "difficulty": 3.6,
-    "rating": 3,
-    "rating_count": 18,
-    "take_again": 57.8947
   },
   "Frank Zerunyan": {
     "id": 2615695,
@@ -4724,13 +4892,6 @@
     "rating_count": 23,
     "take_again": 61.1111
   },
-  "Erik Hanson": {
-    "id": 2834438,
-    "difficulty": 2.3,
-    "rating": 4.5,
-    "rating_count": 23,
-    "take_again": 83.3333
-  },
   "Karen North": {
     "id": 1577333,
     "difficulty": 2.1,
@@ -4885,19 +5046,19 @@
     "rating_count": 1,
     "take_again": 0
   },
-  "Jack Barcal": {
-    "id": 3020760,
-    "difficulty": 1,
-    "rating": 1,
-    "rating_count": 1,
-    "take_again": 0
-  },
   "Sara Angevine": {
     "id": 3004535,
     "difficulty": 3,
     "rating": 4,
     "rating_count": 1,
     "take_again": 100
+  },
+  "Jack Barcal": {
+    "id": 3020760,
+    "difficulty": 1,
+    "rating": 1,
+    "rating_count": 1,
+    "take_again": 0
   },
   "Jessica Henson": {
     "id": 3104983,
@@ -4941,13 +5102,6 @@
     "rating_count": 37,
     "take_again": 67.5676
   },
-  "Cesar Armendariz": {
-    "id": 1923927,
-    "difficulty": 2.6,
-    "rating": 4.8,
-    "rating_count": 35,
-    "take_again": 96.6667
-  },
   "Jason Zevin": {
     "id": 2062302,
     "difficulty": 3.6,
@@ -4955,12 +5109,12 @@
     "rating_count": 34,
     "take_again": 58.0645
   },
-  "Dowell Myers": {
-    "id": 1307870,
-    "difficulty": 3.1,
-    "rating": 2.9,
-    "rating_count": 30,
-    "take_again": 48
+  "Cesar Armendariz": {
+    "id": 1923927,
+    "difficulty": 2.7,
+    "rating": 4.8,
+    "rating_count": 34,
+    "take_again": 96.6667
   },
   "Joshua Swanson": {
     "id": 2735034,
@@ -5059,13 +5213,6 @@
     "rating": 4.4,
     "rating_count": 36,
     "take_again": 91.6667
-  },
-  "Antonio Ortega": {
-    "id": 1741359,
-    "difficulty": 4.3,
-    "rating": 3.4,
-    "rating_count": 35,
-    "take_again": 51.4286
   },
   "Albert Napoli": {
     "id": 1862826,
@@ -5242,13 +5389,6 @@
     "rating_count": 5,
     "take_again": 60
   },
-  "Backer Abu-Jaradeh": {
-    "id": 3065263,
-    "difficulty": 5,
-    "rating": 1.5,
-    "rating_count": 2,
-    "take_again": 33.3333
-  },
   "John Walsh": {
     "difficulty": 2.3,
     "rating": 4.75,
@@ -5407,7 +5547,7 @@
     "id": 1870652,
     "difficulty": 4,
     "rating": 2.5,
-    "rating_count": 109,
+    "rating_count": 108,
     "take_again": 36.3636
   },
   "Laurie Fisher": {
@@ -5508,13 +5648,6 @@
     "take_again": 27.09,
     "duplicated": true
   },
-  "Dion Dickman": {
-    "id": 2004580,
-    "difficulty": 3.5,
-    "rating": 4,
-    "rating_count": 39,
-    "take_again": 89.7436
-  },
   "Madge Gaynor": {
     "id": 2692904,
     "difficulty": 3.2,
@@ -5536,19 +5669,19 @@
     "rating_count": 24,
     "take_again": 80
   },
-  "Bhaskar Krishnamachari": {
-    "id": 131929,
-    "difficulty": 2,
-    "rating": 4.8,
-    "rating_count": 24,
-    "take_again": 93.75
-  },
   "Helaine Lopes": {
     "id": 1932246,
     "difficulty": 2.3,
     "rating": 3.6,
     "rating_count": 24,
     "take_again": 69.5652
+  },
+  "Bhaskar Krishnamachari": {
+    "id": 131929,
+    "difficulty": 2,
+    "rating": 4.8,
+    "rating_count": 24,
+    "take_again": 93.75
   },
   "Kristine Garroway": {
     "id": 1826178,
@@ -5618,7 +5751,7 @@
     "difficulty": 3.2,
     "rating": 3.4,
     "rating_count": 46,
-    "take_again": 56.8182
+    "take_again": 55.5556
   },
   "Grace Lu": {
     "difficulty": 4.15,
@@ -5697,26 +5830,12 @@
     "rating_count": 110,
     "take_again": 90.1408
   },
-  "Julia Plotts": {
-    "id": 293200,
-    "difficulty": 3.5,
-    "rating": 4.6,
-    "rating_count": 63,
-    "take_again": 88.4615
-  },
   "Bennett Lee": {
     "id": 2166848,
     "difficulty": 2.5,
     "rating": 4.8,
     "rating_count": 31,
     "take_again": 93.5484
-  },
-  "Peter Winsky": {
-    "id": 2733213,
-    "difficulty": 2.5,
-    "rating": 5,
-    "rating_count": 26,
-    "take_again": 100
   },
   "Laila Madni": {
     "id": 3047268,
@@ -5726,10 +5845,10 @@
     "take_again": 22.7273
   },
   "Alessio Filippi": {
-    "difficulty": 1.07,
-    "rating": 1.63,
-    "rating_count": 6,
-    "take_again": 32.67,
+    "difficulty": 1.6,
+    "rating": 2.45,
+    "rating_count": 9,
+    "take_again": 49.5,
     "duplicated": true
   },
   "Tin-Yu Tseng": {
@@ -5809,6 +5928,13 @@
     "rating_count": 2,
     "take_again": 50
   },
+  "Miguel Pulgar": {
+    "id": 2986554,
+    "difficulty": 1.5,
+    "rating": 5,
+    "rating_count": 2,
+    "take_again": 100
+  },
   "Brian Ma": {
     "id": 3064103,
     "difficulty": 1.5,
@@ -5819,13 +5945,6 @@
   "Rebecca Romero": {
     "id": 3036530,
     "difficulty": 3,
-    "rating": 5,
-    "rating_count": 2,
-    "take_again": 100
-  },
-  "Miguel Pulgar": {
-    "id": 2986554,
-    "difficulty": 1.5,
     "rating": 5,
     "rating_count": 2,
     "take_again": 100
@@ -6026,13 +6145,6 @@
     "rating_count": 13,
     "take_again": 55.5556
   },
-  "Taylor Wiesen": {
-    "id": 2856110,
-    "difficulty": 2.8,
-    "rating": 5,
-    "rating_count": 10,
-    "take_again": 100
-  },
   "Wanmeng Li": {
     "id": 3004091,
     "difficulty": 2.5,
@@ -6124,19 +6236,19 @@
     "rating_count": 4,
     "take_again": 100
   },
-  "Frank Gutierrez": {
-    "id": 3066726,
-    "difficulty": 2.3,
-    "rating": 5,
-    "rating_count": 3,
-    "take_again": 100
-  },
   "Lindsey Schier": {
     "id": 2691662,
     "difficulty": 4.3,
     "rating": 1.7,
     "rating_count": 3,
     "take_again": 0
+  },
+  "Frank Gutierrez": {
+    "id": 3066726,
+    "difficulty": 2.3,
+    "rating": 5,
+    "rating_count": 3,
+    "take_again": 100
   },
   "Mukund Raghothaman": {
     "id": 3060324,
@@ -6334,16 +6446,16 @@
     "rating_count": 7,
     "take_again": 71.4286
   },
-  "Perry Johnson": {
-    "id": 2957184,
-    "difficulty": 3,
+  "Elizabeth Graddy": {
+    "id": 3060229,
+    "difficulty": 2.5,
     "rating": 5,
     "rating_count": 2,
     "take_again": 100
   },
-  "Elizabeth Graddy": {
-    "id": 3060229,
-    "difficulty": 2.5,
+  "Perry Johnson": {
+    "id": 2957184,
+    "difficulty": 3,
     "rating": 5,
     "rating_count": 2,
     "take_again": 100
@@ -6607,13 +6719,6 @@
     "rating_count": 110,
     "take_again": 96.1538
   },
-  "Will Berelson": {
-    "id": 816694,
-    "difficulty": 3.9,
-    "rating": 2.7,
-    "rating_count": 75,
-    "take_again": 40.9091
-  },
   "Scott Abrams": {
     "id": 1890003,
     "difficulty": 2.7,
@@ -6648,13 +6753,6 @@
     "rating": 3.6,
     "rating_count": 17,
     "take_again": 50
-  },
-  "Kristof Aldenderfer": {
-    "id": 2635980,
-    "difficulty": 2.6,
-    "rating": 4.4,
-    "rating_count": 16,
-    "take_again": 82.3529
   },
   "Kristiana Willsey": {
     "id": 2635133,
@@ -6789,13 +6887,6 @@
     "rating_count": 27,
     "take_again": 75
   },
-  "Mick Swartz": {
-    "id": 1691545,
-    "difficulty": 3.1,
-    "rating": 2.3,
-    "rating_count": 21,
-    "take_again": 25
-  },
   "Paolo Sigismondi": {
     "id": 1787886,
     "difficulty": 2.3,
@@ -6809,6 +6900,13 @@
     "rating": 4.7,
     "rating_count": 21,
     "take_again": 100
+  },
+  "Mick Swartz": {
+    "id": 1691545,
+    "difficulty": 3.1,
+    "rating": 2.3,
+    "rating_count": 21,
+    "take_again": 25
   },
   "Yola Katsargyri": {
     "id": 2956579,
@@ -6830,13 +6928,6 @@
     "rating": 4,
     "rating_count": 15,
     "take_again": 100
-  },
-  "Lauren  McElvain": {
-    "id": 3009534,
-    "difficulty": 4.3,
-    "rating": 2,
-    "rating_count": 15,
-    "take_again": 25
   },
   "Satwindar Sadhal": {
     "id": 389572,
@@ -7020,19 +7111,19 @@
     "rating_count": 10,
     "take_again": 90
   },
-  "Alex Rotaru": {
-    "id": 3085721,
-    "difficulty": 2,
-    "rating": 2.5,
-    "rating_count": 2,
-    "take_again": 50
-  },
   "Alison Minami": {
     "id": 3019201,
     "difficulty": 3,
     "rating": 4,
     "rating_count": 2,
     "take_again": 100
+  },
+  "Alex Rotaru": {
+    "id": 3085721,
+    "difficulty": 2,
+    "rating": 2.5,
+    "rating_count": 2,
+    "take_again": 50
   },
   "James Ciano": {
     "id": 2856327,
@@ -7482,19 +7573,19 @@
     "rating_count": 25,
     "take_again": 68
   },
-  "Sarah Benor": {
-    "id": 1307871,
-    "difficulty": 2.5,
-    "rating": 4,
-    "rating_count": 21,
-    "take_again": 73.3333
-  },
   "Leah Hochman": {
     "id": 1761647,
     "difficulty": 3.5,
     "rating": 2.9,
     "rating_count": 21,
     "take_again": 35
+  },
+  "Sarah Benor": {
+    "id": 1307871,
+    "difficulty": 2.5,
+    "rating": 4,
+    "rating_count": 21,
+    "take_again": 73.3333
   },
   "Nicholas J. Cull": {
     "id": 2275826,
@@ -7663,13 +7754,6 @@
     "rating": 3,
     "rating_count": 2,
     "take_again": 50
-  },
-  "TreaAndrea Russworm": {
-    "id": 2949104,
-    "difficulty": 3.2,
-    "rating": 1.6,
-    "rating_count": 53,
-    "take_again": 5.4545
   },
   "Daniela Baroffio": {
     "id": 1085920,
@@ -8000,17 +8084,17 @@
     "rating_count": 19,
     "take_again": 70.5882
   },
-  "Dani Byrd": {
-    "id": 2633237,
-    "difficulty": 2.6,
-    "rating": 4.9,
-    "rating_count": 8,
-    "take_again": 100
-  },
   "Brian Malouf": {
     "id": 2591617,
     "difficulty": 2.8,
     "rating": 4.6,
+    "rating_count": 8,
+    "take_again": 100
+  },
+  "Dani Byrd": {
+    "id": 2633237,
+    "difficulty": 2.6,
+    "rating": 4.9,
     "rating_count": 8,
     "take_again": 100
   },
@@ -8161,13 +8245,6 @@
     "rating_count": 2,
     "take_again": 0
   },
-  "Tiffany  Gist": {
-    "id": 3078906,
-    "difficulty": 2,
-    "rating": 5,
-    "rating_count": 1,
-    "take_again": 50
-  },
   "Michael Campbell": {
     "id": 2954592,
     "difficulty": 2.3,
@@ -8264,7 +8341,7 @@
     "difficulty": 1.7,
     "rating": 3.2,
     "rating_count": 35,
-    "take_again": 20
+    "take_again": 25
   },
   "Andrew Goldstein": {
     "id": 2966355,
@@ -8313,7 +8390,7 @@
     "difficulty": 2.2,
     "rating": 3.8,
     "rating_count": 37,
-    "take_again": 88.2353
+    "take_again": 88.8889
   },
   "Sarah Feakins": {
     "id": 1335974,
@@ -8882,13 +8959,6 @@
     "rating_count": 1,
     "take_again": 100
   },
-  "Megan Becker": {
-    "id": 2126490,
-    "difficulty": 3,
-    "rating": 2.4,
-    "rating_count": 43,
-    "take_again": 27.907
-  },
   "Bryan Shilowich": {
     "id": 2735513,
     "difficulty": 2.5,
@@ -8901,7 +8971,7 @@
     "difficulty": 2.8,
     "rating": 4.3,
     "rating_count": 37,
-    "take_again": 92.3077
+    "take_again": 92.8571
   },
   "Greg Kling": {
     "id": 1834649,
@@ -9106,9 +9176,9 @@
     "rating_count": 4,
     "take_again": 100
   },
-  "Louise Menendez": {
-    "id": 2971808,
-    "difficulty": 2,
+  "Chloe Papadopoulos": {
+    "id": 3036423,
+    "difficulty": 2.7,
     "rating": 5,
     "rating_count": 3,
     "take_again": 100
@@ -9120,9 +9190,9 @@
     "rating_count": 3,
     "take_again": 33.3333
   },
-  "Chloe Papadopoulos": {
-    "id": 3036423,
-    "difficulty": 2.7,
+  "Louise Menendez": {
+    "id": 2971808,
+    "difficulty": 2,
     "rating": 5,
     "rating_count": 3,
     "take_again": 100
@@ -9462,13 +9532,6 @@
     "rating": 3.3,
     "rating_count": 4,
     "take_again": 75
-  },
-  "Karla Heidelberg": {
-    "id": 1742864,
-    "difficulty": 2.9,
-    "rating": 4.9,
-    "rating_count": 15,
-    "take_again": 100
   },
   "Mansour Rostami": {
     "id": 2378611,
@@ -9995,13 +10058,6 @@
     "rating_count": 14,
     "take_again": 28.5714
   },
-  "Jenny Chio": {
-    "id": 2403739,
-    "difficulty": 4.1,
-    "rating": 3.3,
-    "rating_count": 11,
-    "take_again": 33.3333
-  },
   "Austin Pollok": {
     "id": 2806819,
     "difficulty": 3,
@@ -10352,13 +10408,6 @@
     "rating_count": 4,
     "take_again": 75
   },
-  "Diana Beltran": {
-    "id": 2877872,
-    "difficulty": 4,
-    "rating": 4.5,
-    "rating_count": 4,
-    "take_again": 83.3333
-  },
   "Tom Abrams": {
     "id": 3018253,
     "difficulty": 3,
@@ -10583,19 +10632,19 @@
     "rating_count": 27,
     "take_again": 70
   },
-  "Lauren Sowa": {
-    "id": 2528010,
-    "difficulty": 3,
-    "rating": 5,
-    "rating_count": 5,
-    "take_again": 100
-  },
   "Seon Kim": {
     "id": 2883623,
     "difficulty": 4.4,
     "rating": 1.4,
     "rating_count": 5,
     "take_again": 0
+  },
+  "Lauren Sowa": {
+    "id": 2528010,
+    "difficulty": 3,
+    "rating": 5,
+    "rating_count": 5,
+    "take_again": 100
   },
   "Victoria Chonn-Ching": {
     "id": 2734898,
@@ -10695,15 +10744,15 @@
     "rating_count": 1,
     "take_again": 0
   },
-  "Robert Cutietta": {
-    "id": 3048918,
+  "Lauren  Bradford": {
+    "id": 3009601,
     "difficulty": 1.5,
     "rating": 5,
     "rating_count": 2,
     "take_again": 100
   },
-  "Lauren  Bradford": {
-    "id": 3009601,
+  "Robert Cutietta": {
+    "id": 3048918,
     "difficulty": 1.5,
     "rating": 5,
     "rating_count": 2,
@@ -11017,13 +11066,6 @@
     "rating_count": 2,
     "take_again": 0
   },
-  "Peter Robbins": {
-    "id": 2821177,
-    "difficulty": 2.4,
-    "rating": 4.4,
-    "rating_count": 7,
-    "take_again": 88.8889
-  },
   "Tracy Levin": {
     "id": 2279228,
     "difficulty": 3.8,
@@ -11065,13 +11107,6 @@
     "rating": 5,
     "rating_count": 6,
     "take_again": 100
-  },
-  "Lowell Stott": {
-    "id": 180790,
-    "difficulty": 3.4,
-    "rating": 2.9,
-    "rating_count": 79,
-    "take_again": 58.9744
   },
   "Michelle Lee": {
     "difficulty": 1.55,
@@ -11582,7 +11617,7 @@
     "difficulty": 2.3,
     "rating": 4,
     "rating_count": 3,
-    "take_again": 66.6667
+    "take_again": 50
   },
   "Richard Newmyer": {
     "id": 2961148,
@@ -12053,13 +12088,6 @@
     "rating_count": 12,
     "take_again": 50
   },
-  "Deborah Natoli": {
-    "id": 2754023,
-    "difficulty": 2,
-    "rating": 2.8,
-    "rating_count": 6,
-    "take_again": 42.8571
-  },
   "Evgeny Dengub": {
     "id": 2748640,
     "difficulty": 2,
@@ -12388,13 +12416,6 @@
     "rating": 3.3,
     "rating_count": 12,
     "take_again": 33.3333
-  },
-  "Nicolai Haydn": {
-    "id": 171096,
-    "difficulty": 3.3,
-    "rating": 2.7,
-    "rating_count": 24,
-    "take_again": 50
   },
   "Helen Choi": {
     "id": 1882310,
@@ -13138,6 +13159,13 @@
     "rating_count": 18,
     "take_again": 25
   },
+  "Andrew Gracey": {
+    "id": 1417646,
+    "difficulty": 3.9,
+    "rating": 3,
+    "rating_count": 30,
+    "take_again": 60.8696
+  },
   "Paul Nash": {
     "id": 2651859,
     "difficulty": 2.4,
@@ -13726,19 +13754,19 @@
     "rating_count": 31,
     "take_again": 68.4211
   },
-  "Yanhao Wei": {
-    "id": 2246824,
-    "difficulty": 3,
-    "rating": 4,
-    "rating_count": 29,
-    "take_again": 75.8621
-  },
   "Ramzi Rouighi": {
     "id": 1601275,
     "difficulty": 3.6,
     "rating": 3.4,
     "rating_count": 29,
     "take_again": 68.75
+  },
+  "Yanhao Wei": {
+    "id": 2246824,
+    "difficulty": 3,
+    "rating": 4,
+    "rating_count": 29,
+    "take_again": 75.8621
   },
   "Alice Echols": {
     "id": 2074286,
@@ -13831,19 +13859,19 @@
     "rating_count": 2,
     "take_again": 0
   },
-  "Tom Hall": {
-    "id": 2966560,
-    "difficulty": 2,
-    "rating": 5,
-    "rating_count": 1,
-    "take_again": 100
-  },
   "Camae Ayewa": {
     "id": 2968627,
     "difficulty": 2,
     "rating": 4,
     "rating_count": 1,
     "take_again": 0
+  },
+  "Tom Hall": {
+    "id": 2966560,
+    "difficulty": 2,
+    "rating": 5,
+    "rating_count": 1,
+    "take_again": 100
   },
   "Nasser Cortez": {
     "id": 2564170,
@@ -14048,19 +14076,19 @@
     "rating_count": 8,
     "take_again": 100
   },
-  "Cesar Acosta-Meija": {
-    "id": 2004493,
-    "difficulty": 2,
-    "rating": 3.8,
-    "rating_count": 8,
-    "take_again": 66.6667
-  },
   "Travis Major": {
     "id": 2732083,
     "difficulty": 3.6,
     "rating": 3.3,
     "rating_count": 8,
     "take_again": 50
+  },
+  "Cesar Acosta-Meija": {
+    "id": 2004493,
+    "difficulty": 2,
+    "rating": 3.8,
+    "rating_count": 8,
+    "take_again": 66.6667
   },
   "Roberto Vicinanza": {
     "id": 2680651,
@@ -16309,16 +16337,16 @@
     "rating_count": 1,
     "take_again": 100
   },
-  "Meiqing Zhang": {
-    "id": 2868002,
-    "difficulty": 3,
+  "Deirdre Klokow": {
+    "id": 2867534,
+    "difficulty": 5,
     "rating": 5,
     "rating_count": 1,
     "take_again": 100
   },
-  "Deirdre Klokow": {
-    "id": 2867534,
-    "difficulty": 5,
+  "Meiqing Zhang": {
+    "id": 2868002,
+    "difficulty": 3,
     "rating": 5,
     "rating_count": 1,
     "take_again": 100
@@ -20999,13 +21027,6 @@
     "rating_count": 1,
     "take_again": 0
   },
-  "Jean Maarek": {
-    "id": 172481,
-    "difficulty": 3.1,
-    "rating": 3.8,
-    "rating_count": 15,
-    "take_again": 50
-  },
   "Sabrina Smiley": {
     "id": 2454719,
     "difficulty": 2.6,
@@ -24954,13 +24975,6 @@
     "rating_count": 2,
     "take_again": 100
   },
-  "Juliet Musso": {
-    "id": 455867,
-    "difficulty": 2.7,
-    "rating": 4.3,
-    "rating_count": 9,
-    "take_again": 50
-  },
   "Naomi Greenwald": {
     "id": 1505043,
     "difficulty": 3.2,
@@ -25017,19 +25031,19 @@
     "rating_count": 2,
     "take_again": 100
   },
-  "Yu Hong": {
-    "id": 2247242,
-    "difficulty": 3.5,
-    "rating": 1.5,
-    "rating_count": 2,
-    "take_again": 0
-  },
   "Bonnie Goldstein": {
     "id": 2068328,
     "difficulty": 2,
     "rating": 4.5,
     "rating_count": 2,
     "take_again": 100
+  },
+  "Yu Hong": {
+    "id": 2247242,
+    "difficulty": 3.5,
+    "rating": 1.5,
+    "rating_count": 2,
+    "take_again": 0
   },
   "Jeff Hammer": {
     "id": 2251812,
@@ -31478,15 +31492,15 @@
     "rating_count": 1,
     "take_again": -1
   },
-  "Thomas Olson": {
-    "id": 1989415,
+  "Russ Woody": {
+    "id": 1974822,
     "difficulty": 3,
     "rating": 5,
     "rating_count": 1,
     "take_again": -1
   },
-  "Russ Woody": {
-    "id": 1974822,
+  "Thomas Olson": {
+    "id": 1989415,
     "difficulty": 3,
     "rating": 5,
     "rating_count": 1,
@@ -31496,6 +31510,20 @@
     "id": 1882756,
     "difficulty": 5,
     "rating": 1,
+    "rating_count": 1,
+    "take_again": -1
+  },
+  "Amy Bowers": {
+    "id": 1966402,
+    "difficulty": 1,
+    "rating": 5,
+    "rating_count": 1,
+    "take_again": -1
+  },
+  "Molly Pulda": {
+    "id": 1904059,
+    "difficulty": 2,
+    "rating": 5,
     "rating_count": 1,
     "take_again": -1
   },
@@ -31513,13 +31541,6 @@
     "rating_count": 1,
     "take_again": -1
   },
-  "Molly Pulda": {
-    "id": 1904059,
-    "difficulty": 2,
-    "rating": 5,
-    "rating_count": 1,
-    "take_again": -1
-  },
   "Laura Schute": {
     "id": 1965423,
     "difficulty": 3,
@@ -31527,17 +31548,17 @@
     "rating_count": 1,
     "take_again": -1
   },
-  "Amy Bowers": {
-    "id": 1966402,
-    "difficulty": 1,
-    "rating": 5,
-    "rating_count": 1,
-    "take_again": -1
-  },
   "Donna Brown": {
     "id": 2007557,
     "difficulty": 5,
     "rating": 2,
+    "rating_count": 1,
+    "take_again": -1
+  },
+  "Ben Poston": {
+    "id": 1982440,
+    "difficulty": 4,
+    "rating": 4,
     "rating_count": 1,
     "take_again": -1
   },
@@ -31569,13 +31590,6 @@
     "rating_count": 1,
     "take_again": -1
   },
-  "Ben Poston": {
-    "id": 1982440,
-    "difficulty": 4,
-    "rating": 4,
-    "rating_count": 1,
-    "take_again": -1
-  },
   "Jonathan Wright": {
     "id": 1989044,
     "difficulty": 3,
@@ -31583,50 +31597,36 @@
     "rating_count": 1,
     "take_again": -1
   },
-  "Lingyun Ji": {
-    "id": 2796408,
+  "Jieyu Zhao": {
+    "id": 3025133,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Susanne Manheimer": {
-    "id": 2791510,
+  "Harold Wiliams": {
+    "id": 2907040,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Ramen Chmait": {
-    "id": 2802338,
+  "Yaqing Hu": {
+    "id": 2908688,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Pragya Arya": {
-    "id": 2787979,
+  "Botong Zheng": {
+    "id": 2844562,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Molly Bugonovic": {
-    "id": 2788589,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sai Upadhyayula": {
-    "id": 2892003,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Luci Marzola": {
-    "id": 2807553,
+  "Jeffrey Rozelle": {
+    "id": 2845305,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -31653,113 +31653,8 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Botong Zheng": {
-    "id": 2844562,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jeffrey Rozelle": {
-    "id": 2845305,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Quinn Mallory": {
-    "id": 2763133,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Shayna Markwongnark": {
-    "id": 2770294,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Slava Greenberg": {
-    "id": 2778778,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Raffi Svadjian": {
-    "id": 2774234,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Melissa Chadburn": {
-    "id": 2765108,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Alison Muraszewski": {
-    "id": 2798820,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Giancarlo Cornejo": {
-    "id": 2799100,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Diana Dimapindan": {
-    "id": 2858497,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Luke Harold": {
-    "id": 2859658,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Daniel Depew": {
-    "id": 2860732,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Anthony Anderson": {
-    "id": 2429742,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Chris Beas": {
-    "id": 2411219,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Harold Wiliams": {
-    "id": 2907040,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Yaqing Hu": {
-    "id": 2908688,
+  "Diane Farrington": {
+    "id": 3041588,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -31781,251 +31676,6 @@
   },
   "Thanh Tran": {
     "id": 3030978,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jieyu Zhao": {
-    "id": 3025133,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Roger Pao": {
-    "id": 2964815,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kandiss Winslow": {
-    "id": 2961434,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Diane Farrington": {
-    "id": 3041588,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "goleen samari": {
-    "id": 3125271,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Gilbert Ampomah": {
-    "id": 3125605,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": 0
-  },
-  "Harsh Jalan": {
-    "id": 3060377,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Joseph  Hansford": {
-    "id": 2980860,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lynn Johnston": {
-    "id": 3065170,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Noraedén Mora Méndez": {
-    "id": 3065983,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Heather Pickerell": {
-    "id": 3066158,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Noor  Hasem": {
-    "id": 3055496,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Selwyn Ting": {
-    "id": 2985170,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jonathan Libgober": {
-    "id": 2944515,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "John Nee": {
-    "id": 2944527,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Camirin Farmer": {
-    "id": 3009992,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Saba Hamedy": {
-    "id": 2998997,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Cameron Lange": {
-    "id": 2999409,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jay Parikh": {
-    "id": 3102377,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Anna Nguyen": {
-    "id": 3092206,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "John Bellows": {
-    "id": 3111787,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Elena Lee": {
-    "id": 3115589,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Luciana Souza": {
-    "id": 3113208,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "David Su": {
-    "id": 3117317,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Moses Journey": {
-    "id": 3109828,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Ari Sandel": {
-    "id": 3095907,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Noraeden Mora Mendez": {
-    "id": 3096208,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Zelda Harrison": {
-    "id": 3105189,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Peter Haine": {
-    "id": 3107376,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Nakisha Sattelmaier": {
-    "id": 3109376,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Robyn To": {
-    "id": 3097875,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Taifha alexander": {
-    "id": 3099955,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Angel Hwang": {
-    "id": 3073373,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Nicholas Graham": {
-    "id": 3068603,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Stephen Aguilat": {
-    "id": 2950417,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32073,6 +31723,13 @@
     "rating_count": 0,
     "take_again": -1
   },
+  "Alexandria Hall": {
+    "id": 2746371,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
   "Roberto Blain": {
     "id": 2751305,
     "difficulty": 0,
@@ -32089,6 +31746,314 @@
   },
   "Christina Bellantoni": {
     "id": 2684941,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Dan Tepstein": {
+    "id": 2670570,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Courtney Malloy": {
+    "id": 2616253,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Ralph Kirshbaum": {
+    "id": 2322238,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Dan Mazmanian": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "goleen samari": {
+    "id": 3125271,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Nicholas Graham": {
+    "id": 3068603,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Zelda Harrison": {
+    "id": 3105189,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Robyn To": {
+    "id": 3097875,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Peter Haine": {
+    "id": 3107376,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Ari Sandel": {
+    "id": 3095907,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Noraeden Mora Mendez": {
+    "id": 3096208,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Anna Nguyen": {
+    "id": 3092206,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Nakisha Sattelmaier": {
+    "id": 3109376,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "John Bellows": {
+    "id": 3111787,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Taifha alexander": {
+    "id": 3099955,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Luciana Souza": {
+    "id": 3113208,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "David Su": {
+    "id": 3117317,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jay Parikh": {
+    "id": 3102377,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Elena Lee": {
+    "id": 3115589,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Moses Journey": {
+    "id": 3109828,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Stephen Aguilat": {
+    "id": 2950417,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Angel Hwang": {
+    "id": 3073373,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sai Upadhyayula": {
+    "id": 2892003,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Luci Marzola": {
+    "id": 2807553,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lingyun Ji": {
+    "id": 2796408,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Quinn Mallory": {
+    "id": 2763133,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Shayna Markwongnark": {
+    "id": 2770294,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Slava Greenberg": {
+    "id": 2778778,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Melissa Chadburn": {
+    "id": 2765108,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Raffi Svadjian": {
+    "id": 2774234,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Saba Hamedy": {
+    "id": 2998997,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Cameron Lange": {
+    "id": 2999409,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jonathan Libgober": {
+    "id": 2944515,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "John Nee": {
+    "id": 2944527,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Camirin Farmer": {
+    "id": 3009992,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Harsh Jalan": {
+    "id": 3060377,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Roger Pao": {
+    "id": 2964815,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kandiss Winslow": {
+    "id": 2961434,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lynn Johnston": {
+    "id": 3065170,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Noraedén Mora Méndez": {
+    "id": 3065983,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Heather Pickerell": {
+    "id": 3066158,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Noor  Hasem": {
+    "id": 3055496,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Selwyn Ting": {
+    "id": 2985170,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Joseph  Hansford": {
+    "id": 2980860,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32136,13 +32101,6 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Angela Lyanobor": {
-    "id": 2712416,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
   "Christine Gonong": {
     "id": 2711924,
     "difficulty": 0,
@@ -32150,386 +32108,8 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Dan Tepstein": {
-    "id": 2670570,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kartik Balodi": {
-    "id": 2524883,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Ralph Kirshbaum": {
-    "id": 2322238,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Courtney Malloy": {
-    "id": 2616253,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Dan Mazmanian": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Alexandria Hall": {
-    "id": 2746371,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Albert Ortega": {
-    "id": 2520687,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Claudia Whyte": {
-    "id": 2167106,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kenneth Kenny Hall": {
-    "id": 2157771,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Terek Rutherford": {
-    "id": 2024941,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Aaron Mcgee": {
-    "id": 2036022,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Christina Johnson": {
-    "id": 1985434,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Julie Carson": {
-    "id": 739330,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lou Kleinman": {
-    "id": 747912,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Arsiyanti Ardie": {
-    "id": 675126,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Seung-ah Lee": {
-    "id": 1941418,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "RS Hubbard": {
-    "id": 1928846,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Adam Kahn": {
-    "id": 1800884,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Alexis Disselkoen": {
-    "id": 1893416,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Ethlene Pollak": {
-    "id": 1522614,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Stephanie Lewis-Briggs": {
-    "id": 1611513,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Escalante": {
-    "id": 1621185,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Margaret McLaughlin": {
-    "id": 1601088,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Rebecca Lowry": {
-    "id": 1512760,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Rachel Mangels": {
-    "id": 1479570,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Carl Kim": {
-    "id": 1483129,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Alexander Robinson": {
-    "id": 1486086,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jill Thomas": {
-    "id": 2031030,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Chad Walker": {
-    "id": 1638820,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jamy Stillman": {
-    "id": 1694436,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "William Carter": {
-    "id": 1335820,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Chung Ruth": {
-    "id": 1410999,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Yun Ling": {
-    "id": 1831988,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sylvie Koneski": {
-    "id": 1821791,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Phil Wilcox": {
-    "id": 1672440,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Bahara Church": {
-    "id": 1674301,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Val Reyes": {
-    "id": 1670752,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Judy Muller": {
-    "id": 2225465,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jon Lasch": {
-    "id": 2232054,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kendra Ericson": {
-    "id": 314497,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Stephanie Bonjack": {
-    "id": 1682700,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kwang-jin Kim": {
-    "id": 2467560,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Tram Sparks": {
-    "id": 2458729,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Shivalee Dey": {
-    "id": 2465192,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Keren Zhu": {
-    "id": 2475979,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Matthew Hansen": {
-    "id": 2547043,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Clifford Johnson": {
-    "id": 2526711,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lori Campbell": {
-    "id": 2508358,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kimberly Kelly-Rolfe": {
-    "id": 2452209,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sofia Reddy": {
-    "id": 2481990,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Leigh Tost": {
-    "id": 2573145,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Dotty Diemer": {
-    "id": 2544116,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Yusi Xu": {
-    "id": 2541146,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Mia Bennett": {
-    "id": 2556379,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Claudia Jensen": {
-    "id": 424323,
+  "Angela Lyanobor": {
+    "id": 2712416,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32584,8 +32164,197 @@
     "rating_count": 0,
     "take_again": -1
   },
+  "Kartik Balodi": {
+    "id": 2524883,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Albert Ortega": {
+    "id": 2520687,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Susanne Manheimer": {
+    "id": 2791510,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Pragya Arya": {
+    "id": 2787979,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Molly Bugonovic": {
+    "id": 2788589,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Alison Muraszewski": {
+    "id": 2798820,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Giancarlo Cornejo": {
+    "id": 2799100,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Chris Beas": {
+    "id": 2411219,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Anthony Anderson": {
+    "id": 2429742,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Diana Dimapindan": {
+    "id": 2858497,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Daniel Depew": {
+    "id": 2860732,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Ramen Chmait": {
+    "id": 2802338,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Luke Harold": {
+    "id": 2859658,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mia Bennett": {
+    "id": 2556379,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kwang-jin Kim": {
+    "id": 2467560,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Tram Sparks": {
+    "id": 2458729,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Shivalee Dey": {
+    "id": 2465192,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Keren Zhu": {
+    "id": 2475979,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Matthew Hansen": {
+    "id": 2547043,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Clifford Johnson": {
+    "id": 2526711,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Julie Carson": {
+    "id": 739330,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lou Kleinman": {
+    "id": 747912,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
   "Ben Huang": {
     "id": 878957,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Claudia Jensen": {
+    "id": 424323,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lori Campbell": {
+    "id": 2508358,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kimberly Kelly-Rolfe": {
+    "id": 2452209,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sofia Reddy": {
+    "id": 2481990,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Leigh Tost": {
+    "id": 2573145,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32598,8 +32367,85 @@
     "rating_count": 0,
     "take_again": -1
   },
+  "Kendra Ericson": {
+    "id": 314497,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Davood Khairkhah": {
+    "id": 2261735,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
   "Jamyung Choi": {
     "id": 2191209,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Margaret McLaughlin": {
+    "id": 1601088,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Rebecca Lowry": {
+    "id": 1512760,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "William Carter": {
+    "id": 1335820,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Chung Ruth": {
+    "id": 1410999,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Leticia Bustillos": {
+    "id": 1222204,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Phil Wilcox": {
+    "id": 1672440,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Bahara Church": {
+    "id": 1674301,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Val Reyes": {
+    "id": 1670752,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mark Westerfield": {
+    "id": 1735103,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32619,22 +32465,155 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Davood Khairkhah": {
-    "id": 2261735,
+  "Claudia Whyte": {
+    "id": 2167106,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Mark Westerfield": {
-    "id": 1735103,
+  "Stephanie Lewis-Briggs": {
+    "id": 1611513,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Leticia Bustillos": {
-    "id": 1222204,
+  "Michael Escalante": {
+    "id": 1621185,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Rachel Mangels": {
+    "id": 1479570,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Dotty Diemer": {
+    "id": 2544116,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Yusi Xu": {
+    "id": 2541146,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Aaron Mcgee": {
+    "id": 2036022,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Terek Rutherford": {
+    "id": 2024941,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Judy Muller": {
+    "id": 2225465,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jon Lasch": {
+    "id": 2232054,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kenneth Kenny Hall": {
+    "id": 2157771,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Arsiyanti Ardie": {
+    "id": 675126,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Chad Walker": {
+    "id": 1638820,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jamy Stillman": {
+    "id": 1694436,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Stephanie Bonjack": {
+    "id": 1682700,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jill Thomas": {
+    "id": 2031030,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Yun Ling": {
+    "id": 1831988,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sylvie Koneski": {
+    "id": 1821791,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Seung-ah Lee": {
+    "id": 1941418,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "RS Hubbard": {
+    "id": 1928846,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Adam Kahn": {
+    "id": 1800884,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Alexis Disselkoen": {
+    "id": 1893416,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32661,15 +32640,267 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "jd Connor": {
-    "id": 2509578,
+  "Christina Johnson": {
+    "id": 1985434,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Josh Jenisch": {
-    "id": 2455098,
+  "Alexander Robinson": {
+    "id": 1486086,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Carl Kim": {
+    "id": 1483129,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Ethlene Pollak": {
+    "id": 1522614,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mitchell Jacobs": {
+    "id": 2852226,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Erin Osmon": {
+    "id": 2910969,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Naomi Sussman": {
+    "id": 2849124,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Justin Citron": {
+    "id": 2781347,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Tony Maxworthy": {
+    "id": 1701874,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Bo Han": {
+    "id": 868123,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Daniel Stimmler": {
+    "id": 887850,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Cathy Vaughn": {
+    "id": 716025,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Denise Plascencia": {
+    "id": 716027,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Trevor Norris": {
+    "id": 739326,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Monic Sun": {
+    "id": 680697,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Travis Smith": {
+    "id": 712849,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Merrick Osborne": {
+    "id": 2704124,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Darin Gray": {
+    "id": 2704701,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "John Stover": {
+    "id": 2585986,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Christina Webb": {
+    "id": 2581499,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Carol Geffner": {
+    "id": 2665148,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Celso Delgado Jr.": {
+    "id": 2646689,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lauren Yeoman": {
+    "id": 2734390,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kimberly Brower": {
+    "id": 2905446,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Marsha Riggio": {
+    "id": 2882896,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Pamela Mikkelson": {
+    "id": 2883857,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Richard Burton": {
+    "id": 2889545,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jeff Wald": {
+    "id": 1645807,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Parvin Shahlapour": {
+    "id": 1634430,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Shawn Powers": {
+    "id": 1172382,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lois Wendland": {
+    "id": 1258402,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Andrew Cashner": {
+    "id": 2097540,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Betsy Phillips": {
+    "id": 2034513,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Tom Pashby": {
+    "id": 1958888,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Julie Cohen": {
+    "id": 1496927,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Karen Kemp": {
+    "id": 2740863,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jonathan Barnett": {
+    "id": 2743335,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sung Kyu-Taik": {
+    "id": 328721,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32696,64 +32927,36 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "James Walker": {
-    "id": 1624870,
+  "George Batta": {
+    "id": 897953,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Shawn Powers": {
-    "id": 1172382,
+  "Gorijana Bezmalin": {
+    "id": 2566149,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Lois Wendland": {
-    "id": 1258402,
+  "Linda Brookman": {
+    "id": 2477267,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Darin Gray": {
-    "id": 2704701,
+  "Nicole Hirsch": {
+    "id": 2457149,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Merrick Osborne": {
-    "id": 2704124,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "John Stover": {
-    "id": 2585986,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Christina Webb": {
-    "id": 2581499,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Karen Kemp": {
-    "id": 2740863,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jonathan Barnett": {
-    "id": 2743335,
+  "Michael Siciliano": {
+    "id": 2464673,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32761,118 +32964,6 @@
   },
   "Andrew Stuart": {
     "id": 2532355,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Ion Muslea": {
-    "id": 2396741,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Dominique Duncan": {
-    "id": 2301478,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Garth Twa": {
-    "id": 2805841,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Joydeep Banerjee": {
-    "id": 2795940,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Cerianne Robertson": {
-    "id": 2796469,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Terry Ravine": {
-    "id": 2785821,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Erin Osmon": {
-    "id": 2910969,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Oscar Santos": {
-    "id": 2792707,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Pierluigi Nuzzo": {
-    "id": 2794595,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Christian Redfearn": {
-    "id": 2829370,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kimberly Brower": {
-    "id": 2905446,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Carol Geffner": {
-    "id": 2665148,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Betsy Phillips": {
-    "id": 2034513,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Tom Pashby": {
-    "id": 1958888,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Andrew Cashner": {
-    "id": 2097540,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Louis Heit": {
-    "id": 2265658,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32887,6 +32978,13 @@
   },
   "Ferrol Mennen": {
     "id": 2145264,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Linda Hagan": {
+    "id": 2205398,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32955,8 +33053,64 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Daniel Stram": {
-    "id": 412302,
+  "Louis Heit": {
+    "id": 2265658,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Michael Ellars": {
+    "id": 2220408,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Susan Amirpour": {
+    "id": 2716049,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "John Connor": {
+    "id": 2722591,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Fernando Moreno": {
+    "id": 2718828,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Rodrick Jenkins": {
+    "id": 2729970,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Ion Muslea": {
+    "id": 2396741,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Dominique Duncan": {
+    "id": 2301478,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Pierluigi Nuzzo": {
+    "id": 2794595,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32964,6 +33118,69 @@
   },
   "Miguel Pereira": {
     "id": 2801896,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Joseph Melamed": {
+    "id": 1020058,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "John Caffrey": {
+    "id": 1019641,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Daniel Stram": {
+    "id": 412302,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Garth Twa": {
+    "id": 2805841,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Terry Ravine": {
+    "id": 2785821,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Oscar Santos": {
+    "id": 2792707,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "jd Connor": {
+    "id": 2509578,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Josh Jenisch": {
+    "id": 2455098,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Naomi Duckworth": {
+    "id": 2444547,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -32990,379 +33207,8 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "George Batta": {
-    "id": 897953,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Stefan Schaal": {
-    "id": 1352380,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Chuck Weber": {
-    "id": 1357639,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Diana  Jochai": {
-    "id": 3123975,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sebnem   Demir": {
-    "id": 3122646,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Susan Dalian": {
-    "id": 3122657,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Rosalie Pacula": {
-    "id": 3113476,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Nancy  Agbenu": {
-    "id": 3059947,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Ayesha Mosadeqq": {
-    "id": 3052133,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Luka Fisher": {
-    "id": 3052956,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Nicholas  Musat": {
-    "id": 2985073,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Denny Hooten": {
-    "id": 2995143,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Cousineau": {
-    "id": 2995229,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Julia Seiker": {
-    "id": 2917861,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Leslie  Wheaton": {
-    "id": 2917871,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Frederick  Freking": {
-    "id": 2917875,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "TA Pranavi Jain": {
-    "id": 3022233,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Nima Sarmast": {
-    "id": 2953865,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jessy Hodges": {
-    "id": 2954442,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Samia Saliba": {
-    "id": 2954660,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Christopher Guerrero": {
-    "id": 2955325,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Amy Childress": {
-    "id": 2970096,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Gina Camello": {
-    "id": 2956723,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Anna  Quyen Nguyen": {
-    "id": 2957021,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Deborah Yuen": {
-    "id": 3021726,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Thomas Petersen": {
-    "id": 2933421,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Remy Barnes": {
-    "id": 2949874,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Augustin Bergeron": {
-    "id": 2944518,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Diana Gibson": {
-    "id": 3082272,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kristopher Coombs": {
-    "id": 2978176,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Cynthia Tucker": {
-    "id": 2998006,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Vincent Roberts": {
-    "id": 3006352,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jae Bang": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Michael Benavente": {
-    "id": 2986881,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Maria  Gutierrez Vera": {
-    "id": 3093661,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Quinn  Maingi": {
-    "id": 3095507,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Joy Agner": {
-    "id": 3096130,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Paul Prioleau": {
-    "id": 3075412,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Loïc Anderegg": {
-    "id": 3089687,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Carey Regor": {
-    "id": 3078879,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Rebecca Simpson-Menzies": {
-    "id": 3104494,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Zachariah  Berry": {
-    "id": 3097246,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Luke Fidler": {
-    "id": 3099971,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "James  Leonetti": {
-    "id": 3115672,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Kanazawa": {
-    "id": 3116297,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jake Monaghan": {
-    "id": 3116636,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Wooyoung Kim": {
-    "id": 3117278,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Quinn Maingi": {
-    "id": 3087719,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Andrew Murphy": {
-    "id": 3118429,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Aisling  Kelliher": {
-    "id": 3125825,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sung Kyu-Taik": {
-    "id": 328721,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Bo Han": {
-    "id": 868123,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Daniel Stimmler": {
-    "id": 887850,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Naomi Duckworth": {
-    "id": 2444547,
+  "Ali Kabirian": {
+    "id": 2872924,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -33389,15 +33235,8 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Nicole Hirsch": {
-    "id": 2457149,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Siciliano": {
-    "id": 2464673,
+  "Traci Gillig": {
+    "id": 2494110,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -33410,20 +33249,6 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Linda Brookman": {
-    "id": 2477267,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Traci Gillig": {
-    "id": 2494110,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
   "Zhe (Adele) Xing": {
     "id": 2573094,
     "difficulty": 0,
@@ -33431,113 +33256,330 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Gorijana Bezmalin": {
-    "id": 2566149,
+  "Paul Prioleau": {
+    "id": 3075412,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Michael Hoggan": {
-    "id": 1520267,
+  "Thomas Petersen": {
+    "id": 2933421,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Julie Cohen": {
-    "id": 1496927,
+  "Diana Gibson": {
+    "id": 3082272,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Anita Sengupta": {
-    "id": 2770657,
+  "Remy Barnes": {
+    "id": 2949874,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Mitchell Jacobs": {
-    "id": 2852226,
+  "Vincent Roberts": {
+    "id": 3006352,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Michael Ellars": {
-    "id": 2220408,
+  "Augustin Bergeron": {
+    "id": 2944518,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Linda Hagan": {
-    "id": 2205398,
+  "Jae Bang": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Ayesha Mosadeqq": {
+    "id": 3052133,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Tony Maxworthy": {
-    "id": 1701874,
+  "Luka Fisher": {
+    "id": 3052956,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Ali Kabirian": {
-    "id": 2872924,
+  "Michael Benavente": {
+    "id": 2986881,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Aaron Damien Settipane": {
-    "id": 2815976,
+  "Kristopher Coombs": {
+    "id": 2978176,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Jeff Wald": {
-    "id": 1645807,
+  "Michael Cousineau": {
+    "id": 2995229,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Parvin Shahlapour": {
-    "id": 1634430,
+  "Nicholas  Musat": {
+    "id": 2985073,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "John Caffrey": {
-    "id": 1019641,
+  "Denny Hooten": {
+    "id": 2995143,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Joseph Melamed": {
-    "id": 1020058,
+  "Cynthia Tucker": {
+    "id": 2998006,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Naomi Sussman": {
-    "id": 2849124,
+  "Julia Seiker": {
+    "id": 2917861,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Justin Citron": {
-    "id": 2781347,
+  "Leslie  Wheaton": {
+    "id": 2917871,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Frederick  Freking": {
+    "id": 2917875,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Nancy  Agbenu": {
+    "id": 3059947,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Nima Sarmast": {
+    "id": 2953865,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jessy Hodges": {
+    "id": 2954442,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Samia Saliba": {
+    "id": 2954660,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Amy Childress": {
+    "id": 2970096,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Deborah Yuen": {
+    "id": 3021726,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "TA Pranavi Jain": {
+    "id": 3022233,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Gina Camello": {
+    "id": 2956723,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Anna  Quyen Nguyen": {
+    "id": 2957021,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Christopher Guerrero": {
+    "id": 2955325,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Diana  Jochai": {
+    "id": 3123975,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Carey Regor": {
+    "id": 3078879,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Rebecca Simpson-Menzies": {
+    "id": 3104494,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Maria  Gutierrez Vera": {
+    "id": 3093661,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Quinn  Maingi": {
+    "id": 3095507,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Joy Agner": {
+    "id": 3096130,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Quinn Maingi": {
+    "id": 3087719,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Loïc Anderegg": {
+    "id": 3089687,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jake Monaghan": {
+    "id": 3116636,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Wooyoung Kim": {
+    "id": 3117278,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Andrew Murphy": {
+    "id": 3118429,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "James  Leonetti": {
+    "id": 3115672,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Michael Kanazawa": {
+    "id": 3116297,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Rosalie Pacula": {
+    "id": 3113476,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sebnem   Demir": {
+    "id": 3122646,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Susan Dalian": {
+    "id": 3122657,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Aisling  Kelliher": {
+    "id": 3125825,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Luke Fidler": {
+    "id": 3099971,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Zachariah  Berry": {
+    "id": 3097246,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -33557,22 +33599,71 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Marsha Riggio": {
-    "id": 2882896,
+  "Anita Sengupta": {
+    "id": 2770657,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Pamela Mikkelson": {
-    "id": 2883857,
+  "Josephine Caixi": {
+    "id": 2691124,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Richard Burton": {
-    "id": 2889545,
+  "Klaus Muumlller": {
+    "id": 2352554,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jo-Ann Lane": {
+    "id": 2345969,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Christian Redfearn": {
+    "id": 2829370,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "ASAD YAVARI": {
+    "id": 1974150,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Marcos Sanchez": {
+    "id": 2046163,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Tierra Stimson": {
+    "id": 1452476,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Alvaro Marquez": {
+    "id": 2818100,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Aaron Damien Settipane": {
+    "id": 2815976,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -33606,6 +33697,20 @@
     "rating_count": 0,
     "take_again": -1
   },
+  "Joydeep Banerjee": {
+    "id": 2795940,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Cerianne Robertson": {
+    "id": 2796469,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
   "Selma Holo": {
     "id": 2613587,
     "difficulty": 0,
@@ -33613,43 +33718,29 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Klaus Muumlller": {
-    "id": 2352554,
+  "Michael Hoggan": {
+    "id": 1520267,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Jo-Ann Lane": {
-    "id": 2345969,
+  "James Walker": {
+    "id": 1624870,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Alvaro Marquez": {
-    "id": 2818100,
+  "Stefan Schaal": {
+    "id": 1352380,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Tierra Stimson": {
-    "id": 1452476,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "ASAD YAVARI": {
-    "id": 1974150,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Marcos Sanchez": {
-    "id": 2046163,
+  "Chuck Weber": {
+    "id": 1357639,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -33669,106 +33760,8 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Glenda Goodman": {
-    "id": 1917283,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
   "Ekaterina Moore": {
     "id": 1821573,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Rodrick Jenkins": {
-    "id": 2729970,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Josephine Caixi": {
-    "id": 2691124,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Celso Delgado Jr.": {
-    "id": 2646689,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lauren Yeoman": {
-    "id": 2734390,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Susan Amirpour": {
-    "id": 2716049,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "John Connor": {
-    "id": 2722591,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Fernando Moreno": {
-    "id": 2718828,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Trevor Norris": {
-    "id": 739326,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Cathy Vaughn": {
-    "id": 716025,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Denise Plascencia": {
-    "id": 716027,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Travis Smith": {
-    "id": 712849,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Monic Sun": {
-    "id": 680697,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Esther Kim": {
-    "id": 1436753,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -33781,215 +33774,68 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "ajitesh srivastava": {
-    "id": 3123987,
+  "Glenda Goodman": {
+    "id": 1917283,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Zachary Goodsell": {
-    "id": 2764203,
+  "Esther Kim": {
+    "id": 1436753,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Charles Crawford": {
-    "id": 2989831,
+  "Michael Fanning": {
+    "id": 3098916,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Ruth Cislowski": {
-    "id": 2782686,
+  "Rui Xu": {
+    "id": 3077193,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Jung yun Choi": {
-    "id": 2784098,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Natalia Cascino": {
-    "id": 2995569,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Christopher Butler": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Nicole Bush": {
-    "id": 2997313,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "tatyana ryutov": {
-    "id": 2766193,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Bandar Alsaeed": {
-    "id": 3071804,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sami Masri": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "April Greiman": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Rashi Sinha": {
-    "id": 3080420,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Deborah Hazelton": {
-    "id": 3076500,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Eli Dunn": {
-    "id": 3076577,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Philippe Hawi": {
-    "id": 3084821,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Russell Fortmeyer": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Chrisshonna Nueva": {
-    "id": 2988198,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Larry Balmagia": {
-    "id": 3066701,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Mehdi Kamal": {
-    "id": 3067057,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jelena Culibrk": {
-    "id": 3006143,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Regina Paul": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Goretti Prieto Botana": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Anna DiCrisi": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Siqin Wang": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Hanns Botz": {
-    "id": 2917874,
+  "Justin Ichida": {
+    "id": 2394713,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
   "Kohki Watabe": {
-    "difficulty": 0.0,
-    "rating": 0.0,
+    "id": 2296757,
+    "difficulty": 0,
+    "rating": 0,
     "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
+    "take_again": -1
   },
   "Anandi Hira": {
-    "difficulty": 0.0,
-    "rating": 0.0,
+    "id": 2311273,
+    "difficulty": 0,
+    "rating": 0,
     "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
+    "take_again": -1
   },
   "Mary Morgan": {
-    "difficulty": 0.0,
-    "rating": 0.0,
+    "id": 2757629,
+    "difficulty": 0,
+    "rating": 0,
     "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
+    "take_again": -1
   },
   "Shaun Harper": {
-    "difficulty": 0.0,
-    "rating": 0.0,
+    "id": 2739953,
+    "difficulty": 0,
+    "rating": 0,
     "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
+    "take_again": -1
   },
   "Rosanna Tavarez": {
     "difficulty": 0.0,
@@ -34013,11 +33859,32 @@
     "duplicated": true
   },
   "Kasia Anderson": {
-    "difficulty": 0.0,
-    "rating": 0.0,
+    "id": 2678011,
+    "difficulty": 0,
+    "rating": 0,
     "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
+    "take_again": -1
+  },
+  "ajitesh srivastava": {
+    "id": 3123987,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sean Stanton": {
+    "id": 3118222,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Allison  Pataro": {
+    "id": 3116131,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
   },
   "Milagros Vascones-Gatski": {
     "difficulty": 0.0,
@@ -34027,6 +33894,83 @@
     "duplicated": true
   },
   "Mark Kulakoff": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Ernest Ng": {
+    "id": 2607224,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Candace Reckinger": {
+    "id": 2608011,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "David Howard": {
+    "id": 2609241,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Gilberto Gutierrez": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Robynn Cox": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Ankur Srivastava": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Joanne Rietta": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Tamera Daugherty": {
+    "id": 2889562,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Stephen Pierce": {
+    "id": 2891902,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jim Huntley": {
+    "id": 2892172,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Steve Caplan": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
@@ -34055,154 +33999,56 @@
     "take_again": -1
   },
   "Kenneth Yates": {
-    "difficulty": 0.0,
-    "rating": 0.0,
+    "id": 2798816,
+    "difficulty": 0,
+    "rating": 0,
     "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
+    "take_again": -1
   },
   "Gitanjli Arora": {
-    "difficulty": 0.0,
-    "rating": 0.0,
+    "id": 2801136,
+    "difficulty": 0,
+    "rating": 0,
     "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
+    "take_again": -1
   },
   "Daniel Aslan": {
+    "id": 2801727,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Julio Camarero": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
     "take_again": -1.0,
     "duplicated": true
   },
-  "Marina Kosten": {
+  "Janet Gunter": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
     "take_again": -1.0,
     "duplicated": true
   },
-  "John Matsusaka": {
+  "Everett Green": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
     "take_again": -1.0,
     "duplicated": true
   },
-  "Cory Buckner": {
-    "id": 2929618,
+  "Henry Colburn": {
+    "id": 2351703,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
-  },
-  "Ben Winter": {
-    "id": 3104980,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Fanning": {
-    "id": 3098916,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "kelso becktol": {
-    "id": 3100475,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Rui Xu": {
-    "id": 3077193,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Elliot  Dunn": {
-    "id": 3100010,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Allison  Pataro": {
-    "id": 3116131,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sean Stanton": {
-    "id": 3118222,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Justin Ichida": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Stephen Pierce": {
-    "id": 2891902,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jim Huntley": {
-    "id": 2892172,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Steve Caplan": {
-    "id": 2900579,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Rogelio Lopez": {
-    "id": 3070328,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael  Mische": {
-    "id": 3069971,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "John McArthur": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
   },
   "Mary Baron": {
     "id": 2335744,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Yang Insoon": {
-    "id": 2331731,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -34215,71 +34061,50 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Janet Gunter": {
-    "id": 2414091,
+  "Yang Insoon": {
+    "id": 2331731,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Everett Green": {
-    "id": 2352904,
+  "John Matsusaka": {
+    "id": 2858258,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Henry Colburn": {
-    "id": 2351703,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Miriam Barillas": {
-    "id": 3028180,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Laura Jackson": {
-    "id": 3039490,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Vivian Villaverde": {
-    "id": 3040512,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Oneill": {
-    "id": 2834279,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Yu Deng": {
+  "Marina Kosten": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
     "take_again": -1.0,
     "duplicated": true
   },
-  "Tamera Daugherty": {
-    "id": 2889562,
+  "Neil Desai": {
+    "id": 2878210,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Alexis Jeffries": {
-    "id": 2773446,
+  "Sonia Savoulian": {
+    "id": 2863230,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Ryan  Alcantara": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "John McArthur": {
+    "id": 2328711,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -34287,62 +34112,6 @@
   },
   "Angela Hasan": {
     "id": 2810273,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Tully": {
-    "id": 2963741,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kristian Jessen": {
-    "id": 2964638,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Shang Liu": {
-    "id": 2854202,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jay Kogen": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Teal Eich": {
-    "id": 3053509,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kari Franson": {
-    "id": 3053895,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Corinne Packard": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Gudran Floyd": {
-    "id": 2975164,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -34362,127 +34131,239 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Julio Camarero": {
-    "id": 2412051,
+  "Vivian Villaverde": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Cory Buckner": {
+    "id": 2929618,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Neil Desai": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Sonia Savoulian": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Ryan  Alcantara": {
-    "id": 2873898,
+  "Hanns Botz": {
+    "id": 2917874,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Luismi Perez": {
-    "id": 2550542,
+  "Shang Liu": {
+    "id": 2854202,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Gilberto Gutierrez": {
-    "id": 2600528,
+  "Zachary Goodsell": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "tatyana ryutov": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Kristian Jessen": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Jay Kogen": {
+    "id": 2844954,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Larry Golden": {
+  "Michael Oneill": {
+    "id": 2834279,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Yu Deng": {
+    "id": 2838199,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kari Franson": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
     "take_again": -1.0,
     "duplicated": true
   },
-  "R.T. Taylor": {
+  "Teal Eich": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
     "take_again": -1.0,
     "duplicated": true
   },
-  "Kaneesha Miller": {
+  "Corinne Packard": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
     "take_again": -1.0,
     "duplicated": true
   },
-  "David Bertman": {
+  "Gudran Floyd": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
     "take_again": -1.0,
     "duplicated": true
   },
-  "Don Cheadle": {
+  "Michael Tully": {
     "difficulty": 0.0,
     "rating": 0.0,
     "rating_count": 0,
     "take_again": -1.0,
     "duplicated": true
+  },
+  "Miriam Barillas": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Siqin Wang": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Laura Jackson": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Ruth Cislowski": {
+    "id": 2782686,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jung yun Choi": {
+    "id": 2784098,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Alexis Jeffries": {
+    "id": 2773446,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Chrisshonna Nueva": {
+    "id": 2988198,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Charles Crawford": {
+    "id": 2989831,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Larry Balmagia": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Mehdi Kamal": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Rashi Sinha": {
+    "id": 3080420,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Faezah Bagheri-Tar": {
+    "id": 1961158,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Marvin Leonard": {
+    "id": 1170577,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
   },
   "Paul Debevec": {
-    "id": 2151345,
-    "difficulty": 0,
-    "rating": 0,
+    "difficulty": 0.0,
+    "rating": 0.0,
     "rating_count": 0,
-    "take_again": -1
+    "take_again": -1.0,
+    "duplicated": true
   },
   "Rong Wang": {
-    "id": 2147901,
-    "difficulty": 0,
-    "rating": 0,
+    "difficulty": 0.0,
+    "rating": 0.0,
     "rating_count": 0,
-    "take_again": -1
+    "take_again": -1.0,
+    "duplicated": true
   },
   "Kornelia Kulig": {
-    "id": 2210456,
-    "difficulty": 0,
-    "rating": 0,
+    "difficulty": 0.0,
+    "rating": 0.0,
     "rating_count": 0,
-    "take_again": -1
+    "take_again": -1.0,
+    "duplicated": true
   },
   "Jim Gosline": {
-    "id": 1787957,
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "James Eashoo": {
+    "id": 1145523,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Josh Larsen": {
-    "id": 1491985,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Alexis Lothian": {
-    "id": 1524190,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Tina Hirsch": {
-    "id": 1520266,
+  "John Freeland": {
+    "id": 1207499,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -34502,111 +34383,6 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Alma Perez": {
-    "id": 2708853,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Reed Douglas": {
-    "id": 2708547,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Tammy Hong": {
-    "id": 2708998,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "La Tonya Wood Huey": {
-    "id": 2244705,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Anglin": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "John Richard Novak": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Veronica Ho": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Azade-Ayse Rolich": {
-    "id": 1630760,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Thomas Bunn": {
-    "id": 1637717,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Marvin Leonard": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Joann turovsky": {
-    "id": 1972609,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Ben Berman": {
-    "id": 1977077,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Christen Sproule": {
-    "id": 2038190,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Joe Touch": {
-    "id": 2108170,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Anna Wyatt": {
-    "id": 2102665,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
   "T.J. Harper": {
     "id": 959630,
     "difficulty": 0,
@@ -34621,19 +34397,26 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "John Freeland": {
-    "id": 1207499,
+  "Anglin": {
+    "id": 851227,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "John Richard Novak": {
+    "id": 917809,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
   "Emre Karaoglu": {
-    "id": 1084672,
-    "difficulty": 0,
-    "rating": 0,
+    "difficulty": 0.0,
+    "rating": 0.0,
     "rating_count": 0,
-    "take_again": -1
+    "take_again": -1.0,
+    "duplicated": true
   },
   "Darlene Levy": {
     "id": 649728,
@@ -34643,14 +34426,196 @@
     "take_again": -1
   },
   "Marshall Blesofsky": {
-    "id": 655188,
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Brown Linda": {
+    "id": 2260682,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Mayank Kejriwai": {
-    "id": 2728326,
+  "Kari Storla": {
+    "id": 2248745,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Emily Wang": {
+    "id": 2248887,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Gretchen Brickson": {
+    "id": 2254714,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Rhae Barnes": {
+    "id": 2261876,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Azade-Ayse Rolich": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Thomas Bunn": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Jelena Culibrk": {
+    "id": 3006143,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Regina Paul": {
+    "id": 3006632,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Natalia Cascino": {
+    "id": 2995569,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Christopher Butler": {
+    "id": 2996681,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Nicole Bush": {
+    "id": 2997313,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Russell Fortmeyer": {
+    "id": 2985169,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Bandar Alsaeed": {
+    "id": 3071804,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Michael  Mische": {
+    "id": 3069971,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Rogelio Lopez": {
+    "id": 3070328,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Goretti Prieto Botana": {
+    "id": 3016603,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Anna DiCrisi": {
+    "id": 2932300,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Elliot  Dunn": {
+    "id": 3100010,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "kelso becktol": {
+    "id": 3100475,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Ben Winter": {
+    "id": 3104980,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Deborah Hazelton": {
+    "id": 3076500,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Eli Dunn": {
+    "id": 3076577,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Philippe Hawi": {
+    "id": 3084821,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "April Greiman": {
+    "id": 3018228,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "La Tonya Wood Huey": {
+    "id": 2244705,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lewis Rothbart": {
+    "id": 2112777,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -34663,141 +34628,92 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Robert Myrtle": {
-    "id": 1108977,
+  "Thomas Allen": {
+    "id": 2458723,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Job Springer": {
-    "id": 1107653,
+  "Rakefet Hak": {
+    "id": 2458728,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Amy Blackman": {
-    "id": 3101190,
+  "Shawnmari Kaiser": {
+    "id": 2472811,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Christina Koneazny": {
-    "id": 3101397,
+  "Monica Perez-Jolles": {
+    "id": 2533677,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "John Heideman": {
-    "id": 3102779,
+  "Xiang Ren": {
+    "id": 2540349,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Hooman Kazemi": {
-    "id": 3099041,
+  "Sandra Kornuc": {
+    "id": 437390,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Taifha Alexander": {
-    "id": 3099848,
+  "Pedram Mastour": {
+    "id": 1792760,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Taylor James": {
-    "id": 3109217,
+  "David Schafer": {
+    "id": 1940499,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Ignacio Riveros": {
-    "id": 3085320,
+  "Anna Wyatt": {
+    "id": 2102665,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Varun Karekurve-Ramachandra": {
-    "id": 3071479,
+  "Christen Sproule": {
+    "id": 2038190,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Quyen Pham": {
-    "id": 2942491,
+  "Erin Quinn": {
+    "id": 2001845,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Ruth Weisberg": {
-    "id": 2942718,
+  "Sara Jimenez-Mcsweyn": {
+    "id": 1392332,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Sergio  Ramirez": {
-    "id": 2982432,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Todd Mayhew": {
-    "id": 2980471,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Caroline Tamas": {
-    "id": 2992536,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lydie  Moudileno": {
-    "id": 2992651,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Eduardo Pavez": {
-    "id": 2994779,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Xiaohui Chen": {
-    "id": 2997193,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Stephen  Bradforth": {
-    "id": 2984336,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Chetan Sah": {
-    "id": 3022235,
+  "Kaneesha Miller": {
+    "id": 1410997,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -34824,15 +34740,204 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Melissa Durham": {
-    "id": 3053898,
+  "anderson elaine": {
+    "id": 3036487,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Kyu  lee": {
-    "id": 3049476,
+  "Kandiss Crone": {
+    "id": 2910967,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Stephanie Spray": {
+    "id": 2919758,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Dr Yaara Berdan  Berdan": {
+    "id": 2907327,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Nicholas Linares": {
+    "id": 2926477,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lichen Zhen": {
+    "id": 2852667,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Zissis Marmarelis": {
+    "id": 2847088,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Federico Correa": {
+    "id": 2781783,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sunny Wang": {
+    "id": 2772799,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jeffery Jenkins": {
+    "id": 2883418,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Seth Woods": {
+    "id": 2900214,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Yiqiu Shen": {
+    "id": 2900473,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Julien Adams": {
+    "id": 2901146,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Natasha Maidoff": {
+    "id": 2901651,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Hunter Long": {
+    "id": 2886824,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "May Lee": {
+    "id": 2896068,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jeremy Novick": {
+    "id": 2805949,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Francois Bar": {
+    "id": 2795541,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Trevor Krasowsky": {
+    "id": 2818896,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Carvens Lissaint": {
+    "id": 2827850,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Brenda Alonzo": {
+    "id": 2828221,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Erik Krogh": {
+    "id": 2794675,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Umeka Franklin": {
+    "id": 2762606,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Scott Uriu": {
+    "id": 2764818,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Alfie Koetter": {
+    "id": 2764819,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "William Fishel": {
+    "id": 2831723,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "John Drachman": {
+    "id": 2824138,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Quan Nguyen": {
+    "difficulty": 0.0,
+    "rating": 0.0,
+    "rating_count": 0,
+    "take_again": -1.0,
+    "duplicated": true
+  },
+  "Jorge Barraza": {
+    "id": 3058750,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -34840,13 +34945,6 @@
   },
   "Joseph Vandiver": {
     "id": 3059054,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jorge Barraza": {
-    "id": 3058750,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -34866,6 +34964,34 @@
     "rating_count": 0,
     "take_again": -1
   },
+  "Kuan Liu": {
+    "id": 3052541,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Melissa Durham": {
+    "id": 3053898,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kyu  lee": {
+    "id": 3049476,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Chetan Sah": {
+    "id": 3022235,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
   "Betsy Struxness": {
     "id": 3065073,
     "difficulty": 0,
@@ -34880,106 +35006,127 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Kuan Liu": {
-    "id": 3052541,
+  "Ruth Weisberg": {
+    "id": 2942718,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Sunny Wang": {
-    "id": 2772799,
+  "Quyen Pham": {
+    "id": 2942491,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Umeka Franklin": {
-    "id": 2762606,
+  "Xiaohui Chen": {
+    "id": 2997193,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Nestor Arancibia": {
-    "id": 2348660,
+  "Sergio  Ramirez": {
+    "id": 2982432,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Kevin Ye": {
-    "id": 2360338,
+  "Stephen  Bradforth": {
+    "id": 2984336,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Michael Deagler": {
-    "id": 2863610,
+  "Caroline Tamas": {
+    "id": 2992536,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Phebe Vayanos": {
-    "id": 2863344,
+  "Lydie  Moudileno": {
+    "id": 2992651,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Namkil Kim": {
-    "id": 2754825,
+  "Eduardo Pavez": {
+    "id": 2994779,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Kristen McGregor": {
-    "id": 2666828,
+  "Todd Mayhew": {
+    "id": 2980471,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Sara Semborski": {
-    "id": 2675880,
+  "Amy Blackman": {
+    "id": 3101190,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Wilson Lin": {
-    "id": 2676078,
+  "Christina Koneazny": {
+    "id": 3101397,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Kristof Pilch": {
-    "id": 2676435,
+  "John Heideman": {
+    "id": 3102779,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Alan Croll": {
-    "id": 2683330,
+  "Taylor James": {
+    "id": 3109217,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Niema Pahlevan": {
-    "id": 2617176,
+  "Hooman Kazemi": {
+    "id": 3099041,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Chris Sutherford": {
-    "id": 2619557,
+  "Taifha Alexander": {
+    "id": 3099848,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Adrian Donato": {
+    "id": 2624995,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Michael Johnson": {
+    "id": 2323168,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Robert Klein": {
+    "id": 2333319,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35020,6 +35167,13 @@
     "rating_count": 0,
     "take_again": -1
   },
+  "Shiming Yang": {
+    "id": 2316946,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
   "Ryan Cobb": {
     "id": 2317232,
     "difficulty": 0,
@@ -35027,99 +35181,8 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Michael Webb": {
-    "id": 2303616,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Franscesca Valsesia": {
-    "id": 2367006,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Dennis Leung": {
-    "id": 2370782,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Yolanda Gil": {
-    "id": 2740295,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "anderson elaine": {
-    "id": 3036487,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Stephanie Spray": {
-    "id": 2919758,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Dr Yaara Berdan  Berdan": {
-    "id": 2907327,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Seth Woods": {
-    "id": 2900214,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Yiqiu Shen": {
-    "id": 2900473,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Julien Adams": {
-    "id": 2901146,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Hunter Long": {
-    "id": 2886824,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "May Lee": {
-    "id": 2896068,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jeremy Novick": {
-    "id": 2805949,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Francois Bar": {
-    "id": 2795541,
+  "Vikki Katz": {
+    "id": 1128923,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35160,57 +35223,50 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "John Cowles": {
-    "id": 2607059,
+  "Phebe Vayanos": {
+    "id": 2863344,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Nicholas Linares": {
-    "id": 2926477,
+  "Michael Deagler": {
+    "id": 2863610,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Kandiss Crone": {
-    "id": 2910967,
+  "Ignacio Riveros": {
+    "id": 3085320,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Zissis Marmarelis": {
-    "id": 2847088,
+  "Varun Karekurve-Ramachandra": {
+    "id": 3071479,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Trevor Krasowsky": {
-    "id": 2818896,
+  "Daniel Chen": {
+    "id": 2283296,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Carvens Lissaint": {
-    "id": 2827850,
+  "Nestor Arancibia": {
+    "id": 2348660,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Brenda Alonzo": {
-    "id": 2828221,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "John Drachman": {
-    "id": 2824138,
+  "Kevin Ye": {
+    "id": 2360338,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35237,13 +35293,6 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Daniel Chen": {
-    "id": 2283296,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
   "Marti Rood": {
     "id": 2271427,
     "difficulty": 0,
@@ -35251,15 +35300,15 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Michael Johnson": {
-    "id": 2323168,
+  "Yolanda Gil": {
+    "id": 2740295,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Robert Klein": {
-    "id": 2333319,
+  "Namkil Kim": {
+    "id": 2754825,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35272,6 +35321,13 @@
     "rating_count": 0,
     "take_again": -1
   },
+  "Kristen McGregor": {
+    "id": 2666828,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
   "irving Biederman": {
     "id": 2668882,
     "difficulty": 0,
@@ -35279,85 +35335,50 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Wakae Nakane": {
-    "id": 2759135,
+  "Sara Semborski": {
+    "id": 2675880,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Shiming Yang": {
-    "id": 2316946,
+  "Wilson Lin": {
+    "id": 2676078,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Lichen Zhen": {
-    "id": 2852667,
+  "Kristof Pilch": {
+    "id": 2676435,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Quan Nguyen": {
-    "difficulty": 0.0,
-    "rating": 0.0,
-    "rating_count": 0,
-    "take_again": -1.0,
-    "duplicated": true
-  },
-  "Jeffery Jenkins": {
-    "id": 2883418,
+  "Alan Croll": {
+    "id": 2683330,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Scott Uriu": {
-    "id": 2764818,
+  "Myrna Meyers": {
+    "id": 2135013,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Alfie Koetter": {
-    "id": 2764819,
+  "Sherry Gunther Shugerman": {
+    "id": 2207608,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "William Fishel": {
-    "id": 2831723,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Federico Correa": {
-    "id": 2781783,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Natasha Maidoff": {
-    "id": 2901651,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Erik Krogh": {
-    "id": 2794675,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Mallory Pirogovsky": {
-    "id": 1502663,
+  "Blanca Arias": {
+    "id": 2159051,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35370,43 +35391,8 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Kirk Domke": {
-    "id": 2021785,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sergio Wilhelmy": {
-    "id": 2000106,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sonia Attar": {
-    "id": 2069764,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Nancy Troy": {
-    "id": 1385808,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Rebecca Hann": {
-    "id": 727534,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jennifer Unger": {
-    "id": 707093,
+  "Brendon Rhoades": {
+    "id": 1677895,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35419,15 +35405,22 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Brendon Rhoades": {
-    "id": 1677895,
+  "Malancha Gupta": {
+    "id": 2185189,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Michele Zukovsky": {
-    "id": 1303434,
+  "Ebony Cain": {
+    "id": 2112256,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lazaro Peters": {
+    "id": 2163739,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35440,8 +35433,64 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Adrian Donato": {
-    "id": 2624995,
+  "Michele Zukovsky": {
+    "id": 1303434,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Shai Porat": {
+    "id": 2716958,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Meiling Chang": {
+    "id": 437386,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Nancy Troy": {
+    "id": 1385808,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Susan Hess": {
+    "id": 2709061,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Barath Raghavan": {
+    "id": 2696061,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Andrew Jeff": {
+    "id": 2575978,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sean Holt": {
+    "id": 2575157,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Andy Portillo": {
+    "id": 2581495,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35461,64 +35510,155 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Jerry Del Colliano": {
-    "id": 862874,
+  "Jane Figueiredo": {
+    "id": 1938575,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Mon-Gyo Koo": {
-    "id": 917810,
+  "William Sanders": {
+    "id": 1795490,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Michael Scroggins": {
-    "id": 739290,
+  "Noel Riley Fitch": {
+    "id": 875847,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Meiling Chang": {
-    "id": 437386,
+  "Michael Webb": {
+    "id": 2303616,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Shai Porat": {
-    "id": 2716958,
+  "Franscesca Valsesia": {
+    "id": 2367006,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Malancha Gupta": {
-    "id": 2185189,
+  "Dennis Leung": {
+    "id": 2370782,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Linda Brown": {
-    "id": 2260683,
+  "Wakae Nakane": {
+    "id": 2759135,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Lisa Mann": {
-    "id": 2253015,
+  "Sergio Wilhelmy": {
+    "id": 2000106,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Ebony Cain": {
-    "id": 2112256,
+  "Kate Wilber": {
+    "id": 2001204,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sonia Attar": {
+    "id": 2069764,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jaehee YI": {
+    "id": 1443897,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Carlos Rivera": {
+    "id": 1433582,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Beatrice Lawrence": {
+    "id": 1361571,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jerry Wenger": {
+    "id": 1442147,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Stephen Hartke": {
+    "id": 1313691,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Eugene Albrecht": {
+    "id": 1330068,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "James Hines": {
+    "id": 1352667,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Niema Pahlevan": {
+    "id": 2617176,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Chris Sutherford": {
+    "id": 2619557,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "John Cowles": {
+    "id": 2607059,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Timothy Grundy": {
+    "id": 2524817,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kristina Lerman": {
+    "id": 2504133,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35552,97 +35692,6 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Hannah Garry": {
-    "id": 2602053,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Judy Irola": {
-    "id": 1887187,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jane Figueiredo": {
-    "id": 1938575,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "William Sanders": {
-    "id": 1795490,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Noel Riley Fitch": {
-    "id": 875847,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Afrooz Afghani": {
-    "id": 951339,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Marshall Burns": {
-    "id": 804376,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Christopher Meeks": {
-    "id": 1092379,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lazaro Peters": {
-    "id": 2163739,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lisa Sylvester": {
-    "id": 2458725,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Timothy Grundy": {
-    "id": 2524817,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kristina Lerman": {
-    "id": 2504133,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jon Sager": {
-    "id": 2511530,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
   "Elizabeth Fu": {
     "id": 2557276,
     "difficulty": 0,
@@ -35664,85 +35713,29 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Vikki Katz": {
-    "id": 1128923,
+  "Jon Sager": {
+    "id": 2511530,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Andrew Jeff": {
-    "id": 2575978,
+  "Hannah Garry": {
+    "id": 2602053,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Stephen Hartke": {
-    "id": 1313691,
+  "Mallory Pirogovsky": {
+    "id": 1502663,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "James Hines": {
-    "id": 1352667,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Beatrice Lawrence": {
-    "id": 1361571,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jerry Wenger": {
-    "id": 1442147,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jaehee YI": {
-    "id": 1443897,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Carlos Rivera": {
-    "id": 1433582,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Eugene Albrecht": {
-    "id": 1330068,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Paul Sager": {
-    "id": 1280655,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "John Feakins": {
-    "id": 1272091,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kate Wilber": {
-    "id": 2001204,
+  "Kirk Domke": {
+    "id": 2021785,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35762,50 +35755,8 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Sherry Gunther Shugerman": {
-    "id": 2207608,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Blanca Arias": {
-    "id": 2159051,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Myrna Meyers": {
-    "id": 2135013,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Susan Hess": {
-    "id": 2709061,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Barath Raghavan": {
-    "id": 2696061,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sean Holt": {
-    "id": 2575157,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Andy Portillo": {
-    "id": 2581495,
+  "Christopher Meeks": {
+    "id": 1092379,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35832,6 +35783,20 @@
     "rating_count": 0,
     "take_again": -1
   },
+  "Paul Sager": {
+    "id": 1280655,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "John Feakins": {
+    "id": 1272091,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
   "Adam Sterling": {
     "id": 1239872,
     "difficulty": 0,
@@ -35839,15 +35804,78 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Aaron Celestian": {
-    "id": 2976079,
+  "Afrooz Afghani": {
+    "id": 951339,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Tanushree Sharma": {
-    "id": 2978588,
+  "Jerry Del Colliano": {
+    "id": 862874,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mon-Gyo Koo": {
+    "id": 917810,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lisa Sylvester": {
+    "id": 2458725,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Rebecca Hann": {
+    "id": 727534,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jennifer Unger": {
+    "id": 707093,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Marshall Burns": {
+    "id": 804376,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Linda Brown": {
+    "id": 2260683,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Lisa Mann": {
+    "id": 2253015,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Michael Scroggins": {
+    "id": 739290,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Judy Irola": {
+    "id": 1887187,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -35867,13 +35895,6 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Jian Zhou": {
-    "id": 3013148,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
   "Ivy Sunderji": {
     "id": 2987536,
     "difficulty": 0,
@@ -35881,204 +35902,15 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Cooper Harris": {
-    "id": 2405236,
+  "Aaron Celestian": {
+    "id": 2976079,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Erick Guerrero": {
-    "id": 2372159,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Mostafa Hussein": {
-    "id": 2373308,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Noah Wald-Dickler": {
-    "id": 2378608,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lernik Asserian": {
-    "id": 2677046,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Selsted": {
-    "id": 2669577,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Meiying Li": {
-    "id": 2407337,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Ranell  Shubert": {
-    "id": 2973041,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Renee Michelsen": {
-    "id": 3023927,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kate Chiu": {
-    "id": 2954910,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "EJ Mitchem": {
-    "id": 2955681,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lisa  Cracchiolo Tush": {
-    "id": 2971060,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Hayley Burgess": {
-    "id": 3053087,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Shruti Saini": {
-    "id": 3053090,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Tony Shayne": {
-    "id": 3066159,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Nik Lewis": {
-    "id": 3054508,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Lee Chemel": {
-    "id": 3055952,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Srivatsan Ravi": {
-    "id": 3056993,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Iony  Ezawa": {
-    "id": 3042289,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": 100
-  },
-  "James Yoo": {
-    "id": 3097475,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Allison Chacon": {
-    "id": 3102375,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Francisco Torres Velasco": {
-    "id": 3099573,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Serena Garcia": {
-    "id": 3118733,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Ronald McCurdy": {
-    "id": 2923620,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Arden": {
-    "id": 2843947,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Charnnel Ellis": {
-    "id": 2918212,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Qiming Wang": {
-    "id": 2914676,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sohaela Amiri": {
-    "id": 2916143,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jasmine Hester": {
-    "id": 3039488,
+  "Tanushree Sharma": {
+    "id": 2978588,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36098,176 +35930,36 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Eunjin (Anna) Kim": {
-    "id": 2949038,
+  "Jian Zhou": {
+    "id": 3013148,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Natalia Peacuterez": {
-    "id": 2356480,
+  "Melissa Wilson": {
+    "id": 2662065,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Diana Wang": {
-    "id": 2360738,
+  "Christopher Adamson": {
+    "id": 2649644,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Rachel Tran": {
-    "id": 2358534,
+  "John Senese": {
+    "id": 2718701,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Yves De Clerck": {
-    "id": 2866354,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Christopher Flemming": {
-    "id": 2430644,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Evan Link": {
-    "id": 2432588,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Pedro Szekely": {
-    "id": 2429445,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "John Perfitt": {
-    "id": 2414570,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "David Rudesill": {
-    "id": 2424520,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Carly Cooper": {
-    "id": 2782008,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Donald Hewitt": {
-    "id": 2761285,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Mohammad ali baroon": {
-    "id": 2763847,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Peter Sollett": {
-    "id": 2767587,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Nathan Oh": {
-    "id": 2764948,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Xuezhe Ma": {
-    "id": 2774177,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Richard Roberts": {
-    "id": 2821754,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kimberly Siegmund": {
-    "id": 3109486,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Kenneth Sawyer": {
-    "id": 3104765,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Matthew Dianella": {
-    "id": 3078894,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Cindy Pánuco": {
-    "id": 3072708,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Sebastien  Quach": {
-    "id": 2951040,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Christopher Muniz": {
-    "id": 3076505,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Giacomo Nannicini": {
-    "id": 3068247,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Tyger Williams": {
-    "id": 3069937,
+  "Chris Sutherland": {
+    "id": 2637776,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36315,106 +36007,239 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Mic Patterson": {
-    "id": 2574279,
+  "Yong Zhang": {
+    "id": 2666059,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Kalim Rayburn": {
-    "id": 2583100,
+  "Colman Domingo": {
+    "id": 2734387,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Michael Parks": {
-    "id": 2515010,
+  "Serena Garcia": {
+    "id": 3118733,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Laura Kaplan": {
-    "id": 2510194,
+  "James Yoo": {
+    "id": 3097475,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Surya Prakash": {
-    "id": 2502349,
+  "Allison Chacon": {
+    "id": 3102375,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Foster Kerrison": {
-    "id": 2481680,
+  "Kimberly Siegmund": {
+    "id": 3109486,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Ralf Langen": {
-    "id": 2481752,
+  "Francisco Torres Velasco": {
+    "id": 3099573,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Clair Mellenthin": {
-    "id": 2483728,
+  "Charnnel Ellis": {
+    "id": 2918212,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Charles Lagreco": {
-    "id": 2518568,
+  "Sohaela Amiri": {
+    "id": 2916143,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Stacey Carter": {
-    "id": 2453811,
+  "Ronald McCurdy": {
+    "id": 2923620,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Sara Catania": {
-    "id": 2445291,
+  "Michael Arden": {
+    "id": 2843947,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Carina Quan": {
-    "id": 2450712,
+  "Carly Cooper": {
+    "id": 2782008,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Jason Doctor": {
-    "id": 2559225,
+  "Qiming Wang": {
+    "id": 2914676,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Elizabeth Hynes": {
-    "id": 2458722,
+  "Lernik Asserian": {
+    "id": 2677046,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Aner Zhou": {
-    "id": 2465613,
+  "Michael Selsted": {
+    "id": 2669577,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Erick Guerrero": {
+    "id": 2372159,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mostafa Hussein": {
+    "id": 2373308,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Noah Wald-Dickler": {
+    "id": 2378608,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Natalia Peacuterez": {
+    "id": 2356480,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Meiying Li": {
+    "id": 2407337,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kimberly Miller": {
+    "id": 2680042,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Eric Maltzer": {
+    "id": 2682175,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mary Scheibe": {
+    "id": 2608461,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Cooper Harris": {
+    "id": 2405236,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Cindy Pánuco": {
+    "id": 3072708,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Christopher Muniz": {
+    "id": 3076505,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Matthew Dianella": {
+    "id": 3078894,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Giacomo Nannicini": {
+    "id": 3068247,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Tyger Williams": {
+    "id": 3069937,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kenneth Sawyer": {
+    "id": 3104765,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Eunjin (Anna) Kim": {
+    "id": 2949038,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Sebastien  Quach": {
+    "id": 2951040,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Dr Ke  Yao": {
+    "id": 2894261,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Martin Vitorino": {
+    "id": 2900441,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36422,6 +36247,62 @@
   },
   "Kingsley Smith": {
     "id": 2896753,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Richard Roberts": {
+    "id": 2821754,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mike Garcia": {
+    "id": 2827444,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Michael Kaminsky": {
+    "id": 2827447,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Donald Hewitt": {
+    "id": 2761285,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mohammad ali baroon": {
+    "id": 2763847,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Peter Sollett": {
+    "id": 2767587,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Nathan Oh": {
+    "id": 2764948,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Xuezhe Ma": {
+    "id": 2774177,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36443,55 +36324,6 @@
   },
   "Andre Comandon": {
     "id": 2784944,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Tony Solomons": {
-    "id": 2802799,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Patty Rinehart": {
-    "id": 2803425,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Silvia Barcellos": {
-    "id": 2803523,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Jordan Bettencourt": {
-    "id": 2798750,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Rebecca Haggerty": {
-    "id": 2799958,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Mike Garcia": {
-    "id": 2827444,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Michael Kaminsky": {
-    "id": 2827447,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36525,197 +36357,197 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Dr Ke  Yao": {
-    "id": 2894261,
+  "Kate Chiu": {
+    "id": 2954910,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Martin Vitorino": {
-    "id": 2900441,
+  "EJ Mitchem": {
+    "id": 2955681,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "John Senese": {
-    "id": 2718701,
+  "Lisa  Cracchiolo Tush": {
+    "id": 2971060,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Chris Sutherland": {
-    "id": 2637776,
+  "Lee Chemel": {
+    "id": 3055952,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Yong Zhang": {
-    "id": 2666059,
+  "Srivatsan Ravi": {
+    "id": 3056993,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Melissa Wilson": {
-    "id": 2662065,
+  "Hayley Burgess": {
+    "id": 3053087,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Christopher Adamson": {
-    "id": 2649644,
+  "Shruti Saini": {
+    "id": 3053090,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Colman Domingo": {
-    "id": 2734387,
+  "Renee Michelsen": {
+    "id": 3023927,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Kimberly Miller": {
-    "id": 2680042,
+  "Jasmine Hester": {
+    "id": 3039488,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Mary Scheibe": {
-    "id": 2608461,
+  "Tony Shayne": {
+    "id": 3066159,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Eric Maltzer": {
-    "id": 2682175,
+  "Nik Lewis": {
+    "id": 3054508,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "John Blankenship": {
-    "id": 728242,
+  "Ranell  Shubert": {
+    "id": 2973041,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Karina MacAis": {
-    "id": 714183,
+  "Tony Solomons": {
+    "id": 2802799,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "David Wilson": {
-    "id": 410923,
+  "Patty Rinehart": {
+    "id": 2803425,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Richard Salazar": {
-    "id": 421598,
+  "Silvia Barcellos": {
+    "id": 2803523,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Pete Riley": {
-    "id": 353288,
+  "Rebecca Haggerty": {
+    "id": 2799958,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Dennis Thurmond": {
-    "id": 1054934,
+  "Pedro Szekely": {
+    "id": 2429445,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Todd Olsen": {
-    "id": 739316,
+  "John Perfitt": {
+    "id": 2414570,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Johanna Demetrakas": {
-    "id": 747909,
+  "David Rudesill": {
+    "id": 2424520,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Tiffany Flood": {
-    "id": 2253795,
+  "Diana Wang": {
+    "id": 2360738,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Stephanie Bates": {
-    "id": 2179440,
+  "Rachel Tran": {
+    "id": 2358534,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Li Wen": {
-    "id": 699945,
+  "Evan Link": {
+    "id": 2432588,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Kristy Hilton": {
-    "id": 2268493,
+  "Christopher Flemming": {
+    "id": 2430644,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Jason Thalken": {
-    "id": 857228,
+  "Jordan Bettencourt": {
+    "id": 2798750,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Beau Lindsay": {
-    "id": 739979,
+  "Yves De Clerck": {
+    "id": 2866354,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Rabbi Laemmle": {
-    "id": 255205,
+  "Elizabeth Hynes": {
+    "id": 2458722,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Michael Trust": {
-    "id": 190630,
+  "Aner Zhou": {
+    "id": 2465613,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Zhonglin Lu": {
-    "id": 966152,
+  "John Brennan": {
+    "id": 2537421,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36735,134 +36567,211 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "John Brennan": {
-    "id": 2537421,
+  "Dennis Thurmond": {
+    "id": 1054934,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Gary Wexler": {
-    "id": 2003092,
+  "Johanna Demetrakas": {
+    "id": 747909,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Barbara Thompson": {
-    "id": 2083123,
+  "Todd Olsen": {
+    "id": 739316,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Yu-Ting Xin": {
-    "id": 2068944,
+  "John Blankenship": {
+    "id": 728242,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Roger Moon": {
-    "id": 1332752,
+  "Blaine Rawdon": {
+    "id": 2159303,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Christopher Weare": {
-    "id": 1334984,
+  "Manuel Castells": {
+    "id": 2233959,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Elizabeth Daly": {
-    "id": 1403859,
+  "Jack Halberstam": {
+    "id": 2127680,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Dmitri Svetlov": {
-    "id": 1946164,
+  "Richard Salazar": {
+    "id": 421598,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Nadir Numan": {
-    "id": 2079424,
+  "Pete Riley": {
+    "id": 353288,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Margie Sperling": {
-    "id": 1990171,
+  "Jason Doctor": {
+    "id": 2559225,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Katie Hassan": {
-    "id": 1977529,
+  "Mic Patterson": {
+    "id": 2574279,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Andrew Byrom": {
-    "id": 2041666,
+  "Sara Catania": {
+    "id": 2445291,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Molly Schmid": {
-    "id": 2207618,
+  "Carina Quan": {
+    "id": 2450712,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Timothy Hildebrandt": {
-    "id": 1712203,
+  "Surya Prakash": {
+    "id": 2502349,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Vijay Kalra": {
-    "id": 1477057,
+  "Foster Kerrison": {
+    "id": 2481680,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Delia Brown": {
-    "id": 1432418,
+  "Ralf Langen": {
+    "id": 2481752,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "James Liggins": {
-    "id": 1765674,
+  "Karina MacAis": {
+    "id": 714183,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Amee Chew": {
-    "id": 1650699,
+  "Rabbi Laemmle": {
+    "id": 255205,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Michael Uno": {
-    "id": 1630184,
+  "Michael Trust": {
+    "id": 190630,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "David Wilson": {
+    "id": 410923,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Beau Lindsay": {
+    "id": 739979,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Zhonglin Lu": {
+    "id": 966152,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Laura Kaplan": {
+    "id": 2510194,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Charles Lagreco": {
+    "id": 2518568,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Stacey Carter": {
+    "id": 2453811,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Kalim Rayburn": {
+    "id": 2583100,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Michael Parks": {
+    "id": 2515010,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Clair Mellenthin": {
+    "id": 2483728,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Jason Thalken": {
+    "id": 857228,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Stephanie Bates": {
+    "id": 2179440,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36896,13 +36805,6 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Jack Halberstam": {
-    "id": 2127680,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
   "Andrew Petkus": {
     "id": 2122692,
     "difficulty": 0,
@@ -36910,22 +36812,43 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Theodore Tsotsis": {
-    "id": 1515396,
+  "Li Wen": {
+    "id": 699945,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Patricia Flores": {
-    "id": 1654530,
+  "Kristy Hilton": {
+    "id": 2268493,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Megan Reid": {
-    "id": 1661213,
+  "Tiffany Flood": {
+    "id": 2253795,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mary Helen Immordino-Yang": {
+    "id": 1369167,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Mary Immordino": {
+    "id": 1369178,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Delia Brown": {
+    "id": 1432418,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36933,13 +36856,6 @@
   },
   "Pallavi Basu": {
     "id": 1874928,
-    "difficulty": 0,
-    "rating": 0,
-    "rating_count": 0,
-    "take_again": -1
-  },
-  "Cliff Latimer": {
-    "id": 1803596,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36966,15 +36882,57 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Dan Goebel": {
-    "id": 2055447,
+  "Cliff Latimer": {
+    "id": 1803596,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Ashish Soni": {
-    "id": 2150427,
+  "Vijay Kalra": {
+    "id": 1477057,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Theodore Tsotsis": {
+    "id": 1515396,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "David-Dale Johnson": {
+    "id": 1627868,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Timothy Hildebrandt": {
+    "id": 1712203,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Amee Chew": {
+    "id": 1650699,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Michael Uno": {
+    "id": 1630184,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Gary Wexler": {
+    "id": 2003092,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -36987,15 +36945,15 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Mary Helen Immordino-Yang": {
-    "id": 1369167,
+  "Megan Reid": {
+    "id": 1661213,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Mary Immordino": {
-    "id": 1369178,
+  "Shahed Rowshan": {
+    "id": 2090014,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
@@ -37022,29 +36980,106 @@
     "rating_count": 0,
     "take_again": -1
   },
-  "Shahed Rowshan": {
-    "id": 2090014,
+  "Barbara Thompson": {
+    "id": 2083123,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Blaine Rawdon": {
-    "id": 2159303,
+  "Patricia Flores": {
+    "id": 1654530,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "Manuel Castells": {
-    "id": 2233959,
+  "Ashish Soni": {
+    "id": 2150427,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
     "take_again": -1
   },
-  "David-Dale Johnson": {
-    "id": 1627868,
+  "Molly Schmid": {
+    "id": 2207618,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Andrew Byrom": {
+    "id": 2041666,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Dan Goebel": {
+    "id": 2055447,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Yu-Ting Xin": {
+    "id": 2068944,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Nadir Numan": {
+    "id": 2079424,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Margie Sperling": {
+    "id": 1990171,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Katie Hassan": {
+    "id": 1977529,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Elizabeth Daly": {
+    "id": 1403859,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Dmitri Svetlov": {
+    "id": 1946164,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Roger Moon": {
+    "id": 1332752,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "Christopher Weare": {
+    "id": 1334984,
+    "difficulty": 0,
+    "rating": 0,
+    "rating_count": 0,
+    "take_again": -1
+  },
+  "James Liggins": {
+    "id": 1765674,
     "difficulty": 0,
     "rating": 0,
     "rating_count": 0,
